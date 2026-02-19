@@ -1,0 +1,80 @@
+\section{Неопределённый интеграл}
+
+\subsection{Интегрирование иррациональных и трансцендентных функций}
+	
+\begin{definition}
+	$R(u, v, \dots, w)$ называется \textit{рациональной} функцией, если
+	\[R(u, v, \dots, w) = \frac{P(u, v, \dots, w)}{Q(u, v, \dots, w)}\text{, где
+	}P \text{ и } Q - \text{алгебраические многочлены}\]
+\end{definition}
+	
+Разберём некоторые неопределённые интегралы.
+\begin{enumerate}
+	\item  \[\int R(x, \left(\frac{ax+b}{cx+d}\right)^r)dx\text{, где R - рациональная функция, }ad-bc\neq 0\text{, }r\in\Q\]
+	\[r=\frac pq, p\in\Z, q\in\N\]
+	Произведём замену: \[\frac{ax+b}{cx+d}=t^q\Ra (ax+b)_(cx+d)\cdot t^q\lra x=\frac{d\cdot t^q - b}{a - c\cdot t^q}\]
+	\[\int R(x, \left(\frac{ax+b}{cx+d}\right)^{r_1},\dots,\left(\frac{ax+b}{cx+d}\right)^{r_n})dx\]
+	\item Подстановки Эйлера.
+	\[\int R(x, \sqrt{ax^2+bx+c})dx, a\neq0\]
+	\begin{enumerate}
+		\item $a>0$
+		\[\sqrt{ax^2+bx+c}=\pm\sqrt{a}x\pm t\]
+		\[ax^2+bx+x=ax^2\pm2\sqrt{a}xt+t^2, x=\frac{t^2-c}{b\mp2\sqrt{a}t}\]
+		\item $c>0$
+		\[\sqrt{ax^2+bx+c}=\pm x\cdot t\pm\sqrt{c}, x=\frac{-b\pm 2t\sqrt{c}}{a-t^2}\]
+		\item $ax^2+bx+c=a(x-x_1)(x-x_2), x_1\neq x_2$
+		\[\sqrt{ax^2+bx+c}=\pm\sqrt{|a|}(x-x_1)\cdot t \Ra a(x-x_1)(x-x_2)=|a|(x-x_1)^2\cdot t^2\]
+		\[x=\frac{ax_2-|a|x_1\cdot t^2}{a-|a|\cdot t^2}\]
+	\end{enumerate}
+	\newpage
+	\item \[\int R(x, \sqrt{ax^2+bx+c})dx, Y=ax^2+bx+c, y=\sqrt{Y}\]
+	\[R(x,y)=\frac{P_1(x)+P_2(x)\cdot y}{P_3(x)+P_4(x)\cdot y}=\frac{(P_1(x)+P_2(x)\cdot y)(P_3(x)-P_4(x)\cdot y)}{P_3^2(x)-P_4^2(x)\cdot y}=R_1(x)+R_2(x)\cdot y\]
+	\begin{note}
+		Заметим, что выразить $R$ через 4 многочлена от $x$ возможно, так как $y$ в чётной степени будет переходить в некоторый многочлен от $x$.
+	\end{note}
+	\vspace{-1cm}
+	\[\int P(x)ydx=\int\frac{P(x)\cdot Y}{y}dx=Q(x)y+\lambda\int\frac{dx}{y}, \deg P=n, \deg Q=n - 1, \lambda\in\R\]
+	\[\frac{P(x)}{y}=Q'(x)\cdot y+\frac{Q(x)\cdot Y'}{2\sqrt{y}}+\frac\lambda y\]
+	\[V_m=\int\frac{x^m}{y} dx, (x^{m-1}y)'=(m-1)x^{m-2}y+\frac{x^{m-1}(2ax+b)}{2y}\]
+	\begin{multline*}
+		c+x^{m-1}y=(m-1)\int\frac{x^{m-2}(ax^2+bx+c)}{y}dx+\frac12\int\frac{2ax^m+bx^{m-1}}{y}dx=\\=a(m-1)V_m+(m-\frac12)b\cdot V_{m-1}+c(m-1)V_{m-2}
+	\end{multline*}
+	\[x-\alpha=\frac 1 t\Ra dx=\frac{-dt}{t^2}, y=\sqrt{a(\frac 1 t + \alpha)^2+b(\frac 1 t+\alpha)+c}=\frac{\overline{y}}{|t|}\]
+	\[\int\frac{A}{(x-a)^k\cdot y}dx=\int\frac{A\cdot t^k\cdot|t|}{t^2\cdot \overline{y}}dt\]
+	\item Дифференциальный бином
+	\[\int x^m(a+bx^n)^pdx,\ \ m, n, p\in\Q,\ a,b\in\R,\ b\neq0\]
+	\begin{enumerate}
+		\item $p\in\Z.$ \[m=\frac{m_1}{m_2}, n=\frac{n_1}{n_2}, \nu=\text{НОК}(n_2, m_2), x=t^\nu\Ra dx=\nu t^{\nu-1}\cdot dt\]
+		\item $p\notin\Z.$
+		\[x^n=z, x=z^{\frac 1 n}\Ra dx=\frac 1 n\cdot z^{\frac 1 n - 1}dz\]
+		\[\int x^m(a+bx^n)^pdx=\frac 1 n\int z^{\frac{m+1}{n}-1}(a+bz)^pdz=\frac 1 n\int z^q(a+bz)^pdz,\ q=\frac{m+1}{n}-1\]
+	\end{enumerate}
+	\newpage
+	\begin{enumerate}
+		\item $\frac{m+1}{n}-1\in\Z.$
+		\[a+bz=t^\mu, \text{ где }\mu\text{ - знаменатель }p\]
+		\[z=\frac 1 b(t^\mu-a)\Ra dz=\frac 1 b\mu t^{\mu-1}dt\]
+		\item $(p+\frac{m+1}{n}-1)\in\Z$
+		\[\int z^q(a+bz)^pdz=\int z^{p+q}\left(\frac{a+bz}{z}\right)^pdz,\ \frac{a+bz}{z}=t^\mu,\ z=\frac{a}{t^\mu-b},\ \text{ где }\mu\text{ - знаменатель }p\]
+	\end{enumerate}
+	\begin{theorem}[Теорема Абеля]
+		Пусть $R$ - многочлен степени $2g+2$ без кратных корней. Если $\exists$ многочлены $P, Q\ne0$, такие что $P^2-Q^2R=1$, то найдётся \mbox{многочлен $r$} степени $g$ такой, что 
+		$\displaystyle \int{\frac{r}{\sqrt{R}}dx}$ 
+		выражается в элементарных функциях. Причём
+		\[\int\frac{r}{\sqrt{R}}dx=\frac 1 2 \ln{\frac{P+Q\sqrt{R}}{P-Q\sqrt{r}}}\]
+	\end{theorem}
+	\begin{proof}
+		\begin{multline*}
+			\left(\ln{\frac{P+Q\sqrt{r}}{P-Q\sqrt{r}}}\right)'=
+			\frac{P-Q\sqrt{r}}{P+Q\sqrt{R}}\cdot
+			\frac{(P'+Q'\sqrt{r}+\frac{QR'}{2\sqrt{R}})-
+			(P'-Q'\sqrt{R}-\frac{QR'}{2\sqrt{R}})(P+Q\sqrt{R})}{(P-Q\sqrt{R})^2}=\\
+			=\frac{-4P'QR+4Q'R+2QR'P}{2\sqrt{R}}
+		\end{multline*}
+		Заметим, если $P$ делится на $Q$, то из $P^2-Q^2R=1$ следует, что $1$ также делится на $Q$, что в свою очередь будет противоречить условию про степень $R$.
+		Возьмём производную от $P^2-Q^2R=1$:
+		\[2PP'-2QQ'R-Q^2R'=0\Ra 2PP'=Q(2Q'R+QR')\Ra P'=Q\cdot r,\hspace{6pt} 2Q'R+QR'=\frac{2PP'}{Q}\]
+		\[\frac{P(QR'+2Q'R)-2P'QR}{\sqrt{R}}=\frac{2P^2P'-2P'Q^2R}{Q\sqrt{R}}=\frac{2r}{\sqrt{R}}\]
+		Требуемый многочлен найден.
+	\end{proof}
+\end{enumerate}

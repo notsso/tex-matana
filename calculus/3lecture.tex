@@ -1,0 +1,169 @@
+\begin{lemma}\label{l1}
+	Множество $E\subset\R$ связно тогда и только тогда, когда $E$ - промежуток.
+\end{lemma}
+\begin{proof}
+	$E$ - промежуток $\Ra E$ связно, следует из теоремы 4.\\
+	От противного. Пусть $E$ - не промежуток.\\
+	\[(\exists x_1,x_2\in E)\ [x_1,x_2]\notin E\Ra\exists c\in(x_1,x_2)\setminus E\]
+	\[G_1=(-\infty,c)\cap E,\ G_2=(c,+\infty)\cap E,\ G_1,G_2\text{ - открыты в }E\text{, непустые, }G_1\cap G_2=\emptyset\]
+	\[G_1\cup G_2=E\Ra E\text{ - не связно.}\]
+	Получили требуемое.
+\end{proof}
+	
+\begin{lemma}\label{l2}
+	Если $Y$ - метрическое пространство, $X$ - связное метрическое пространство, открытое в $Y,\ f:X\ra Y$, $f$ - непрерывна, то $f(X)$ - связно.
+\end{lemma}
+\begin{proof}
+	От противного: $f(X)\text{ - не связно}\Ra f(X)=G_1\cup G_2,\ G_1\cap G_2=\emptyset$.\\
+	\[G_i=\mf{G}_i\cap f(X),\ G_i\neq\emptyset,\ \mf{G}_i\text{ - открыто в }Y,\ i=1,2\]
+	\[G_1\cap G_2\neq\emptyset\Ra f^{-1}(\mf{G}_1)\cup f^{-1}(\mf{G}_2)\neq\emptyset\]
+	Получили противоречие.
+\end{proof}
+	
+\begin{theorem}[Больцано-Коши в $\R^n$]
+	Если $E\subset \R^n$ связно, $f:E\ra\R$ непрерывна, то \[(\forall A,B:\ \exists\v a,\v b\in E,\ f(\v a)=A,\ f(\v b)=B:\forall\gamma\text{ между }A,B)(\exists\v c\in E)\ f(\v c)=\gamma\]
+\end{theorem}
+\begin{proof}
+	$f(E)$ связно по{~\eqref{l2}}.\\
+	Из{~\eqref{l1}} следует, что $f(E)$ - промежуток.\\
+	Из определения промежутка следует требуемое.
+\end{proof}
+	
+\begin{theorem}
+	Каждое открытое связное множество в $\R^n$ линейно связно.
+\end{theorem}
+\begin{proof}
+	Пусть $G$ - открытое связное множество.\\
+	От противного: пусть $G$ - не линейно связное.\\
+	По определению: $(\exists\v x_1,\v x_2\in G)$ такие, что их нельзя соединить кривой в $G$.
+	\[G_1:=\{\v x\in G:\v x\text{ нельзя соединить с }\v x_1\text{ кривой в }G\},\ G_2=G\setminus G_2\]
+	Докажем открытость $G_1$ и $G_2$ в $G$.\\
+	\[\text{Пусть }\v x_0\in G_2\subset G\Ra(\exists\eps>0)\ U_\eps(\v x_0)\subset G\]
+	Заметим, что $\forall\v y\in U_\eps(\v x_0)$ можно соединить с $\v x_1$, значит $\v y\in G_2\Ra U_\eps(\v x_0)\subset G_2\Ra G_2$ - открытое.\\
+	Теперь докажем, что $G_1$ - открытое.\\
+	От противного: пусть $(\exists\v x_0\in G_1)(\forall\eps>0)\ U_\eps(\v x_0)\cap G_2\neq\emptyset$\\
+	\[(\exists\eps_1>0)\ U_{\eps_1}(\v x_0)\subset G\Ra\exists\v y\in U_\eps(\v x_0)\cap G_2\]
+	Получили, что $\v y$ можно соединить с $\v x_0\Ra\text{тогда и с }\v x_1$, тогда $\v x_1\in G_2$, при этом $\v x_1\in G_1$. \\
+	Противоречие. Значит $G_1$ - открытое $\Ra G$ - линейно связное. 
+\end{proof}
+	
+\section{Дифференцируемость функций нескольких переменных}
+Пусть $f$ определена на $U(\v x_0),\ \v x_0\in \R^n$ и $f(U(\v x_0))\subset\R$.
+\begin{definition}
+	$f$ называется \textit{дифференцируемой} в точке $\v x_0$, если $(\exists\v A\in\R^n)$ такой, что (полное) приращение $f$ в точке $\v x_0,\ \tr y=f(\tr\v x+\v x_0)-f(\v x_0)$ представимо в виде $\tr y=(\v A, \tr \v x)+\sigma{|\tr\v x|},\ \tr\v x\ra\v 0$, где $(\v a,\v b)$ - скалярное произведение.
+\end{definition}
+\begin{definition}
+	$\tr\v x$ называется \textit{вектором приращений аргументов}.
+\end{definition}
+\begin{definition}
+	$(\v A,\ \tr\v x)$ называется \textit{дифференциалом} функции $f$, $d{y}=d{f}$.
+\end{definition}
+\begin{definition}
+	$\v A$ называется \textit{градиентом} $f$, $\v A=\grad f$.
+\end{definition}
+\begin{definition}
+	Вектор приращений аргументов (независимых переменных) называется \textit{вектором дифференциалов} этих переменных, $d\v x=\tr\v x,\ dy=(\v A,\ d\v x)$
+\end{definition}
+	
+\begin{note}[Лирическое отступление Лукашова]
+	Как - то раз я в Саратове лекцию читал, мне коллега рассказал, что такой же потолок как в Б.Физ. обваливался.
+\end{note}
+	
+\begin{definition}
+	Частичным (частным) приращением функции $f$ в точке $\v x_0=(x_{1,0},x_{2,0},\dots,x_{n,0})$ по переменной $x_j$ называется \[\tr_jf=f(\v x_0+\tr_j\v x)-f(\v x_0)\text{, где }\tr_j\v x=(0,\dots,\ 0,\ \tr x_j,\ 0,\dots,0),\ j=1,\dots,n\]
+	$\tr_jf$ является приращением функции $\phi_j(x_j):=f(x_{1,0},\dots,\ x_j,\dots,\ x_{n,0})$
+\end{definition}
+\begin{definition}
+	Частной производной функции $f$ в точке $\v x_0$ по переменной $x_j$ называется производная (если она $\exists$) функции $\phi_j$ в точке $x_{j,0}$ 
+	\[x_{j,0},\ \frac{\vdelta f}{\vdelta x_j}(\v x_0):=\frac{d\phi_j}{dx_j}(x_{j,0})\]
+\end{definition}
+\newpage
+\begin{note}
+	$\vdelta f$ используется для функций многих переменных вместо $d$.
+\end{note}
+	
+\begin{theorem}\label{th1}
+	Если $f$ дифференцируема в точке $\v x_0$, то она имеет частные производные в этой точке по всем переменным $x_j,\ j=1,\dots,n$, причём 
+	\[\grad f(\v x_0)=\left(\frac{\vdelta f}{\vdelta x_1}(\v x_0),\dots,\frac{\vdelta f}{\vdelta x_n}(\v x_0)\right)\]
+\end{theorem}
+\begin{proof}
+	\begin{multline*}
+		\tr\v x:=\tr_j\v x\Ra\tr y=f(\v x_0+\tr_j\v x)-f(\v x_0)=\tr_jf=\tr\phi_j(x_{j,0})=\\
+		=(A,\tr_j\v x)+\sigma(|\tr_j\v x|)=A_j\tr x_j+\sigma(|\tr x_j|)
+	\end{multline*}
+	\[|\tr_j\v x|=|\tr \v x_j|\ra0\lra\tr x_j\ra0\Ra\phi_j\text{ дифференцируема в точке }x_{j,0}\]
+	\[\phi_j'(x_{j,0})=A_j\Ra A_j=\frac{\vdelta f}{\vdelta x_j}(\v x_0)\]
+	Что - то получили хз.
+\end{proof}
+	
+\begin{note}
+	Обратное к теореме{~\eqref{th1}} неверно.
+\end{note}
+\begin{example}
+	\[f(x,y)=
+	\begin{cases}
+		\frac{xy}{x^2+y^2},\ (x,y)\neq(0,0)\\
+		0,\ (x,y)=(0,0)
+	\end{cases}
+	\]
+	\[\v x_0=(0,0),\ \frac{\vdelta f}{\vdelta x}(0,0)=\lim_{\tr x\ra0}\frac{f(\tr x,0)-f(0,0)}{\tr x}=0\]
+	\[\tr y = \tr f = \frac{\tr x\cdot\tr y}{(\tr x)^2+(\tr y)^2}=?\sigma(|(\tr x,\tr y)|),\ (\tr x,\tr y)\ra(0,0)\]
+	Возьмём $(\tr x, \tr x)\ra(0,0),\ \tr x\ra0$:
+	\[\tr f=\frac{\tr x\cdot \tr x}{(\tr x)^2+(\tr x)^2}=\frac12\neq\sigma(\tr x)\]
+\end{example}
+\begin{example}\label{ex1}
+	$g$ непрерывна, но не дифференцируема
+	\[g(x,y)=\sqrt{|xy|},\ \frac{\vdelta y}{\vdelta x}(0,0)=\lim_{\tr x\ra0}\frac{g(\tr x,0)-g(0,0)}{\tr x}=0\]
+	\[
+	\begin{cases}
+		\tr x=r\cdot\cos\phi\\
+		\tr y=r\cdot\sin\phi
+	\end{cases}
+	\]
+	\[\tr g=\sqrt{|\tr x\cdot\tr y|},\ 
+	r=\sqrt{(\tr x)^2 + (\tr y)^2}=|(\tr x,\tr y)|,\ 0\le\tr y=r\sqrt{|\cos\phi\cdot\sin\phi|}\le r
+	\]
+\end{example}
+\begin{theorem}\label{th2}
+	Если $f$ дифференцируема в точке $\v x_0$, то она непрерывна в $\v x_0$.
+\end{theorem}
+\begin{proof}
+	Хотим проверить: $\tr y\ra0$ при $\tr\v x\ra\v0$.\\
+	\[|(\v A,\tr\v x)|\le|\v A|\cdot|\tr\v x|\text{ - по неравенству Коши-Буняковского-Шварца.}\]
+\end{proof}
+\begin{note}
+	Обратное к{~\eqref{th2}} неверно, см. пример{~\eqref{ex1}}.
+\end{note}
+\begin{note}
+	Теоремы{~\eqref{th1}} и{~\eqref{th2}} дают необходимое условие дифференцируемости.
+\end{note}
+\begin{theorem}[Достаточное условие дифференцируемости]\label{th3}
+	Если в некоторой окрестности точки $\v x_0\ f$ имеет частные производные по всем переменным, непрерывные в $\v x_0$, то $f$ дифференцируема в $\v x_0$.
+\end{theorem}
+\begin{proof}
+	Покажем, что $\tr f$ можно представить в виде $f(\v x_0+\tr x)-f(\v x_0)$.
+	\begin{multline*}
+		\tr y=(f(x_{1,0}+\tr x_1,\dots,x_{n,0}+\tr x_n)-f(x_{1,0},x_{2,0}+\tr x_2,\dots,x_{n,0}+\tr x_n))+\\
+		+(f(x_{1,0},x_{2,0}+\tr x_2,\dots,x_{n,0}+\tr x_n)-f(x_{1,0},x_{2,0},x_{3,0}+\tr x_3),\dots,x_{n,0}+\tr x_n)+\dots+\\
+		+(f(x_{1,0},x_{2,0},\dots,x_{n,0}+\tr x_n)-f(x_{1,0},x_{2,0},\dots,x_{n,0}))
+	\end{multline*}
+	Применим теорему Лагранжа много раз: $\xi_i\in\ [x_{i,0},x_{i,0}+\tr x_i],\ i=1,\dots,n$ (если $\tr x$ отрицателен, думаю поймёте).
+	\begin{multline*}
+		\frac{\vdelta f}{\vdelta x_1}(\xi_1,x_{2,0}+\tr x_2,\dots,x_{n,0}+\tr x_n)\cdot\tr x_1+\\
+		+\frac{\vdelta f}{\vdelta x_2}(x_{1,0},\xi_2,x_{3,0}+\tr x_3,\dots,x_{n,0}+\tr x_n)\cdot\tr x_2+\dots+\\
+		+\dots+\frac{\vdelta f}{\vdelta x_n}(x_{1,0},\dots,x_{n-1,0},\xi_n)\cdot\tr x_n
+	\end{multline*}
+	\begin{multline*}
+		\tr y=\frac{\vd f}{\vd x_1}(\xi_1,x_{2,0}+\tr x_2,\dots,x_{n,0}+\tr x_n)\tr x_1+\dots+\frac{\vd f}{\vd x_n}(x_{1,0},\dots,x_{n-1,0},\xi_n)=\\
+		=\frac{\vd f}{\vd x_1}(\v x_0)\tr x_1+\dots+\frac{\vd f}{\vd x_n}(\v x_0)\tr x_n+(\frac{\vd f}{\vd x_1}(\xi_1,x_{2,0}+\tr x_2,\dots,x_{n,0}+\tr x_n)-\frac{\vd f}{\vd x_1}(\v x_0))\tr x_1+\dots+\\
+		+\dots+(\frac{\vd f}{\vd x_n}(x_{1,0},\dots,x_{n-1},\xi_n)-\frac{\vd f}{\vd x_j}(\v x_0))\tr x_n
+	\end{multline*}
+	\[\frac{\vd f}{\vd x}(x_{1,0},\dots,x_{j-1,0},\xi_j,x_{j+1,0},\dots,x_{n,0}+\tr x_n)-\frac{\vd f}{\vd x_j}(\v x_0))\tr x_j=^?\sigma(|\tr\v x|),\ \tr\v x\ra\v0\]
+	\[\frac{\frac{\vd f}{\vd x_j}\dots}{|\tr\v x|}\ra0,\ \tr\v x\ra0,\ \frac{\tr x_j}{|\tr\v x|}\le1\]
+\end{proof}
+\begin{note}
+	Условие теоремы{~\eqref{th3}} не является необходимым.
+\end{note}
+\begin{example}
+	$f(x,y)=\sqrt[3]{x^2y}$
+\end{example}
