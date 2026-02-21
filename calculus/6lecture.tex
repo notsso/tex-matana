@@ -1,0 +1,101 @@
+\begin{definition}
+	Дифференциалом $m$ - го порядка $m$ раз дифференцируемой функции в точке $\v x_0\in\R^n$ функции $f$ называется $d(d^{m-1}f)(\v x_0)$.
+\end{definition}
+\begin{note}
+	При каждом взятии дифференциала независимых переменных, дифференциал принимает одинаковые (относительно порядка взятия) значения.
+\end{note}
+\begin{note}
+	В случае, когда $x_1,\dots,x_n$ - независимые переменные:
+	\begin{equation}\label{6_eq1}
+		d^nf(\v x_0)=\bigg(\frac{\vd}{\vd x_1}dx_1+\dots+\frac{\vd}{\vd x_n}dx_n\bigg)^nf(\v x_0)
+	\end{equation}
+	В отличие от $m=1$, для $m\ge2$ в случае, когда $x_1,\dots,x_n$ - функции от независимых переменных, формула (\ref{6_eq1}) не может быть использована.
+\end{note}
+\begin{example}
+	\begin{multline*}
+		m=2:\ d^2f=d\bigg(\sum_{k=1}^n\frac{\vd f}{\vd x_k}dx_k\bigg)=
+		\sum_{k=1}^n\frac{\vd f}{\vd x_k}dx_k+\sum_{k=1}^n\frac{\vd f}{\vd x_k}d^2x_k=\\
+		=\bigg(\frac{\vd}{\vd x_1}dx_1+\dots+\frac{\vd}{\vd x_n}dx_n\bigg)^2f+\sum_{k=1}^n\frac{\vd f}{\vd x_k}d^2x_k
+	\end{multline*}
+\end{example}
+\begin{note}
+	(\ref{6_eq1}) остаётся верной, если $x_1,\dots,x_n$ - линейные функции от независимых переменных.
+\end{note}
+\begin{theorem}[Формула Тейлора с остаточным членом в форме Лагранжа]\label{6_th1}
+	Если $f\ (m+1)$ раз дифференцируема в окрестности $U_\eps(\v x_0)$, $\v x_0=(x_{1,0},\dots,x_{n,0})$, то 
+	\[(\forall x\in U_\eps(\v x_0))(\exists\psi\in[0,1])\ f(\v x)=f(\v x_0)+df(\v x_0)+\frac{d^2f(\v x_0)}{2!}+\dots+\frac{d^mf(\v x_0)}{m!}+\frac{d^{m+1}}{(m+1)!}f(\v\eta)\]
+	Для дифференциалов требуется брать: $dx_i=x_i-x_{i,0},\ i=1,\dots,n,\ \v\eta=\v x_0+\psi(\v x-\v x_0)$.
+\end{theorem}
+\begin{proof}
+	Вспомним формулу Маклорена для функций одной переменной:
+	\begin{multline*}
+		F(t)=F(0)+\frac{F'(0)}{1!}\cdot t+\frac{F''(0)}{2!}\cdot t^2+\dots+\frac{F^m(0)}{m!}\cdot t^m+\frac{F^{m+1}(c)}{(m+1)!}\cdot t^{m+1}=\\
+		=F(0)+dF(0)+\frac{1}{2!}\cdot d^2F(0)+\dots+\frac{1}{m!}d^mF(0)+\frac{1}{(m+1)!}d^{m+1}F(c),\ dt=t
+	\end{multline*}
+	Возьмём: $F(y):=f(\v y),\ \v y=\v x_0+t(\v x-\v x_0)$.
+	Заметим, что $y$ - линейная функция от $t$, значит можно воспользоваться (\ref{6_eq1}):
+	\begin{multline*}
+		d^kf(\tau)=\bigg(\frac{\vd}{\vd x_1}dy_1+\dots+\frac{\vd}{\vd y_n}dy_n\bigg)^kf(\v x_0+\tau\cdot(\v x-\v x_0))=\\
+		=\bigg(\frac{\vd}{\vd x_1}(x_1-x_{1,0}+\dots+\frac{\vd}{\vd x_n}(x_n-x_{n,0})\bigg)f(\v x_0+\tau\cdot(\v x-\v x_0))\cdot df^k=\\
+		=d^kf(\v x_0+\tau\cdot(\v x-\v x_0))\text{, так как }df^k=1
+	\end{multline*}
+	\[\v x_0+\tau\cdot(\v x-\v x_0)=
+	\begin{cases}
+		\v x_0,\ \tau=0\\
+		\v \eta,\ \tau=\psi
+	\end{cases}
+	\]
+	Получили:
+	\[f(\v x)=f(\v x_0)+df(\v x_0)+\frac{1}{2!}d^2f(\v x_0)+\dots+\frac{1}{m!}d^mf(\v x_0)+\frac{1}{(m+1)!}d^{m+1}f(\v\eta)\]
+\end{proof}
+\begin{note}
+	Далее будет использоваться функция $g_m(f,\vx)$, обозначим её заранее:
+	\[g_m(f,\vx):=f(\vx)-f(\vx_0)-\sum_{k=1}^m\frac{d^kf(\vx_0)}{k!}\]
+\end{note}
+\begin{lemma}\label{6_le1}
+	Если $f\ m$ раз дифференцируема в точке $\v x_0=(x_{1,0},\dots,x_{n,0})$ и $(m-1)$ раз дифференцируема в $U_\eps(\v x_0)$, то $g_m(f,\vx)$ обращается в $0$ в точке $\vx_0$ вместе со всеми своими частными производными до порядка $m$ включительно.
+\end{lemma}
+\begin{proof}
+	По индукции, в базе распишем дифференциал: 
+	\[m=1:g_1(f,\vx)=f(\vx)-f(\vx_0)-\sum^1_{k=1}\frac{d^kf(\vx_0)}{k!}=f(\vx)-f(\vx_0)-\sum_{k=1}^n\frac{\vd f}{\vd x_n}(\vx_0)(x_k-x_{k,0})\]
+	Переход: $m\ra (m+1)$. $g_{m+1}(f,\vx)=0$.\\[0.1cm]
+	Достаточно проверить, что $\displaystyle\frac{\vd g_{m+1}}{\vd x_1}(f,\vx)=0$, для других $x_i$ аналогично.
+	\begin{multline*}
+		\frac{\vd g_{m+1}(f,\vx)}{\vd x_1}=\frac{\vd f}{\vd x_1}(\vx)-\frac{\vd f}{\vd x_1}(\vx_0)-\\
+		-\sum_{k=2}^{m+1}\frac{1}{k!}{\sum_{i_j\ge0,i_1\ge1}^{i_1+\dots+i_n=k}}\frac{k!\cdot i_1}{i_1!\dots i_n!}\cdot\frac{\vd^kf}{\vd x_1^{i_1}\dots\vd x_n^{i_n}}(\vx_0)(x_1-x_{1,0})^{i_1-1}\dots(x_n-x_{n,0})^{i_n}
+	\end{multline*}
+	Сделаем замену: $j_1=i_1-1,\ j_2=i_2,\ \dots,\ j_n=i_n$.
+	\begin{multline*}
+		\frac{\vd g_{m+1}(f,\vx)}{\vd x_1}=\frac{\vd f}{\vd x_1}(\v x)-\frac{\vd f}{\vd x_1}(\vx_0)-\\
+		-\sum_{k=2}^{m+1}\frac{1}{(k-1)!}
+		\sum_{j_i\ge0,j_1\ge1}^{j_1+\dots+j_n=k-1}\frac{(k-1)!}{j_1!\dots j_n!}\cdot\frac{\vd^{k-1}}{\vd x_1^{j_1}\dots\vd x_n^{j_n}}\bigg(\frac{\vd f}{\vd x_1}\bigg)(\vx_0)(x_1-x_{1,0})^{j_1}\dots(x_n-x_{n,0})^{j_n}=\\
+		=\frac{\vd f}{\vd x_1}(\v x)-\frac{\vd f}{\vd x_1}(\vx_0)-d^{k-1}\bigg(\frac{\vd f}{\vd x_1}\bigg)(\vx_0)=g_m\bigg(\frac{\vd f}{\vd x_1},\ \vx\bigg)
+	\end{multline*}
+	Получили требуемое.
+\end{proof}
+\begin{lemma}\label{6_le2}
+	Если $g(\vx)$ удовлетворяет условиям (\ref{6_le1}) и $g$ обращается в $0$ в точке $\vx_0$ вместе со всеми производными до порядка $m$ включительно, то:
+	\[g(\vx)=\sigma(|\vx-\vx_0|^m),\ \vx\ra\vx_0\]
+\end{lemma}
+\begin{proof}
+	По индукции: 
+	\[m=1:g(\vx)=g(\vx_0)+\sum_{k=1}^n\frac{\vd g}{\vd x_k}(\vx_0)(x_k-x_{k,0})+\sigma(|\vx-\vx_0|),\ \vx\ra\vx_0\]
+	Переход:\\
+	Знаем, что $\displaystyle\frac{\vd f}{\vd x_i}(\vx)$ удовлетворяет гипотезе индукции $\forall i=1,\dots,n$, следовательно:
+	\[\frac{\vd f}{\vd x_1}(\vx)=\sigma(|\vx-\vx_0|^m),\ \vx\ra\vx_0\]
+	Применим (\ref{6_th1}) для дифференцируемости до $0+1$ раз:
+	\[g(\vx)=g(\vx_0)+\underbrace{\sum_{k=1}^n\frac{\vd g}{\vd x_k}(\v\eta)(x_k-x_{k,0})}_{\sigma(|\v\eta-\vx_0|^m)},\ \v\eta=\vx_0+t\cdot(\vx-\vx_0)\]
+	\[g(\vx)=\sigma(|\vx-\vx_0|^{m+1}),\ \vx\ra\vx_0\]
+	Получили требуемое.
+\end{proof}
+\begin{theorem}[Формула Тейлора с остаточным членом в форме Пеано]
+	Если $f$ дифференцируема $m$ раз точке $\vx_0=(x_{1,0},\dots,x_{n,0})$ и $(m-1)$ раз дифференцируема в $U_\eps(\vx_0)$, то 
+	\[f(\vx)=f(\vx_0)+\sum_{k=1}^m\frac{d^kf(\vx_0)}{k!}+\sigma(|\vx-\vx_0|^m),\ \vx\ra\vx_0\]
+\end{theorem}
+\begin{proof}
+	Возьмём $\displaystyle g_m(f,\vx)=f(\vx)-f(\vx_0)-\sum_{k=1}^m\frac{d^kf(\vx_0)}{k!}$\\
+	Применим леммы (\ref{6_le1}) и (\ref{6_le2}) к $g_m$.\\
+	Тогда $g_m$ и все её частные производные до порядка $m$ принимают $0$ в точке $\vx_0$, и:
+	\[g_m(f,\vx)=\sigma(|\vx-\vx_0|^m)\]
+	Таким образом получаем требуемое.
+\end{proof}
