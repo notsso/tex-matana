@@ -33,9 +33,13 @@
 	\]
 	\[\frac{\vd f}{\vd x}(x,y)=y\cdot\frac{x^2-y^2}{x^2+y^2}+xy\cdot\frac{2x(x^2+y^2)-2x(x^2-y^2)}{(x^2+y^2)^2}=y\cdot\frac{x^2-y^2}{x^2+y^2}+\frac{3x^2y^3}{(x^2+y^2)^2},\ (x,y)\neq(0,0)\]
 	\[\frac{\vd f}{\vd y}(x,y)=x\cdot\frac{x^2-y^2}{x^2+y^2}-\frac{4x^3y^2}{(x^2+y^2)^2}\]
-	\[\frac{\vd f}{\vd x}(0,0)=\frac{d}{dx}\bigg(f(x,0)\bigg)\bigg|_{x=0}=0=\frac{\vd f}{\vd y}(0,0)\]
-	\[\frac{\vd^2f}{\vd x\vd y}(0,0)=\frac{d}{dx}\left(\frac{\vd f}{\vd y}(x,0)\right)\bigg|_{x=0}=\frac{d}{dx}(x)\bigg|_{x=0}=1\]
-	\[\frac{\vd^2f}{\vd y\vd x}(0,0)=\frac{d}{dy}\bigg(\frac{\vd f}{\vd x}(0,y)\bigg)\bigg|_{y=0}=\frac{d}{dy}(-y)\bigg|_{y=0}=-1\]
+	\begin{equation*}
+		\begin{split}
+			\frac{\vd f}{\vd x}(0,0)=\frac{d}{dx}\bigg(f(x,0)\bigg)&\bigg|_{x=0}=0=\frac{\vd f}{\vd y}(0,0)\\
+			\frac{\vd^2f}{\vd x\vd y}(0,0)=\frac{d}{dx}\left(\frac{\vd f}{\vd y}(x,0)\right)&\bigg|_{x=0}=\frac{d}{dx}(x)\bigg|_{x=0}=1\\
+			\frac{\vd^2f}{\vd y\vd x}(0,0)=\frac{d}{dy}\bigg(\frac{\vd f}{\vd x}(0,y)\bigg)&\bigg|_{y=0}=\frac{d}{dy}(-y)\bigg|_{y=0}=-1
+		\end{split}
+	\end{equation*}
 \end{example}
 \begin{theorem}[Шварц]\label{th1}
 	Если $\frac{\vd^2f}{\vd x\vd y}$ и $\frac{\vd^2f}{\vd y\vd x}$ $\exists$ в некоторой окрестности точки $(x_0,y_0)$ и непрерывны в ней, то: 
@@ -52,7 +56,7 @@
 	Проделаем аналогичные вещи, но теперь с $y$:
 	\[\psi(h)=\tr\mu=\mu(y_0+h)-\mu(y_0)\text{, где }\mu(y)=f(x_0+h,y)-f(x_0,y)\]
 	\newpage
-	Воспользуемся т.Лагранжа ещё 2 раза, получим $\xi_2$ между $x_0$ и $x_0+h$, а также $\eta_2$ между $y_0$ и $y_0+h$.
+	Воспользуемся т. Лагранжа ещё 2 раза, получим $\xi_2$ между $x_0$ и $x_0+h$, а также $\eta_2$ между $y_0$ и $y_0+h$.
 	\[\psi(h)=\mu'(\eta_2)\cdot h=\bigg(\frac{\vd f}{\vd y}(x_0+h,\eta_2)-\frac{\vd f}{\vd y}(x_0,\eta_2)\bigg)\cdot h=\frac{\vd^2f}{\vd x\cdot\vd y}(\xi_2,\eta_2)\cdot h^2\]
 	Итого имеем:
 	\[\frac{\vd^2f}{\vd y\cdot\vd x}(\xi_1,\eta_1)=\frac{\vd^2f}{\vd x\cdot\vd y}(\xi_2,\eta_2),\ h\ra0\]
