@@ -1,0 +1,131 @@
+\newpage
+\section{Интегральное исчисление функций одной переменной}
+\subsection{Определение интеграла Римана}
+\begin{definition}
+	\textit{Разбиением} отрезка $[a,b]$ называется подмножество его точек: $P:a=x_0<\dots<x_n=b,\ \tr x_i:=x_i-x_{i-1},\ i=1,\dots,\ n$\\
+	$\displaystyle\tr(P):=\max_{1\le i\le n}\tr x_i$ - \textit{диаметр разбиения}\\
+	Для ограниченной на $[a,b]$ функции $f$ назовём верхней и нижней суммой Дарбу соответственно:\\
+	\[U(P,f):=\sum^n_{i=1}M_i\cdot\tr x_i,\ L(P,f):=\sum_{i=1}^nm_i\cdot\tr x_i,\ 
+	\text{где }M_i=\smo{\sup_{\sus[x_{i-1},x_i]}}f(x),\ m_i=\smo{\inf_{\sus[x_{i-1},x_i]}}f(x)\]
+	\textit{Верхним интегралом} $\v I(f)$ называется $\inf U(P,f)$\\
+	\textit{Нижним интегралом} $\uv I(f)$ называется $\sup L(P,f)$
+\end{definition}
+\begin{definition}
+	\textit{Измельчением} разбиения $P$ называется разбиение $P_1\supset P$
+\end{definition}
+\begin{lemma}
+	Если $P_1$ - измельчение разбиения $P_2$, то:
+	\[U(P_1,f)\le U(P_2,f),\ L(P_1,f)\ge L(P_2,f)\]
+\end{lemma}
+\begin{proof}
+	Рассмотрим $P_1=P_2\cup\{x^*\},\ x^*\in(x_{k-1},x_k)$
+	\begin{equation*}
+		\begin{split}
+			U(P_1,f)&=\dots+\smo{\sup_{\sus[x_{k-1},x^x]}}f(x)\cdot(x^*-x_{k-1})+\smo{\sup_{\sus[x^*,x_k]}}f(x)\cdot(x_k-x^*)+\dots\\
+			U(P_2,f)&=\dots+\smo{\sup_{\sus[x_{k-1},x_k]}}f(x)\cdot(x_k-x_{k-1})+\dots
+		\end{split}
+	\end{equation*}
+	Заметим: 
+	\[\smo{\sup_{\sus[x_{k-1},x_k]}}f(x)\ge\smo{\sup_{\sus[x_{k-1},x^*]}}f(x),\ \smo{\sup_{\sus[x_{k-1},x_k]}}f(x)\ge\smo{\sup_{\sus[x^*,x_k]}}f(x)\]
+	Тогда имеем: 
+	\[U(P_2,f)-U(P_1,f)=(x^*-x_{k-1})\cdot(\smo{\sup_{\sus[x_k,x_{k-1}]}}f(x)-\smo{\sup_{\sus[x_{k-1},x^x]}}f(x))+(x_k-x^*)\cdot(\smo{\sup_{\sus[x_k,x_{k-1}]}}f(x)-\smo{\sup_{\sus[x^*,x_k]}}f(x))\ge0\]
+	Вторая часть леммы доказывается аналогично. Получили требуемое.
+\end{proof}
+\begin{theorem}[Основное свойство сумм Дарбу]
+	$\forall P_1,P_2$ - разбиения $[a,b],\ \forall$ ограниченной функции $f$ на $[a,b]$
+	\[L(P_1,f)\le U(P_2,f)\]
+\end{theorem}
+\begin{proof}
+	Рассмотрим $P'=P_1\cup P_2$
+	\[L(P_1,f)\le L(P',f)\le U(P',f)\le U(P_2,f)\]
+	Получили требуемое.
+\end{proof}
+\begin{corollary}
+	$\forall$ ограниченной функции $f$ на $[a,b]$: $\uv I(f)\le \v I(f)$
+\end{corollary}
+\begin{definition}
+	Если $\v I=\uv I$, то $f$ называется \textit{интегрируемой по Риману} на $[a,b]$:\\
+	\[\int_a^bf(x)dx,\ f\in\mc R[a,b]\]
+\end{definition}
+\begin{theorem}[Критерий интегрируемости]
+	\[f\in\mc R[a,b]\lra (\forall\eps>0)(\exists P\text{ - разбиение }[a,b])\ U(P,f)-L(P,f)<\eps\]
+\end{theorem}
+\begin{proof}
+	Необходимость: $f\in\mc R[a,b]\Ra(\forall\eps>0)(\exists P_1,P_2\text{ - разбиения }[a,b])$, тогда:
+	\[U(P,f)<I(f)+\frac\eps2,\ L(P_2,f)>I(f)-\frac\eps2\]
+	Возьмём $P'=P_1\cup P_2$, тогда:
+	\[\int_a^bf(x)dx-\frac\eps2<L(P_2,f)\le L(P',f)\le U(P',f)\le U(P_1,f)<\int_a^bf(x)dx+\frac\eps2\]
+	Получили: $U(P',f)-L(P',f)<\eps$\\
+	Достаточность: Имеем $P$, $U(P,f)-L(P,f)<\eps$\\
+	\[L(P,f)\le \uv I(f)\le\v I(f)<U(P,f)\Ra \v I(f)-\uv I<\eps\]
+	Получили требуемое.
+\end{proof}
+\begin{theorem}
+	Если $f$ непрерывна на $[a,b]$, то она интегрируема по Риману на $[a,b]$.
+\end{theorem}
+\begin{proof}
+	$f$ непрерывна на $[a,b]\Ra f$ равномерно непрерывна на $[a,b]$.
+	\[(\forall\eps>0)(\exists\delta>0)(\forall x_1,x_2\in[a,b]:|x_1-x_2|<\delta)|f(x_1)-f(x_2)|<\frac{\eps}{2(b-a)}\]
+	Возьмём разбиение $P$ такое, что $\tr(P)<\delta$. Тогда:
+	\begin{multline*}
+		x',x\in[x_{k-1},x_k]\Ra|x'-x|<\delta\Ra M_i-m_i\le\frac{\eps}{2(b-a)}\Ra\\
+		\Ra U(P,f)-L(P,f)\le\sum_{i=1}^n\frac{\eps}{2(b-a)}\cdot\tr x_i=\frac\eps2<\eps
+	\end{multline*}
+	Получили требуемое.
+\end{proof}
+\begin{note}
+	Все доказанные ранее теоремы переносятся на интегралы \\Римана - Стилтьеса по любой возрастающей на $[a,b]$ $\al$:
+	\[\tr\alpha_i=\al(x_i)-\al(x_{i-1}),\ f\in\mc R(\al,[a,b])\]
+	Если $\al$ - функция ограниченной вариации на $[a,b]$, то $\al(x)=\al_1(x)-\al_2(x)$, где $\al_1,\al_2$ - возрастающие функции и:
+	\[\int_a^bf(x)d\al(x):=\int_a^bf(x)d\al_1(x)-\int_a^bf(x)d\al_2(x)\]
+\end{note}
+\begin{theorem}
+	Если $f$ монотонна на $[a,b]$, то $f\in\mc R[a,b]$
+\end{theorem}
+\begin{proof}
+	\[x_i=a+\frac{b-a}{n}\cdot i,\ i=1,\dots,n,\ \tr x_i=\frac{b-a}{n}\]
+	Пусть, без ограничений общности, $f$ возрастает.
+	\[U(P,f)-L(P,f)=\sum_{i=1}^n(f(x_i)-f(x_{i-1}))\cdot\frac{b-a}{n}=\frac{(f(b)-f(a))\cdot(b-a)}{n}<\eps\]
+	Получили требуемое.
+\end{proof}
+\begin{examples}
+	Функция Дирихле:
+	\[
+	f(x)=
+	\begin{cases}
+		1,\ x\in\Q\\
+		0,\ x\notin\Q
+	\end{cases}
+	\]
+	\[M_i=1,\ m_i=0,\ U(P,f)=b-a,\ L(P,f)=0\]
+	Верхний и нижний интегралы не совпадают.\\
+	Функция Римана:
+	\[
+	f(x)=
+	\begin{cases}
+		\frac{1}{n},\ x=\frac mn\\
+		0,\ x\notin\Q
+	\end{cases}
+	\]
+	\[(\forall\eps>0)\ \exists N:\frac{1}{N}<\eps,\text{ существует конечное число }K\text{ точек таких, что }R(x)>\frac1N\]
+	\[\{t_k\}_{k=1}^K,\ \text{точки разбиения }P: t_k\pm\frac{\eps}{2K}\]
+	Если $t_k\in[x_{k-1},x_k]$, то $\tr x_i<\frac\eps k$.
+	\[U(P,f)=\smo{\sum_{i:t_k\in[x_{i-1},x_i]}}M_i\tr x_i+\smo{\sum_{i:t_k\notin[x_{i-1},x_i]}}M_i\tr x_i<2\eps+\frac1N<3\eps\]
+\end{examples}
+\begin{theorem}\textup{(Основные свойства интеграла Римана)}
+	\begin{enumerate}
+		\item Линейность. Если $f_1,\ f_2\in\mc R[a,b],\ c\in\R$, то:
+		\begin{equation*}
+			\begin{split}
+				&\int_a^b(f_1+f_2)(x)dx=\int_a^bf_1(x)dx+\int_a^bf_2(x)dx\\
+				&\int_a^bcf(x)dx=c\int_a^bf(x)dx
+			\end{split}
+		\end{equation*}
+		\item Монотонность. $f_1,\ f_2\in\mc R[a,b],\ f_1(x)\le f_2(x),\ \forall x\in[a,b]$, то:
+		\[\int_a^bf_1(x)dx\le\int_a^bf_2(x)dx\]
+		\item Аддитивность. Пусть $c\in(a,b)$. $f\in\mc R[a,b]\lra(f\in\mc R[a,c]\land f\in\mc R[c,b])$
+		\[\int_a^bf(x)dx=\int_a^cf(x)dx+\int_c^bf(x)dx\]
+		\item Оценка. Если $f\in\mc R[a,b],\ |f(x)|\le M\ \forall x\in[a,b]$, то:
+		\[\bigg|\int_a^bf(x)dx\bigg|\le M(b-a)\]
+	\end{enumerate}
+\end{theorem}
