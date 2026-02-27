@@ -1,5 +1,5 @@
 \begin{theorem}[Геометрический смысл градиента]
-	Если $f$ дифференцируема в точке $\v x_0\in\R^n$ и $\grad f(\v x_0)\neq\v0$, то $\frac{\vd f}{\vd\v l}$ максимальна среди всех $\v l,\ |\v l|=1$, для $\v l$ сонаправленного с $\grad f(\v x_0)$, причём в этом случае $\frac{\vd f}{\vd\v l}=|\grad f(\v x_0)|$, и минимальна среди тех же $\v l$ для $\v l$, противоположно направленных к $\grad f(\v x_0)$, причём тогда $\frac{\vd f}{\vd\v l}=-|\grad f(\v x_0)|$
+	Если $f$ дифференцируема в точке $\v x_0\in\R^n$ и $\grad f(\v x_0)\neq\v0$, то $\frac{\vd f}{\vd\v l}$ максимальна среди всех $\v l,\ |\v l|=1$, для $\v l$ сонаправленного с $\grad f(\v x_0)$, причём в этом случае $\frac{\vd f}{\vd\v l}=|\grad f(\v x_0)|$, и минимальна среди тех же $\v l$ для $\v l$, противоположно направленных к $\grad f(\v x_0)$, причём $\frac{\vd f}{\vd\v l}=-|\grad f(\v x_0)|$
 \end{theorem}
 \begin{proof}
 	Так как от $\v l$ требуется лишь направление, будем считать $|\v l|=1$.\\
@@ -8,12 +8,13 @@
 	\[\frac{\vd f}{\vd\v l}\le|\grad f(\v x_0)|\cdot|\v l|\text{, причём равенство имеет место т. и т. т. к. }\grad f(\v x_0)=\alpha\v l\text{, то есть:}\]
 	\[\v l=\pm\frac{\grad f(\v x_0)}{|\grad f(\v x_0)|}\]
 	\[\v l=\frac{\grad f(\v x_0)}{|\grad f(\v x_0)|}\Ra\frac{\vd f}{\vd\v l}=\frac{(\grad f(\v x_0),\grad f(\v x_0))}{|\grad f(\v x_0)|}=|\grad f(\v x_0)|\]
+	Требуемое доказано.
 \end{proof}
-\newpage
 \section{Частные производные и дифференциалы высших порядков}
 \begin{anote}
 	По каким - то причинам, в нумерации Алексея Леонидовича этот параграф стоит под номером 4, хотя он уже был. В целом ладно, но читателю стоит иметь это ввиду. Вероятно, далее нумерация будет сбита.
 \end{anote}
+\subsection{Частные производные высших порядков}
 \begin{definition}
 	Если частная производная $\frac{\vd f}{\vd x_i}$ определена в некоторой окрестности точки $\v x_0$, то её частная производная (если она $\exists$) по переменной $x_j$ в точке $\v x_0$ называется (смешанной при $i\neq j$) \textit{частной производной второго порядка}:
 	\[\frac{\vd^2f}{\vd x_j\vd x_i}(\v x_0):=\frac{\vd}{\vd x_j}\left(\frac{\vd f}{\vd x_i}\right)(\v x_0)\]
@@ -55,13 +56,13 @@
 	\[\text{Получим: }\bigg(\frac{\vd f}{\vd x}(\xi_1,y_0+h)-\frac{\vd f}{\vd x}(\xi_1,y_0)\bigg)\cdot h=\frac{\vd^2f}{\vd y\cdot\vd x}(\xi_1,\eta_1)\cdot h^2\]
 	Проделаем аналогичные вещи, но теперь с $y$:
 	\[\psi(h)=\tr\mu=\mu(y_0+h)-\mu(y_0)\text{, где }\mu(y)=f(x_0+h,y)-f(x_0,y)\]
-	\newpage
 	Воспользуемся т. Лагранжа ещё 2 раза, получим $\xi_2$ между $x_0$ и $x_0+h$, а также $\eta_2$ между $y_0$ и $y_0+h$.
 	\[\psi(h)=\mu'(\eta_2)\cdot h=\bigg(\frac{\vd f}{\vd y}(x_0+h,\eta_2)-\frac{\vd f}{\vd y}(x_0,\eta_2)\bigg)\cdot h=\frac{\vd^2f}{\vd x\cdot\vd y}(\xi_2,\eta_2)\cdot h^2\]
 	Итого имеем:
 	\[\frac{\vd^2f}{\vd y\cdot\vd x}(\xi_1,\eta_1)=\frac{\vd^2f}{\vd x\cdot\vd y}(\xi_2,\eta_2),\ h\ra0\]
 	Получили требуемое.
 \end{proof}
+\subsection{Дифференциал высшего порядка}
 \begin{definition}
 	$f$ называется \textit{дважды дифференцируемой} в точке $\v x_0\in\R^n$, если все её частные производные $\frac{\vd f}{\vd x_i},\ i=1,\dots,n$ $\exists$ в окрестности точки $\v x_0$ и дифференцируемы в ней.
 \end{definition}
@@ -69,7 +70,7 @@
 	Если $f(x,y)$ дважды дифференцируема в точке $(x_0,y_0)$, то $\frac{\vd^2f}{\vd x\cdot\vd y}(x_0,y_0)=\frac{\vd^2f}{\vd y\cdot\vd x}(x_0,y_0)$
 \end{theorem}
 \begin{proof}
-	Аналогично теореме{~\eqref{th1}} $\psi(h)=f(x_0+h,y_0+h)-f(x_0,y_0+h)-f(x_0+h,y_0)+f(x_0,y_0)$
+	Аналогично теореме{~\eqref{th1}}:\\ $\psi(h)=f(x_0+h,y_0+h)-f(x_0,y_0+h)-f(x_0+h,y_0)+f(x_0,y_0)$
 	\begin{multline*}
 		\psi(h)=\tr\phi=\phi(x_0+h)-\phi(x_0)=\bigg(\frac{\vd f}{\vd x}(\xi,y_0+h)-\frac{\vd f}{\vd x}(\xi,y_0)\bigg)\cdot h=\\
 		=\bigg(\frac{\vd f}{\vd x}(\xi,y_0+h)-\frac{\vd f}{\vd x}(x_0,y_0)\bigg)\cdot h-
