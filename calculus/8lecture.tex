@@ -62,7 +62,7 @@
 	\[s(P,f,\{t_i\})=\sum_{i=1}^nf(t_i)\cdot\tr x_i=f(t_{i_0})\cdot\tr x_i+\v S(P,f,\{t_i\})>n\]
 	Получили отрицание существования предела, значит лемма доказана.
 \end{proof}
-\begin{theorem}[Интеграл как предел интегральных сумм]
+\begin{theorem}[Интеграл как предел интегральных сумм]\label{8_th1}
 	$f\in\mc R[a,b]$ тогда и только тогда, когда $\ex$ предел интегральных сумм, причём:
 	\[\int_a^bf(x)dx=\lim_{\tr(p)\ra0}S(P,f,\{t_i\})=A\]
 \end{theorem}
@@ -72,5 +72,35 @@
 	Зафиксируем $\eps$, получим по нему $\delta$, зафиксируем $P$.
 	\[A-\frac\eps3<\sum_{i=1}^nf(t_i)\tr x_i<A+\frac\eps3\Ra U(P,f)-L(P,f)\le \frac{2\eps}{3}<\eps\Ra f\in\mc R[a,b]\]
 	\[A-\frac\eps3\le L(P,f)\le\int_a^bf(x)dx\le U(P,f)\le A+\frac\eps3\Ra\bigg|A-\int_a^bf(x)dx\bigg|\le\frac\eps3\]
-	Достаточность доказана.
+	Достаточность доказана.\\\\
+	Необходимость:\\
+	Пусть $f(x)$ неотрицательная на $[a,b]$.\\
+	Хотим доказать:
+	\[(\fa\eps>0)(\ex\delta>0)(\fa P,\tr(P)<\delta)(\fa\{t_i\},\ t_i\in[x_{i-1},x_i])\bigg|\int_a^bf(x)dx-\sum_{i=1}^hf(t_i)dx_i\bigg|<\eps\]
+	По критерию интегрируемости:
+	\[(\ex P':a=x_0'<\dots<x_n'=b)\ U(P',f)<\int_a^bf(x)dx+\frac\eps4\]
+	Положим: $M:=\smo{\sup_{[a,b]}}f(x),\ \delta_1:=\frac{\eps}{8Mn}$, возьмём $\fa P:\tr(P)<\delta_1$\\
+	\[U(P,f)=\sum_{j=1}^nM_j\tr x_j=\bigg(\sum_{j:\ex k:x_k'\in[x_{j-1},x_j]}+\sum_{j:\nexists k}\bigg)M_j\tr x_j=S_1+S_2\]
+	Оценим $S_1$:\\
+	Заметим, что количество отрезков из разбиения $P$, на которых есть хотя бы одна точка из $P'$ явно $\le2n$, так как в $P'$ всего $n$ точек, а сама точка максимум может находиться на 2 отрезках $P$.
+	\[S_1=\sum_{j:\ex k:x_k'\in[x_{j-1},x_j]}M_j\tr x_j\le M\cdot 2n\cdot \tr(P)<\frac\eps4\]
+	Теперь оценим $S_2$:
+	\[S_2=\sum_{j:\nexists k}\sup_{[x_{j-1},x_j]}f(x)\tr x_j\le\sum_{i=1}^nM_i'\tr x_i'<\int_a^bf(x)dx\]
+	Получили:
+	\[(\fa\eps>0)(\ex\delta_1>0)(\fa P,\tr(P)<\delta)\ U(P,f)<\int_a^bf(x)dx+\frac\eps2\]
+	Получили часть доказательства, только для неотрицательной функции и только для верхней суммы. Теперь раскроем на остальные случаи.\\
+	Если $f$ произвольного знака, то $\ex m:f_1(x)=f(x)+m\ge0$\\
+	Для $f_1$ получим:
+	\[U(P,f_1)<\int_a^bf_1(x)dx+\frac\eps2\]
+	\[U(P,f)+m(b-a)<\int_a^bf(x)dx+m(b-a)\]
+	Для произвольного знака получили такую же штуку.\\
+	Теперь возьмём $f_2=-f$:
+	\[(\ex\delta_2<0)(\fa P,\ \tr(P)<\delta_2)\ U(P,f_2)<\int_a^bf_2(x)dx+\frac\eps2,\ U(P,f)=-L(P,f)<-\int_a^bf(x)dx+\frac\eps2\]
+	\[(\fa\eps>)(\ex\delta_2)(\fa P,\ \tr(P)<\delta_2)\ L(P,f)>\int_a^b-\frac\eps2\]
+	Теперь возьмём $\delta=\min(\delta_1,\delta_2),\ \fa P,\ \tr(P)<\delta$
+	\[\int_a^bf(x)dx-\frac\eps2<L(P,f)\le\sum_{i=1}^nf(t_i)dx_i\le U(P,f)<\int_a^bf(x)dx+\frac\eps2\]
+	Получили требуемое.
 \end{proof}
+\begin{note}
+	Достаточность теоремы (\ref{8_th1}) справедлива и для интеграла Римана - Стилтьеса. Необходимость верна лишь при дополнительном условии непрерывности $f$ или $\alpha$.
+\end{note}
