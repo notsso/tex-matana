@@ -83,7 +83,7 @@
 	$\vdelta f$ используется для функций многих переменных вместо $d$.
 \end{note}
 	
-\begin{theorem}\label{th1}
+\begin{theorem}\label{3_th1}
 	Если $f$ дифференцируема в точке $\v x_0$, то она имеет частные производные в этой точке по всем переменным $x_j,\ j=1,\dots,n$, причём 
 	\[\grad f(\v x_0)=\left(\frac{\vdelta f}{\vdelta x_1}(\v x_0),\dots,\frac{\vdelta f}{\vdelta x_n}(\v x_0)\right)\]
 \end{theorem}
@@ -98,7 +98,7 @@
 \end{proof}
 	
 \begin{note}
-	Обратное к теореме{~\eqref{th1}} неверно.
+	Обратное к теореме{~\eqref{3_th1}} неверно.
 \end{note}
 \begin{example}
 	\[f(x,y)=
@@ -112,7 +112,7 @@
 	Возьмём $(\tr x, \tr x)\ra(0,0),\ \tr x\ra0$:
 	\[\tr f=\frac{\tr x\cdot \tr x}{(\tr x)^2+(\tr x)^2}=\frac12\neq\sigma(\tr x)\]
 \end{example}
-\begin{example}\label{ex1}
+\begin{example}\label{3_ex1}
 	$g$ непрерывна, но не дифференцируема
 	\[g(x,y)=\sqrt{|xy|},\ \frac{\vdelta y}{\vdelta x}(0,0)=\lim_{\tr x\ra0}\frac{g(\tr x,0)-g(0,0)}{\tr x}=0\]
 	\[
@@ -125,7 +125,7 @@
 	r=\sqrt{(\tr x)^2 + (\tr y)^2}=|(\tr x,\tr y)|,\ 0\le\tr y=r\sqrt{|\cos\phi\cdot\sin\phi|}\le r
 	\]
 \end{example}
-\begin{theorem}\label{th2}
+\begin{theorem}\label{3_th2}
 	Если $f$ дифференцируема в точке $\v x_0$, то она непрерывна в $\v x_0$.
 \end{theorem}
 \begin{proof}
@@ -133,12 +133,12 @@
 	\[|(\v A,\tr\v x)|\le|\v A|\cdot|\tr\v x|\text{ - по неравенству Коши-Буняковского-Шварца.}\]
 \end{proof}
 \begin{note}
-	Обратное к{~\eqref{th2}} неверно, см. пример{~\eqref{ex1}}.
+	Обратное к{~\eqref{3_th2}} неверно, см. пример{~\eqref{3_ex1}}.
 \end{note}
 \begin{note}
-	Теоремы{~\eqref{th1}} и{~\eqref{th2}} дают необходимое условие дифференцируемости.
+	Теоремы{~\eqref{3_th1}} и{~\eqref{3_th2}} дают необходимое условие дифференцируемости.
 \end{note}
-\begin{theorem}[Достаточное условие дифференцируемости]\label{th3}
+\begin{theorem}[Достаточное условие дифференцируемости]\label{3_th3}
 	Если в некоторой окрестности точки $\v x_0\ f$ имеет частные производные по всем переменным, непрерывные в $\v x_0$, то $f$ дифференцируема в $\v x_0$.
 \end{theorem}
 \begin{proof}
@@ -163,7 +163,7 @@
 	\[\frac{\frac{\vd f}{\vd x_j}\dots}{|\tr\v x|}\ra0,\ \tr\v x\ra0,\ \frac{\tr x_j}{|\tr\v x|}\le1\]
 \end{proof}
 \begin{note}
-	Условие теоремы{~\eqref{th3}} не является необходимым.
+	Условие теоремы{~\eqref{3_th3}} не является необходимым.
 \end{note}
 \begin{example}
 	$f(x,y)=\sqrt[3]{x^2y}$
