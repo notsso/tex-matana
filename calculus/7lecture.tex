@@ -30,7 +30,7 @@
 	\[U(P_2,f)-U(P_1,f)=(x^*-x_{k-1})\cdot(\smo{\sup_{\sus[x_k,x_{k-1}]}}f(x)-\smo{\sup_{\sus[x_{k-1},x^x]}}f(x))+(x_k-x^*)\cdot(\smo{\sup_{\sus[x_k,x_{k-1}]}}f(x)-\smo{\sup_{\sus[x^*,x_k]}}f(x))\ge0\]
 	Вторая часть леммы доказывается аналогично. Получили требуемое.
 \end{proof}
-\begin{theorem}[Основное свойство сумм Дарбу]
+\begin{theorem}\nf{(Основное свойство сумм Дарбу)}\\
 	$\forall P_1,P_2$ - разбиения $[a,b],\ \forall$ ограниченной функции $f$ на $[a,b]$
 	\[L(P_1,f)\le U(P_2,f)\]
 \end{theorem}
@@ -46,7 +46,7 @@
 	Если $\v I=\uv I$, то $f$ называется \textit{интегрируемой по Риману} на $[a,b]$:\\
 	\[\int_a^bf(x)dx,\ f\in\mc R[a,b]\]
 \end{definition}
-\begin{theorem}[Критерий интегрируемости]\label{7_th2}
+\begin{theorem}\nf{(Критерий интегрируемости)}\label{7_th2}\\
 	\[f\in\mc R[a,b]\lra (\forall\eps>0)(\exists P\text{ - разбиение }[a,b])\ U(P,f)-L(P,f)<\eps\]
 \end{theorem}
 \begin{proof}
@@ -111,7 +111,7 @@
 	Если $t_k\in[x_{k-1},x_k]$, то $\tr x_i<\frac\eps k$.
 	\[U(P,f)=\smo{\sum_{i:t_k\in[x_{i-1},x_i]}}M_i\tr x_i+\smo{\sum_{i:t_k\notin[x_{i-1},x_i]}}M_i\tr x_i<2\eps+\frac1N<3\eps\]
 \end{examples}
-\begin{theorem}\textup{(Основные свойства интеграла Римана)}
+\begin{theorem}\nf{(Основные свойства интеграла Римана)}\\
 	\begin{enumerate}
 		\item Линейность. Если $f_1,\ f_2\in\mc R[a,b],\ c\in\R$, то:
 		\begin{enumerate}

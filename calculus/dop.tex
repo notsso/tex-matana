@@ -6,6 +6,11 @@
 \renewcommand{\i}{\infty}
 \renewcommand{\ss}[1][1]{\sum_{n=#1}^\i}
 
+\let\limp\lim
+\let\sssum\sum
+\renewcommand{\lim}{\limp\limits}
+\renewcommand{\sum}{\sssum\limits}
+
 \newcommand{\p}{{+\infty}}
 \newcommand{\uv}{\underline}      % under vector
 \newcommand{\mf}{\mathfrak}

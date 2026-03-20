@@ -1,4 +1,4 @@
-\begin{theorem}[Интегрируемость сложной функции]
+\begin{theorem}\nf{(Интегрируемость сложной функции)}\\
 	Если $g\in\mc R[a,b],\ (\forall x\in[a,b])\ m\le g(x)\le M,\ f\text{ непрерывна на }[m,M]$, то сложная функция $h=f\circ g\in\mc R[a,b]$.
 \end{theorem}
 \begin{proof}
@@ -17,8 +17,9 @@
 	Получили ограничение на разность сумму Дарбу, а значит и получили требуемое.
 \end{proof}
 \begin{corollary}
+	Верны следующие утверждения:
 	\begin{enumerate}
-		\item $f_1,f2\in\mc R[a,b]\Ra f_1\cdot f_2\in\mc R[a,b]$\\
+		\item $f_1,f2\in\mc R[a,b]\Ra f_1\cdot f_2\in\mc R[a,b]$
 		\item $\displaystyle f_1\in\mc R[a,b]\Ra|f(x)|^2\in\mc R[a,b],\ \bigg|\int_a^bf(x)dx\bigg|\le\int_a^b\bigg|f(x)\bigg|dx$
 	\end{enumerate}
 \end{corollary}
@@ -62,7 +63,7 @@
 	\[s(P,f,\{t_i\})=\sum_{i=1}^nf(t_i)\cdot\tr x_i=f(t_{i_0})\cdot\tr x_i+\v S(P,f,\{t_i\})>n\]
 	Получили отрицание существования предела, значит лемма доказана.
 \end{proof}
-\begin{theorem}[Интеграл как предел интегральных сумм]\label{8_th1}
+\begin{theorem}\nf{(Интеграл как предел интегральных сумм)}\label{8_th1}\\
 	$f\in\mc R[a,b]$ тогда и только тогда, когда $\ex$ предел интегральных сумм, причём:
 	\[\int_a^bf(x)dx=\lim_{\tr(p)\ra0}S(P,f,\{t_i\})=A\]
 \end{theorem}

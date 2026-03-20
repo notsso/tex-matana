@@ -1,5 +1,5 @@
 \begin{anote}
-	Для читателя, который не знает что такое подстановки Абеля, приведём статью с википедии:\\
+	Для читателя, который не знает что такое подстановки Абеля, приведём немного обработанную статью с википедии:\\
 	\textit{Дискретным преобразованием Абеля} называют следующее тождество:
 	\[\sum_{k=m}^na_kb_k=a_nB_n-a_mB_{m-1}-\sum_{k=m}^{n-1}(a_{k+1}-a_k)\]
 	где $n\ge m\ge 1,\ \{a_k\}_{k=1},\{b_k\}_{k=1},\{B_k\}_{k=1}$, при этом $B_k=b_1+\dots+b_k,\ B_0=0$\\
@@ -12,7 +12,7 @@
 		\end{split}
 	\end{equation*}
 \end{anote}
-\begin{lemma}[Формула Бонне]\label{10_le1}
+\begin{lemma}\nf{(Формула Бонне)}\label{10_le1}\\
 	Если $f\in\mc R[a,b],\ g$ убывает на $[a,b]$ и $g(x)\ge0$, то
 	\[(\ex\xi\in[a,b])\int_a^bf(x)g(x)dx=g(a)\int_a^\xi f(x)dx=I\]
 \end{lemma}
@@ -56,7 +56,7 @@
 	\[(\ex\xi\in[a,b])\ \int_a^bf(x)g_1(x)dx=g_1(a)\int_a^\xi f(x)dx\]
 	\[\int_a^bf(x)g(x)dx=g(b)\int_a^bf(x)dx+g(a)\int_a^\xi f(x)dx-g(b)\int_a^\xi f(x)dx\]
 \end{proof}
-\begin{theorem}[Вторая теорема о среднем]
+\begin{theorem}\nf{(Вторая теорема о среднем)}\\
 	Если $f\in\mc R,\ g$ монотонна на $[a,b]$, то:
 	\[(\ex\xi\in[a,b])\ \int_a^bf(x)g(x)dx=g(a)\int_a^\xi f(x)dx+g(b)\int_\xi^bf(x)dx\]
 \end{theorem}
@@ -67,7 +67,7 @@
 	\[\int_a^bf(x)g(x)dx=g(b)\int_a^bf(x)dx+g(a)\int_a^\xi f(x)dx-g(b)\int_a^\xi f(x)dx\]
 	Получили требуемое.
 \end{proof}
-\begin{theorem}[Формула Тейлора с остаточным членом в интегральной форме]
+\begin{theorem}\nf{(Формула Тейлора с остаточным членом в интегральной форме)}\\
 	Если $f$ $(n+1)$ раз дифференцируема в некоторой $U(a)$, причём $(\fa l,r\in U(a), l<r)\ f^{(n+1)}\in\mc R[l,r]$, то:
 	\[f(x)=\sum_{k=0}^n\frac{f^{(k)}(a)}{k!}(x-a)^k+\frac1{n!}\int_a^xf^{(n+1)}(t)(x-t)^ndt\]
 \end{theorem}
@@ -85,7 +85,7 @@
 	\end{multline*}
 	Получили требуемое.
 \end{proof}
-\begin{note}[О вычислении интеграла Римана - Стильтьеса]
+\begin{note}\nf{(О вычислении интеграла Римана - Стильтьеса)}\\
 	Если $f,\al\in\mc R[a,b]$, то $f$ интегрируема по Риману - Стильтьесу по $\al$ на $[a,b]$, причём:
 	\[\int_a^bfd\al=\int_a^bf(x)\al'(x)dx\]
 \end{note}
@@ -95,7 +95,7 @@
 	\[\sum_{i=1}^nf(t_i)\tr\al_i=\sum_{i=1}^nf(t_i)\al'(s_i)\tr x_i=\sum_{i=1}^nf(t_i)\al'(t_i)\tr x_i+\sum_{i=1}^nf(t_i)(\al'(s_i)-\al'(t_i))\tr x_i\]
 	Получили требуемое.
 \end{proof}
-\begin{note}[О вычислении интеграла Римана - Стильтьеса]
+\begin{note}\nf{(О вычислении интеграла Римана - Стильтьеса)}\\
 	Если $f$ ограничена на $[a,b]$ и непрерывна в точках $r_1,\dots,r_N\in[a,b]$m а функция $g$ постоянна на интервалах $\subset[a,b]$, не содержащих точек $r_1,\dots,r_N$, и непрерывна в $a,b$ (если $a,b$ не совпадают с одной из $r_1,\dots,r_N$), то $f$ интегрируема по Риману - Стильтьесу по $g$ на $[a,b]$, причём:
 	\[\int_a^bf(x)dg(x)=\sum_{k=1}^Nf(r_k)(g(r_k+0)-g(r_k-0))\]
 \end{note}
