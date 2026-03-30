@@ -36,9 +36,9 @@
 	Пусть $G$ - открытое связное множество.\\
 	От противного: пусть $G$ - не линейно связное.\\
 	По определению: $(\exists\v x_1,\v x_2\in G)$ такие, что их нельзя соединить кривой в $G$.
-	\[G_1:=\{\v x\in G:\v x\text{ нельзя соединить с }\v x_1\text{ кривой в }G\},\ G_2=G\setminus G_2\]
+	\[G_1:=\{\v x\in G:\v x\text{ нельзя соединить с }\v x_1\text{ кривой в }G\},\ G_2=G\setminus G_1\]
 	Докажем открытость $G_1$ и $G_2$ в $G$.\\
-	\[\text{Пусть }\v x_0\in G_2\subset G\Ra(\exists\eps>0)\ U_\eps(\v x_0)\subset G\]
+	Пусть $\v x_0\in G_2\subset G\Ra(\exists\eps>0)\ U_\eps(\v x_0)\subset G$\\
 	Заметим, что $\forall\v y\in U_\eps(\v x_0)$ можно соединить с $\v x_1$, значит $\v y\in G_2\Ra U_\eps(\v x_0)\subset G_2\Ra G_2$ - открытое.\\
 	Теперь докажем, что $G_1$ - открытое.\\
 	От противного: пусть $(\exists\v x_0\in G_1)(\forall\eps>0)\ U_\eps(\v x_0)\cap G_2\neq\emptyset$\\
