@@ -1,7 +1,7 @@
 \begin{definition}
-	Метод суммирования Чезаро. 
+	\textit{Метод суммирования Чезаро}. 
 	\[\sum_{n=1}^\infty a_n,\ S_n=\sum_{k=1}^na_n,\ G_n:=\frac{S_1+\dots+S_n}{n}\]
-	Если $\ex\lim_{n\ra\infty}G_n=S$, то $S$ называется суммой по Чезарю $\sum_{n=1}^\infty a_n$.
+	Если $\ex\lim_{n\ra\infty}G_n=S$, то $S$ называется суммой по Чезаро $\sum_{n=1}^\infty a_n$.
 \end{definition}
 \begin{theorem}\label{13_th1}
 	Метод суммирования Чезаро регулярен, то есть $\fa$ сходящегося ряда $\sum_{n=1}^\infty a_n$ его сумма по Чезарю $\ex$ и равна обычной сумме.
@@ -37,6 +37,7 @@
 		\lim_{n\ra\i}\exp\left(\frac1n\sum_{k=1}^n\ln S_k\right)=\\
 		=\exp\left(\lim_{n\ra\i}\frac1n\sum_{k=1}^na_n\right)=\exp\left(\lim_{n\ra\i}b_n\right)=\exp(\ln L)=L
 	\end{multline*}
+	Получили требуемое.
 \end{anote}
 \begin{theorem}
 	\[\lim_{n\ra\i}\frac{\ln p_1+\dots+\ln p_n}n=\ln L\ (-\i \text{ если }L=0)\]
@@ -45,7 +46,7 @@
 	Было получено в замечании автора чуть выше.
 \end{proof}
 \begin{corollary}
-	Если $\lim_{n\ra\i}\frac{a_{n+1}}{a_n}=l$, то $\lim_{n\ra\i}\sqrt[n]{a_n}=l$.
+	Если $\ds\lim_{n\ra\i}\frac{a_{n+1}}{a_n}=l$, то $\lim_{n\ra\i}\sqrt[n]{a_n}=l$.
 \end{corollary}
 \begin{proof}
 	Положим: $p_1:=a_1,\ p_2:=\frac{a_2}{a_1},\dots,\ p_n:=\frac{a_n}{a_{n-1}},\ \dots$.\\
@@ -72,7 +73,7 @@
 	\[\l|\sum_{k=n+1}^{n+p}a_k\r|\le\sum_{k=n+1}^{n+p}|a_k|<\eps\]
 \end{proof}
 \begin{definition}
-	Если ряд сходится, но не абсолютно, то он сходится условно.
+	Если ряд сходится, но не абсолютно, то он \textit{сходится условно}.
 \end{definition}
 \begin{theorem}
 	Если $\ss a_n=\ss b+\ss c_n$, то:
@@ -97,6 +98,7 @@
 	По т. Вейерштрасса: $\ex\lim_{n\ra\i}S_{2n}=S\in\R$
 	\[S_{2n+1}=S_{2n}+b_{2n+1}\ra S\text{ при }n\ra\i\]
 	\[R_n=(-1)^{n+1}(b_{n+1}-(b_{n+2}-b_{n+3})-\dots)\]
+	Получили требуемое.
 \end{proof}
 \begin{theorem}\nf{(Признак Дирихле сходимости числовых рядов)}\label{13_th12}\\
 	Если:
@@ -123,7 +125,7 @@
 		\item Ряд $\ss a_n$ сходится.
 		\item $\{b_n\}_{n=1}^\i$ монотонна и органичена.
 	\end{enumerate}
-	то $\ss a_nb_n$ cходится.
+	то $\ds\ss a_nb_n$ cходится.
 \end{corollary}
 \begin{proof}
 	Из $2$ пункта следует, что $\ex\lim_{n\ra\i}b_n=b\in\R$.\\
@@ -146,15 +148,15 @@
 	\[\cos(n+1)x=\cos nx\cos x-\sin x\sin x\]
 	\begin{equation*}
 		\begin{cases}
-			s=s\cos x+c\sin x
+			s=s\cos x+c\sin x\\
 			c=c\cos x-s\sin x
 		\end{cases}
 	\end{equation*}
 	\[(s^2+c^2)=(s^2+c^2)\cos x=1\Ra\cos x=1\]
 	Получили противоречие, значит $\nexists\lim_{n\ra\i}\sin nx$.
 	\[\l|\sum_{n=1}^N\sin nx\cdot\frac{\sin\frac x2}{\sin\frac x2}\r|=\l|\sum_{n=1}^N\frac{\cos(n-\frac12)x-\cos(n+\frac12)x}{2\sin\frac x2}\r|=\l|\frac{\cos\frac x2-\cos(N+\frac12)x}{2\sin\frac x2}\r|\le\frac1{|\sin\frac x2|}\]
-	$\{\frac1{n^\al}\}$ - монотонная и бесконечно мала при $\al>0$.\\
-	$\ss\frac{\sin nx}{n^\al}$ сходится при $\al>0$.
+	$\ds\l\{\frac1{n^\al}\r\}$ - монотонная и бесконечно мала при $\al>0$.\\
+	$\ds\ss\frac{\sin nx}{n^\al}$ сходится при $\al>0$.
 	\[\l|\frac{\sin x}{n^\al}\r|\le\frac1{n^\al},\ \ss\frac1{n^\al}\text{ абсолютно сходится при }\al>1,\text{ условно при }\al\in(0,1]\]
 	\begin{equation*}
 		\l.
@@ -168,7 +170,7 @@
 	\end{equation*}
 \end{examples}
 \begin{theorem}\nf{(О перестановках абсолютно сходящихся рядов)}\\
-	Если ряд $\ss a_n$ сходится абсолютно, то $\fa$ биекции $n:\N\ra\N$ и последовательности $\{n_k\}_{k=1}^\i,\ n_k=n(k)$ ряд $\ss a_{n_k}$ сходится к той же сумме, что и $\ss a_n$.
+	Если ряд $\ss a_n$ сходится абсолютно, то $\fa$ биекций $n:\N\ra\N$ и последовательности $\{n_k\}_{k=1}^\i,\ n_k=n(k)$ ряд $\ss a_{n_k}$ сходится к той же сумме, что и $\ss a_n$.
 \end{theorem}
 \begin{proof}
 	Положим $a_k^*:=a_{n_k}$\\

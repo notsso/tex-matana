@@ -4,9 +4,10 @@
 \renewcommand{\l}{\left}
 \renewcommand{\r}{\right}
 \renewcommand{\i}{\infty}
-\renewcommand{\ss}[1][1]{\sum_{n=#1}^\i}
+\renewcommand{\ss}[1][1]{\sum_{n=#1}^\i} % series
 \renewcommand{\b}{\big}
-
+\renewcommand{\C}{\mathbb C}
+\renewcommand{\ps}[1][1]{\sum_{k={#1}}^n} % partial sum
 
 \let\limp\lim
 \let\sssum\sum
@@ -30,7 +31,9 @@
 \newcommand{\ex}{\exists}
 \newcommand{\fa}{\forall}
 \newcommand{\ds}{\displaystyle}
-\newcommand{\nf}{\normalfont}
+\newcommand{\nf}{\textnormal}
+\newcommand{\sssc}[1][0]{\ss[#1] c_n\cdot(z-z_0)^n} % степенной series в \C
+\newcommand{\sss}[1][0]{\ss[#1] a_n\cdot(x-x_0)^n}  % степенной series
 
 \DeclareMathOperator{\sign}{sign}
 

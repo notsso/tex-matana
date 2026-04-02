@@ -95,7 +95,7 @@
 	\[\l(\frac{\sin nx}{\sqrt n}\r)'=\frac{\cos nx\cdot n\cdot\sqrt n-\frac1{2\sqrt n}\cdot\sin nx}{n}=\cos nx\cdot\sqrt n+\dots\]
 	Видим, что в производной есть $\sqrt n$, значит $\nexists\lim_{n\ra\i}f_n'$.
 \end{example}
-\begin{theorem}\nf{(Почленное дифференцирование функциональных рядов)}\label{16_th8'}
+\begin{theorem}\nf{(Почленное дифференцирование функциональных рядов)}\label{16_th8'}\\
 	Если:
 	\begin{enumerate}
 		\item $f_n$ дифференцируема на $(a,b)$.
@@ -109,7 +109,7 @@
 		\item $S'(x)=\ss f'_n(x)$.
 	\end{enumerate}
 \end{theorem}
-\begin{theorem}\nf{(Вейерштрасса, пример ван дер Вардена)}\label{16_th9}
+\begin{theorem}\nf{(Вейерштрасса, пример ван дер Вардена)}\label{16_th9}\\
 	Существует функция, непрерывная на $\R$ и не дифференцируемая ни в одной точке $x\in\R$.
 \end{theorem}
 \begin{proof}
@@ -144,5 +144,16 @@
 		\ge4^m\l(\l(\frac34\r)^m\cdot1-\sum_{k=0}^{m-1}\l(\frac34\r)^k\cdot4^{k-m}\r)=\\
 		=3^m-\sum_{k=0}^{m-1}3^k=3^m-\frac{3^m-1}2\ge\frac12\cdot 3^m   
 	\end{multline*}
-	Продолжение доказательства пока нет (будет 01.04.2026).
+	\[(\fa x\in\R)(\fa n\in\N)\ \al_m\le x\le \beta_m,\ \beta_m-\al_m\ra0,\ \frac{f(\beta_m)-f(\al_m)}{\beta_m-\al_m}\ra\i\text{ при }m\ra\i\]
+	От противного: пусть $\ex$ производная $f'(x)$ в точке $x\in\R$:
+	\begin{equation*}
+		\begin{split}
+			\frac{f(\beta_m)-f(\al_m)}{\beta_m-\al_m}&=\frac{f(\beta_m)-f(x)}{\beta_m-\al_m}+\frac{f(x)-f(\al_m)}{\beta_m-\al_m}=\\
+			&=\frac{\beta_m-x}{\beta_m-\al_m}\cdot\l(\frac{f(\beta_m)-f(x)}{\beta_m-x}-f'(x)\r)+\\
+			&+\frac{x-\al_m}{\beta_m-\al_m}\cdot\l(\frac{f(x)-f(\al_m)}{\beta_m-\al_m}-f'(x)\r)+f'(x)\ra f'(x)\text{ при }m\ra\i
+		\end{split}
+	\end{equation*}
+	Отметим, что выражение чуть выше имеет место, только когда $\al_m<x<\beta_m$.\\
+	Если одно из неравенств нестрогое, то б. о. о. $x=\al_m,\ \beta_m-x=1$, одно из слагаемых будет равно 0.
+	Получили требуемое.
 \end{proof}

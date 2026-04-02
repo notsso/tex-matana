@@ -124,17 +124,17 @@
 \begin{theorem}\label{12_th6}\nf{(Признак Коши)}\\
 	Пусть $a_k>0\ \fa k\in\N$. Тогда:
 	\begin{enumerate}
-		\item $\ds\v\lim_{n\ra\p}\sqrt[n]{a_n}<1$, тогда $\ds\ss a_n$ сходится.
-		\item $\ds\v\lim_{n\ra\p}\sqrt[n]{a_n}>1$, тогда $\ds\ss a_n$ расходится.
+		\item $\ds\v{\lim_{n\ra\p}}\sqrt[n]{a_n}<1$, тогда $\ds\ss a_n$ сходится.
+		\item $\ds\v{\lim_{n\ra\p}}\sqrt[n]{a_n}>1$, тогда $\ds\ss a_n$ расходится.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
 	Докажем первый пункт.
-	\[p:=\v\lim_{n\ra\p}\sqrt[n]{a_n},\ (\fa\eps>0)(\ex N\in\N)(\fa n>N)\ \sqrt[n]{a_n}<p+\eps=\t p<1,\ a_n<{\t p}^n,\ \ss[N+1]\t p\text{ сходится}\]
+	\[p:=\v{\lim_{n\ra\p}}\sqrt[n]{a_n},\ (\fa\eps>0)(\ex N\in\N)(\fa n>N)\ \sqrt[n]{a_n}<p+\eps=\t p<1,\ a_n<(\t p)^n,\ \ss[N+1]\t p\text{ сходится}\]
 	Теперь второй. $\ds\lim_{n\ra\p}\sqrt[n]{a_n}=p>1,\ \ex\{n_k\}_{k=1}^\i,\ \lim_{k\ra\p}\sqrt[n]{a_{n_k}}=p$
 	\[(\fa\eps>0)(\ex K\in\N)(\fa k>K)\ \sqrt[n]{a_{n_k}}>p-\eps=q>1\Ra a_{n_k}>q^{n_k}\ra\p,\ k\ra\p,\ \lim_{k\ra\p}a_{n_k}\neq0\]
 	Получили требуемое.
 \end{proof}
 \begin{note}
-	Теоремы (\ref{12_th5}) и (\ref{12_th6}) иногда записывают в предельной форме. Отличие заключается в том, что предел становится не верхний, а обычный, и также добавляется условие: при $\lim\dots=1$ ничего про сходимость с помощью этих теорем сказать нельзя.
+	Теоремы (\ref{12_th5}) и (\ref{12_th6}) иногда записывают в предельной форме. Отличие заключается в том, что предел становится не верхний, а обычный, и также добавляется условие: при $\lim=1$ ничего про сходимость с помощью этих теорем сказать нельзя.
 \end{note}
