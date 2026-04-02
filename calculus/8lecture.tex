@@ -49,7 +49,10 @@
 \end{definition}
 \begin{definition}
 	Число $A\in\R$ называется \textit{пределом интегральных сумм}, если:
-	\[A=\lim_{\tr(P)\ra0}S(P,f,\{t_i\}), \text{ если }(\fa\eps>0)(\ex\delta>0)(\fa P,\ \tr(P)<\delta)(\fa\{t_i\},\ t_i\in[x_{i-1},x_i])\]
+	\begin{multline*}
+		A=\lim_{\tr(P)\ra0}S(P,f,\{t_i\})\lra\\
+		\lra(\fa\eps>0)(\ex\delta>0)(\fa P,\ \tr(P)<\delta)(\fa\{t_i\},\ t_i\in[x_{i-1},x_i])\ |A-S(P,f,\{t_i\})|<\eps
+	\end{multline*}
 \end{definition}
 \begin{lemma}
 	Если $\ex$ предел интегральных сумм $S(P,f,\{t_i\})$, то $f$ ограничена.
