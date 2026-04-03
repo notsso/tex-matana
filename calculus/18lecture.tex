@@ -1,0 +1,118 @@
+\begin{definition}
+	Пусть $f$ дифференцируема вместе со своими производными любого порядка в точке $x_0\in\R$ (то есть бесконечно дифференцируема в $x_0$). \\
+	Тогда рядом Тейлора этой функции (рядом Маклорена для $x_0=0$) называется степенной ряд $\ds\ss[0]\frac{f^{(n)}(x_0)}{n!}\cdot(x-x_0)^n$.
+\end{definition}
+\begin{example}
+	Покажем, что даже если найти ряд Тейлора для функции, то сходится он может и не к ней.
+	\[f(x)=
+	\begin{cases}
+		e^{\frac{-1}{x^2}},\ x\neq0\\
+		0,\ x=0
+	\end{cases}
+	\ x\neq0\Ra f=g\circ h,\ g(y)=e^y,\ h(x)=\frac{-1}{x^2}
+	\]
+	Докажем, что $(\fa n\in\N)\ f^{(n)}(0)=0.\ g^{(k)}(y)=e^y,\ h^{(k)}(x)=c\cdot x^{-2-k}$.\\
+	Тогда по формуле Фаа-ди-Бруно:
+	\[f^{(n)}(x)=\sum_{\pi\in\Pi_n}g^{|\pi|}(h(x))\underset{B\in\pi}{\Pi}h^{(|B|)}h^{|B|}(x)=e^{\frac{-1}{x^2}}\cdot P_m\l(\frac1x\r),\ x\neq0\]
+	По индукции:
+	\begin{multline*}
+		f^{(n+1)}(0)=\lim_{\tr x\ra0}\frac{f^{(x)}(\tr x)-f^{(n)}(0)}{\tr x}=\lim_{\tr x\ra0}e^{\frac{-1}{(\tr x)^2}}\cdot P_{m+1}\l(\frac{1}{\tr x}\r)=
+		\lim_{t\ra+\i}e^{-t}\cdot P_{m+1}(\sqrt{t})
+	\end{multline*}
+	Так как $e^{-t}\cdot P_{m+1}(\sqrt{t})$ - линейная комбинация экспоненты и каких - то степеней $\sqrt{t}$, то достаточно посчитать лишь:
+	\[\lim_{t\ra+\i}\frac{t^{k/2}}{e^t}=0\]
+	Доказали, значит ряд Маклорена для $f$ состоит только из $0$. Он сходится, но не в $f$.
+\end{example}
+\begin{example}
+	\[
+	f(x)=e^x,\ f^{(n)}(0)=1
+	\]
+	Ряд Маклорена для этой функции:
+	\[\ss[0]\frac{x^n}{n!}=e^x\]
+	Неизвестно, правда ли сумма этого ряда равна изначальной функции.\\
+	Посчитаем радиус сходимости:
+	\[R=\lim_{n\ra\i}\l|\frac{a_n}{a_{n+1}}\r|=\lim_{n\ra\i}\frac{1/n!}{1/(n+1)!}=\lim_{n\ra\i}(n+1)=+\i\Ra(\fa x\in\R)\ \lim_{n\ra\i}\frac{x^n}{n!}=0\]
+\end{example}
+\begin{theorem}\nf{(Достаточное условие представимости функции рядом Тейлора)}\label{18_th1}\\
+	Если:
+	\begin{enumerate}
+		\item $f$ бесконечно дифференцируема на $(x_0-h,x_0+h)=I$.
+		\item $(\ex M)(\fa x\in I)(\fa n\in\N)\ |f^{(n)}(x)\le M|$.
+	\end{enumerate}
+	то ряд Тейлора $\ds\ss[0]\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n$ сходится к $f(x)$ при всех $x\in I$.
+\end{theorem}
+\begin{proof}
+	По формуле Тейлора с остаточным членов в форме Лагранжа:
+	\[f(x)-\ss[0]\frac{f^{(m)}(x_0)}{m!}(x-x_0)^m=\l|\frac{f^{(n+1)}(\xi)}{(n+1)!}\cdot(x-x_0)^{n+1}\r|\le M\cdot\frac{|x-x_0|^{n+1}}{(n+1)!}\us{n\ra\i}{\ra}0\]
+	Получили требуемое.
+\end{proof}
+\subsection{Представление элементарных функций рядом Тейлора (Маклорена)}
+\begin{examples}
+	\begin{enumerate}
+		\item $\ds e^x=\ss[0]\frac{x^n}{n!},\ x\in\R,\ (\fa h>0)(\fa x\in(-h,h))(\fa n\in\N)\ |(e^x)^{(n)}|\le e^h$\\
+		\item $\ds\sin x=\ss[0](-1)^n\cdot\frac{x^{2n+1}}{(2n+1)!},\ x\in\R,\ |(\sin x)^{(n)}|=\l|\sin\l(x+\frac{\pi n}2\r)\r|\le1$\\
+		\item $\ds\cos x=\ss[0](-1)^n\cdot\frac{x^{2n}}{(2n)!},\ x\in\R,\ |(\cos x)^{(n)}|=\l|\cos\l(x+\frac{\pi n}2\r)\r|\le1$\\
+		\item $\ds\ch x=\frac{e^x+e^{-x}}2=\ss[0]\frac{x^{2n}}{(2n)!},\ x\in\R$
+		\item $\ds\sh x=\frac{e^x-e^{-x}}2=\ss[0]\frac{x^{2n+1}}{(2n+1)!},\ x\in\R$
+		\item $\ds\ln(1+x)=\ss[1](-1)^{n+1}\cdot\frac{x^n}{n},\ x\in(-1,1]$\\
+		$\ds(\ln(1+x))'=\frac1{x+1}=1+\ss[1](-1)^n\cdot x^n,\ x\in(-1,1)$\\
+		При $\ds x=1:\ln2=\ss[1]\frac{(-1)^{n+1}}{n}$
+		\item $\ds(1+x)^\al=1+\ss[1]\frac{\al(\al-1)\dots(\al-n+1)}{n!}x^n,\ x\in(-1,1)$\\
+		Распишем через остаток в интегральной форме:
+		\[f(x)-\ps\frac{f^{(k)}(x_0)}{k!}(x-x_0)^n=\frac1{n!}\int_0^x(x-t^n\cdot\f[n+1](t)dt),\ f(x)=(1+x)^\al,\ x_0=0\]
+		Для доказательства представления нужно показать:
+		\[\frac1{n!}\int_0^x(x-t)^n\l((1+t)^\al\r)^{(n+1)}dt\ra0\]
+		\begin{multline*}
+			\frac1{n!}\int_0^x(x-t)^n\cdot\al(\al-1)\dots(\al-n)\cdot(1+t)^{\al-n-1}dt=\\
+			=\frac{\al(\al-1)\dots(\al-n)}{n!}\int_0^x\l(\frac{x-t}{1+t}\r)^n\cdot(1+t)^{\al-1}dt\le\\
+			\le\l|\frac{\al(\al-1)\dots(\al-n)}{n!}\r|\cdot|x|^n\cdot\l|\int_0^x(1+t)^{\al-1}dt\r|=\\
+			=\l|\frac{\al(\al-1)\dots(\al-n)}{n!}\r|\cdot|x|^n\cdot c(x,\al)
+		\end{multline*}
+		Рассмотрим ряд $\ds\ss[0]\frac{\al(\al-1)\dots(\al-n)}{n!}x^n$.
+		\[R=\lim_{n\ra\i}\l|\frac{a_n}{a_{n+1}}\r|=\lim_{n\ra\i}\l|\frac{n+1}{\al-n-1}\r|=1\]
+		Тогда при $|x|<1$ ряд сходится, значит и рассматриваемый изначально тоже сходится, и именно к $(1+x)^\al$.\\
+		Получили требуемое.
+		\item $\ds\arctg x=\ss[0](-1)^n\cdot\frac{x^{2n+1}}{2n+1},\ -1<x\le1$\\
+		$\ds(\arctg x)'=\frac1{1+x^2}=\ss[0](-x^2)^n=\ss[0](-1)^n\cdot x^{2n}$\\
+		$\ds\int_0^x(\arctg t)'dt=\ss[0](-1)^n\int_0^xt^{2n}\cdot dt$
+		\item $\ds\arcsin x=x+\ss[1]\frac{(2n-1)!!}{(2n)!!}\cdot\frac{x^{2n+1}}{2n+1},\ |x|<1$\\
+		$\ds(\arcsin x)'=\frac1{\sqrt{1-x^2}}=(1-x^2)^{-1/2}=1+\ss[1]\frac{\frac{-1}2(\frac{-1}2-1)\dots(\frac{-1}2-n+1)}{n!}(-x^2)^n$\\
+		$\ds(\arcsin x)'=1+\ss[1]\frac{(-1)^n(2n-1)!!}{2^n\cdot n!}(-1)^n\cdot x^{2n}=1+\ss[1]\frac{(2n-1)!!}{(2n)!!}x^{2n}$
+		\item $\ds\ln(1+\sqrt{1-x^2})=\ln2-\ss[1]\frac{(2n-1)!!}{(2n)!!\cdot 2n}\cdot x^{2n}$\\
+		$\ds(\ln(1+\sqrt{1-x^2}))'=\frac1{1+\sqrt{1-x^2}}\cdot\frac{-2x}{2\sqrt{1-x^2}}=\frac{-x}{(1+\sqrt{1-x^2})\cdot\sqrt{1-x^2}}=\frac{x(1-\sqrt{1-x^2})}{x^2\cdot\sqrt{1-x^2}}$\\
+		$\ds(\ln(1+\sqrt{1-x^2}))'=\frac1x\l(1-\frac1{\sqrt{1-x^2}}\r)=-\ss[1]\frac{(2n-1)!!}{(2n)!!}\cdot x^{2n-1}$\\
+		$\ds(\ln(1+\sqrt{1-x^2}))'dt=\ln(1+\sqrt{1-x^2})\cdot\ln2$
+	\end{enumerate}
+\end{examples}
+\subsection{Комплексные степенные ряды}
+\begin{definition}
+	\textit{Показательно - тригонометрическое представление} комплексного числа:
+	\[r\cdot e^{i\phi}=r(\cos\phi+i\cdot\sin\phi)\]
+\end{definition}
+\begin{definition}
+	$\sin$ от комплексного аргумента назовём:
+	\[(\fa z\in\C)\ \sin z:=\frac{e^{iz}-e^{-iz}}2\]
+	Соответсвенно, $\cos$ от комплексного аргумента:
+	\[(\fa z\in\C)\ \cos z:=\frac{e^{iz}+e^{-iz}}2\]
+\end{definition}
+\begin{lemma}
+	Для любых $z_1,z_2\in\C$ справедливо:
+	\[e^{z_1+z_2}=e^{z_1}\cdot e^{z_2}\]
+\end{lemma}
+\begin{proof}
+	Пусть $z_1=x_1+i\cdot y_1,\ z_2=x_2+i\cdot y_2$. Тогда:
+	\[e^{z_1}\cdot e^{z_2}=e^{x_1}(\cos y_1+i\cdot\sin y_2)\cdot e^{x_2}(\cos y_2+i\cdot\sin y_2)=e^{x_1+x_2}(\cos(y_1+y_2)+i\cdot\sin(y_1+y_2))=e^{z_1+z_2}\]
+\end{proof}
+\begin{theorem}\label{18_th2}
+	Для $\fa z\in\C$ справедливы выражения:
+	\[e^z=\ss[0]\frac{z^n}{n!},\ \cos z=\ss[0](-1)^n\cdot\frac{z^{2n}}{(2n)!},\ \sin z=\ss[0](-1)^n\frac{z^{2n+1}}{(2n+1)!}\]
+\end{theorem}
+\begin{proof}
+	$\ds e^z=e^x(\cos y+i\cdot\sin y)=\ss[0]\frac{x^n}{n!}\cdot\l(\ss[0](-1)^n\cdot\frac{y^{2n}}{(2n)!}+i\cdot\ss[0](-1)^n\cdot\frac{y^{2n+1}}{(2n+1)!}\r)$\\
+	$\ds e^z=\ss[0]\frac{x^n}{n!}\cdot\l(\ss[0]\frac{(iy)^n}{n!}\r)=\ss[0]\frac1{n!}\l(\ps[0]\frac{n!\cdot x^k\cdot(iy)^{n-k}}{k!\cdot(n-k)!}\r)=\ss[0]\frac1{n!}(x+iy)^n=\ss[0]\frac{z^n}{n!}$\\
+	Доказали для $e^z$.\\
+	$\ds\cos z=\frac{e^{iz}+e^{-iz}}2=\frac12\l(\ss[0]\frac{(iz)^n}{n!}+\ss[0]\frac{(-iz)^n}{n!}\r)=\frac12\cdot\ss[0]2\cdot(-1)^m\cdot\frac{z^{2m}}{(2m)!}$\\
+	Доказали для $\cos z$.\\
+	$\ds\sin z=\frac{e^{iz}-e^{-iz}}2=\frac1{2i}\l(\ss[0]\frac{(iz)^n}{n!}-\ss[0]\frac{(-iz)^n}{n!}\r)=\frac1{2i}\ss[0]\frac{(iz)^{2m+1}}{(2m+1)!}$\\
+	Доказали для $\sin z$. Получили требуемое.
+\end{proof}
