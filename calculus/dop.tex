@@ -12,28 +12,30 @@
 
 \let\limp\lim
 \let\sssum\sum
-\let\nra\nrightarrow
-\let\B\Big
-\let\us\underset
 
 \renewcommand{\lim}{\limp\limits}
 \renewcommand{\sum}{\sssum\limits}
 
-\newcommand{\sq}[1][{x_n}]{\{#1\}_{n=1}^\i}
+\let\nra\nrightarrow
+\let\B\Big
+\let\us\underset
+\let\sm\setminus
+\let\smo\smashoperator
+\let\vd\vdelta
+\let\al\alpha
+\let\fa\forall
+\let\ex\exists
+\let\nf\textnormal
+\let\ds\displaystyle
+\let\mf\mathfrak
+\let\bsc\bigsqcup
 
+\newcommand{\sq}[1][{x_n}]{\{#1\}_{n=1}^\i}         % sequence
 \newcommand{\p}{{+\infty}}
-\newcommand{\uv}{\underline}      % under vector
-\newcommand{\mf}{\mathfrak}
-\newcommand{\vd}{\vdelta}         
-\newcommand{\okr}{\mathring{U}}   % okrestnost
-\newcommand{\vx}{\v x}            % vector x
-\newcommand{\smo}{\smashoperator} 
-\newcommand{\sus}{\hspace{0.8cm}} % supremum space
-\newcommand{\al}{\alpha}
-\newcommand{\ex}{\exists}
-\newcommand{\fa}{\forall}
-\newcommand{\ds}{\displaystyle}
-\newcommand{\nf}{\textnormal}
+\newcommand{\uv}{\underline}                        % under vector
+\newcommand{\okr}{\mathring{U}}                     % okrestnost
+\newcommand{\vx}{\v x}                              % vector x 
+\newcommand{\sus}{\hspace{0.8cm}}                   % supremum space
 \newcommand{\sssc}[1][0]{\ss[#1] c_n\cdot(z-z_0)^n} % степенной series в \C
 \newcommand{\sss}[1][0]{\ss[#1] a_n\cdot(x-x_0)^n}  % степенной series
 

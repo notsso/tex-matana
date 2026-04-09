@@ -1,0 +1,129 @@
+\section{Меры Жордана и Лебега}
+\subsection{Элементарные множества и n-мерный объём}
+\begin{definition}
+	\textit{Конечный промежуток} $\l<a,b\r>$ - отрезок, интервал или полуинтервал от $a$ до $b$.
+\end{definition}
+\begin{definition}
+	\textit{Брусом} $P$ в $R^n$ назовём декартово произведение n конечных промежутков:
+	\[P:=\prod_{j=1}^n\l<a_j,b_j\r>\]
+\end{definition}
+\begin{definition}
+	\textit{Объём бруса}:
+	\[|P|:=\prod_{j=1}^n(b_j-a_j)\]
+\end{definition}
+\begin{definition}
+	Дополнением бруса $Q=\prod_{j=1}^n\l<c_j,d_j\r>\ (x_j\in\l<c_j,d_j\r>)$ назовём $Q^C=\{(x_1,\dots,x_n):x_j\notin\l<c_j,d_j\r>\text{ для некоторого }j\}$
+\end{definition}
+\begin{definition}
+	\textit{Элементарным множеством} называется конечное объединение непересекающихся брусьев.
+	\[M=\bsc_{j=1}^NP_j\]
+\end{definition}
+\begin{proposition}\nf{(Свойства объёма брусьев)}
+	\begin{enumerate}
+		\item $\ds P\subset Q\Ra|P|\le|Q|$
+		\item $P=\bsc_{j=1}^NP_j\Ra|P|=\sum_{j=1}^N|P_j|$
+	\end{enumerate}
+\end{proposition}
+\begin{lemma}
+	Объединение, пересечение, разность и симметрическая разность элементарных множеств $M_1$ и $M_2$ также является элементарным множеством.
+\end{lemma}
+\begin{proof}
+	Пересечение:
+	\[M_1\cap M_2=\l(\bsc_{j=1}^{N_1}P_{1,j}\r)\cap\l(\bsc_{j=1}^{N_2}P_{2,k}\r)=\bsc_{j=1,k=1}^{N_1,N_2}(P_{1,j}\cap P_{2,k})=\bsc_{j=1,k=1}^{N_1,N_2}P_{j,k}\]
+	Рассмотрим разность брусьев $P$ и $Q$.\\
+	Разобьём $Q^C$ на конечное число бесконечных брусьев: $\ds Q^C=\bsc_{k=1}^NQ_k'$.
+	\[P\sm Q=P\cap Q^C=P\cap\l(\bsc_{k}Q_k'\r)=\bsc_{k=1}^N(P\cap Q_k')\]
+	Теперь рассмотрим разность элементарного множества $M_1$ и бруса $P$:
+	\[M_1\sm P=\bsc_{j=1}^N(P_{1,j}\sm Q)\]
+	Вернёмся к $M_1$ и $M_2$:
+	\begin{equation*}
+		\begin{split}
+			M_1\sm M_2&=M_1\sm\l(\bsc_{k=1}^{N_2}Q_k\r)=\bigcap_{k=1}^{N_2}(M_1\sm Q_k)\\
+			M_1\cup M_2&=(M_1\sm M_2)\sqcup(M_2\sm M_1)\sqcup(M_1\cap M_2)\\
+			M_1\tr M_2&=(M_1\sm M_2)\sqcup(M_2\cup M_1)
+		\end{split}
+	\end{equation*}
+	Так как для разности уже доказано, то требуемое получено.
+\end{proof}
+\begin{definition}
+	Совокупность множеств такая, что объединение, пересечение, разность и симметрическая разность для любых двух её элементов также принадлежит совокупности нахывается \textit{кольцом множеств}.
+\end{definition}
+\begin{anote}
+	Следующее определение очень странное и его формулировка будет уточнена у Лукашова.
+\end{anote}
+\begin{definition}
+	Если в кольце множеств существует "универсальное" множество $E$, то есть такое, что все элементы кольца - подмножество $E$, то такое кольцо называется \textit{Алгеброй множеств}.
+\end{definition}
+\begin{definition}
+	\textit{Объём элементарного множества} $\ds M=\bsc_{j=1}^NP_j$ равен $\ds|M|:=\sum_{j=1}^N|P_j|$
+\end{definition}
+\begin{theorem}\nf{(Основные свойства объёма на кольце элементарных множеств)}\label{19_th1}
+	\begin{enumerate}
+		\item Определение объёма корректно.
+		\item $\fa M,N\ |M\cup N|+|M\cap N|=|M|+|N|$
+		\item $\fa M\subset N\ |M|\le|N|$
+		\item Конечная аддитивность. Для любых непересекающихся элементарных множеств $\ds M_1,\dots,M_n:\ \bigg|\bsc_{j=1}^NM_j\bigg|=\sum_{j=1}^n|M_j|$
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+		\item Пусть есть 2 представления $M$:
+		\[M=\bsc_{j=1}^NP_j=\bsc_{k=1}^{N'}P_k=\bsc_{j=1,k=1}^{N,N'}P_j\cap P_k'\]
+		\[|P_j|=\sum_{j=1}^N|P_j\cap P_k'|\Ra\sum_{j=1}^N|P_j|=\sum_{k=1}^{N'}|P_k'|=\sum_{j=1,k=1}^{N,N'}|P_j\cap P_k'|\]
+		\item \[M\cup N=(M\sm N)\sqcup(M\cap N)\sqcup(N\sm M)\]
+		\[|M\cup N|=|M\sm N|+|M\cap N|+|N\sm M|\]
+		\[M=(M\sm N)\sqcup(M\cap N)\Ra|M|=|M\sm N|+|M\cap N|\]
+		\item Следует из второго пункта:
+		\[N=M\sqcup(N\sm M)\]
+		\item Доказывается по индукции.
+	\end{enumerate}
+	Получили требуемое.
+\end{proof}
+\begin{corollary}\nf{(Из 4 пункта теоремы (\ref{19_th1}))}\\
+	Для любых множеств $M_1,\dots,M_n$ справедливо:
+	\[M=\bigcup_{j=1}^nM_j\Ra|M|\le\sum_{j=1}^n|M_j|\]
+\end{corollary}
+\begin{definition}
+	$\eps$\textit{-растяжением} бруса $P=\prod_{j=1}^n\l<a_j,b_j\r>$ называется брус $P^\eps$ такой, что: \[P^\eps=\prod_{j=1}^n\l(\frac{a_j+b_j}2-\sqrt[n]{1+\eps}\cdot\frac{b_j-a_j}2,\
+	\frac{a_j+b_j}2+\sqrt[n]{1+\eps}\cdot\frac{b_j-a_j}2\r)\]
+	В случае $|P|=0$, $b_j-a_j=0$, тогда соответствующий интервал: $\ds\l(\frac{a_j+b_j}2-\eps_n,\frac{a_j+b_j}2+\eps_n\r)$.\\
+	$\eps_n$ - такое число, которое в вырожденном случае даст $|P^\eps|=\eps$.\\
+	В невырожденном случае: $|P^\eps|=(q+\eps)|P|$
+\end{definition}
+\begin{definition}
+	$\eps$-сжатием бруса $P=\prod_{j=1}^n\l<a_j,b_j\r>,\ |P|\neq0$ называется брус $P^{-\eps}$ такой, что:
+	\[P^{-\eps}=\prod_{j=1}^n\l[\frac{a_j+b_j}2-\sqrt[n]{1-\eps}\cdot\frac{b_j-a_j}2,\ \frac{a_j+b_j}2+\sqrt[n]{1-\eps}\cdot\frac{b_j-a_j}2\r]\]
+	В случае $|P|=0: P^{-\eps}=\emptyset$\\
+	$|P^{-\eps}|=(1-\eps)|P|$
+\end{definition}
+\begin{theorem}\nf{(Счётная, полная, $\sigma$ - аддитивность объёма на кольце элементарных множеств)}\label{19_th2}\\
+	Если элементарное множество $M$ представимо в виде счётного объединения непересекающихся элементарных множеств $M_j$, то:
+	\[|M|=\sum_{j=1}^\i|M_j|\]
+\end{theorem}
+\begin{anote}
+	На лекции в среду было приведено не до конца, будет позже.
+\end{anote}
+\begin{proof}
+	Докажем, что:
+	\[M\subset\bigcup_{j=1}^\i M_j\Ra|M|\le\sum_{j=1}^\i|M_j|\]
+	Знаем:
+	\[M=\bsc_{k=1}^NP_k,\ M_j=\bsc_{i=1}^{N'_j}P_{j,i}\]
+	Рассмотрим $\ds P_k^{-\eps}.\text{ }\ \bsc_{k=1}^NP_k^{-\eps}\subset M$
+	\[\l|\bsc_{k=1}^NP_k^{-\eps}\r|=\sum_{k=1}^N|P_k^{-\eps}|=(1-\eps)\sum_{k=1}^N=(1-\eps)|P_k|=(e-\eps)|M|\text{ (для }|M|\neq0)\]
+	Рассмотрим $P^{\eps/2^j}_{j,i}$, $N_j'$ - количество невырожденных брусьев:
+	\[\l|\bigcup_{i=1}^{N_j}P_{j,i}^{\frac\eps{2^j\cdot N_j\cdot |M_j|}}\r|\le
+	\sum_{i=1}^{N_j'}\l(1+\frac\eps{|M_j|\cdot 2^j\cdot N_j}\r)|P_{j,i}|+\frac\eps{2^j\cdot N_j}(N_j-N_j')
+	\le\l(1+\frac\eps{2^j}\r)|M_j|+\frac\eps{2^j}\]
+	$|M_j|$ в первой части выражения и в следующих выкладках нужно в случае $|P_{j,i}|\neq0$\\
+	\[\underbrace{\bsc_{k=1}^NP_k^{-\eps}}_{\text{компактное}}\subset
+	\underbrace{\bigcup_{j=1}^\i\l(\bigcup_{i=1}^{N_j}P_{j,i}^{\frac\eps{2^i\cdot N_j\cdot |M_j|}}\r)}_{G_j-\text{открытое}}\]
+	Значит существует конечное подпокрытие:
+	\[\ex j_1,\dots,j_r:\ \bsc_{k=1}^NP_k^{-\eps}\subset\bigcup_{l=1}^rG_{j_l}\]
+	Тогда имеем:
+	\begin{multline*}
+		(1-\eps)\cdot|M|=\l|\bsc_{k=1}^NP_k^{-\eps}\r|\le\sum_{l=1}^r\l|\bigcup_{i=1}^{N_{j_l}}P_{j_l,i}^{\frac\eps{2^{j_l}\cdot N_{j_l}\cdot |M_{j_l}|}}\r|\le\\
+		\le\sum_{l=1}^r\l(\l(1+\frac\eps{2^{j_l}\cdot|M_{j_l}|}\r)\cdot|M_{j_l}|+\frac\eps{2^{j_l}}\r)\le
+		\sum_{j=1}^\i|M_j|\cdot(1+\eps)+\eps
+	\end{multline*}
+	Доказали утверждение из начала доказательства всей теоремы.
+\end{proof}
