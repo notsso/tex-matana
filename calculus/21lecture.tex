@@ -27,7 +27,7 @@
 	Если $A_1,A_2,\dots$ - измеримые по Лебегу подмножества $K_I$, то $\ds\bc_{i=1}^\i A_i$ - измеримо по Лебегу.
 \end{theorem}
 \begin{proof}
-	Докажем для непересекающихся $A_1,A_2,\dots$.
+	Докажем для непересекающихся $A_1,A_2,\dots$
 	\[(\fa m\in\N)\ \mu\l(\bsc_{i=1}^mA_i\r)=\sum_{i=1}^m\mu(A_i)\le|K_I|=1\]
 	Следовательно, ряд $\sum_{i=1}^\i\mu(A_i)$ сходится, тогда имеем:
 	\[(\fa\eps>0)(\ex r\in\N)\ \sum_{i=r+1}^\i\mu(A_i)<\frac\eps2\]
@@ -59,22 +59,22 @@
 	\[\m\l(\bsc_{i=1}^\i A_i\r)\le\sum_{i=1}^\i\m(A_i)\]
 	Получили требуемое.
 \end{proof}
-\begin{adefinition}
+\begin{definition}
 	$\sigma$-алгеброй множеств называют алгебру множеств, замкнутую относительно счётного объединения.
-\end{adefinition}
+\end{definition}
 \begin{note}
 	(\ref{21_th4}) показывает, что измеримые по Лебегу подмножества $K_I$ образуют $\sigma$-алгебру множеств.
 \end{note}
 \begin{definition}
 	Пусть $A_1,A_2,\dots$ - подмножества $K_I$, тогда:
 	\[\sup_mA_m:=\bc_{m=1}^\i A_m,\ \inf_mA_m:=\bigcap_{m=1}^\i A_m\]
+	\[\underset{m\ra\i}{\v\lim}A_m:=\inf_m\sup_{k>m}A_k=\bigcap_{m=1}^\i\bc_{k=m}^\i A_k\]
+	\[\underset{m\ra\i}{\uv\lim}A_m:=\sup_m\inf_{k>m}A_k=\bc_{m=1}^\i\bigcap_{k=m}^\i A_k\]
 	Если $A_1\subset A_2\subset\dots$, то:
 	\[\lim_{m\ra\i}A_m=\bc_{m=1}^\i A_m\]
 	Если $A_1\supset A_2\supset\dots$, то:
 	\[\lim_{m\ra\i}A_m=\bigcap_{m=1}^\i A_m\]
-	\[\underset{m\ra\i}{\v\lim}A_m:=\inf_m\sup_{k>m}A_k=\bigcap_{m=1}^\i\bc_{k=m}^\i A_k\]
-	\[\underset{m\ra\i}{\uv\lim}A_m:=\sup_m\inf_{k>m}A_k=\bc_{m=1}^\i\bigcap_{k=m}^\i A_k\]
-	Если $\ds\v\lim_{m\ra\i}A_m=\uv\lim_{m\ra\i}A_m=l$, то:
+	Если $\ds\us{m\ra\i}{\v\lim}A_m=\us{m\ra\i}{\uv\lim}A_m=l$, то:
 	\[\ex\lim_{m\ra\i}A_m=l\]
 \end{definition}
 \begin{lemma}\label{21_l1}
@@ -99,14 +99,14 @@
 	Получили требуемое.
 \end{proof}
 \begin{lemma}\label{21_l3}
-	Если $A_1,A_2,\dots$ - измеримые по Лебегу подмножества $K_I$, то $\ds\us{m\ra\i}{\v\lim}A_m$ - измеримо по Лебегу и $\mu(\us{m\ra\i}{\v\lim}A_m)\ge\us{m\ra\i}{\v\lim}\mu(A_m)$
+	Если $A_1,A_2,\dots$ - измеримые по Лебегу подмножества $K_I$, то $\ds\us{m\ra\i}{\v\lim}A_m$ - измеримо по Лебегу, при этом: \[\mu(\us{m\ra\i}{\v\lim}A_m)\ge\us{m\ra\i}{\v\lim}\mu(A_m)\]
 \end{lemma}
 \begin{proof}
 	\[\mu(\us{m\ra\i}{\v\lim}A_m)=\mu\l(\bigcap_{m=1}^\i\bc_{k=1}^\i A_k\r)\overset{(\ref{21_l2})}{=}\lim_{m\ra\i}\mu\l(\bc_{k=m}^\i A_k\r)\ge\us{m\ra\i}{\v\lim}\mu(A_m)\]
 	Получили требуемое.
 \end{proof}
 \begin{lemma}\label{21_l4}
-	Если $A_1,A_2,\dots$ - измеримы по Лебегу подмножества $K_I$, то $\us{m\ra\i}{\uv\lim}A_m$ измеримо по Лебегу и $\mu(\lim_{m\ra\i}A_m)\le\us{m\ra\i}{\uv\lim}\mu(A_m)$
+	Если $A_1,A_2,\dots$ - измеримы по Лебегу подмножества $K_I$, то $\us{m\ra\i}{\uv\lim}A_m$ измеримо по Лебегу, при этом: \[\mu(\lim_{m\ra\i}A_m)\le\us{m\ra\i}{\uv\lim}\mu(A_m)\]
 \end{lemma}
 \begin{proof}
 		\[\mu(\us{m\ra\i}{\v\lim}A_m)=\mu\l(\bigcap_{m=1}^\i\bc_{k=1}^\i A_k\r)\overset{(\ref{21_l2})}{=}\lim_{m\ra\i}\mu\l(\bc_{k=m}^\i A_k\r)\le\lim_{m\ra\i}\mu(A_m)\]
@@ -121,9 +121,9 @@
 \end{proof}
 \begin{note}
 	Вместо $K_I$ можно взять любой его сдвиг:
-	\[K_I+(m_1,\dots,m_n)=\prod_{i=1}^n[\frac12+m_i,\ \frac12+m_i]\]
+	\[K_I+(m_1,\dots,m_n)=\prod_{i=1}^n\l[\frac12+m_i,\ \frac12+m_i\r]\]
 \end{note}
 \begin{definition}
-	Ограниченное множества $A\subset R^n$ называется \textit{измеримым по Жордану}, если $(\fa\v m\in\Z^n)\ A\cap(K_I+\v m)$ измеримо по Жордану, причём:
+	Ограниченное множество $A\subset R^n$ называется \textit{измеримым по Жордану}, если $(\fa\v m\in\Z^n)\ A\cap(K_I+\v m)$ измеримо по Жордану, причём:
 	\[\mu_J(A):=\sum_{\v m\in\Z}\mu_J(A\cap(K_I+\v m))\]
 \end{definition}

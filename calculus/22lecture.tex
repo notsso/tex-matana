@@ -1,0 +1,128 @@
+\begin{lemma}\label{21_l5}
+	Если числа $a_k=\lim_{s\ra\i}a_k^{(s)}$ (пределы возрастающих последовательностей неотрицательных чисел), то:
+	\[\lim_{s\ra\i}\sum_{k=1}^\i a_k^{(s)}=\sum_{k=1}^\i a_k\]
+	где не исключены бесконечные значения сумм.
+\end{lemma}
+\begin{proof}
+	Положим $\ds a:=\lim_{s\ra\i}\sum_{k=1}^\i a_k^{(s)},\ c:=\sum_{k=1}^\i a_k$.\\
+	От противного. Пусть $a>c$, тогда:
+	\[(\ex s_0\in\N)\ \sum_{k=1}^\i a_k^{(s_0)}>c\Ra(\ex m\in\N)\ \sum_{k=1}^ma_k^{(s_0)}>c\Ra\lim_{s\ra\i}\sum_{k=1}^ma_k^{(s)}>c\lra\sum_{k=1}^ma_k>c\]
+	Получили противоречие. Доказательство $c>a$ оставляется читателю в качестве упражнения.\\
+	Получили требуемое.
+\end{proof}
+\begin{corollary}
+	Для неотрицательных $a_{i,j}$.
+	\[\sum_{i=1}^\i\sum_{j=1}^\i a_{i,j}=\sum_{j=1}^\i\sum_{i=1}^\i a_{i,j}\]
+\end{corollary}
+\begin{definition}
+	$A\subset \R^n$ называется \textit{измеримым по Лебегу}, если $(\fa\v m\in\Z^n)\ A\cap(K_I+\v m)$ измеримо по Лебегу. При этом:
+	\[\mu(A):=\sum_{\v m\in\Z^n}\mu(A\cap(K_I+\v m))\]
+\end{definition}
+\begin{note}
+	Для ограниченных множеств критерий измеримости (\ref{20_th3}) остаётся верен.
+\end{note}
+\begin{note}
+	Конечная (для мер Жордана и Лебега), $\sigma$-аддитивность (для меры Лебега) верны в общем случае.
+\end{note}
+\begin{note}
+	Непрерывность справедлива лишь для ограниченных множеств.
+\end{note}
+\begin{example}
+	$n=1,\ B_m:=[m,+\i)$.
+	\[B_1\supset B_2\supset\dots\\text{ }\bigcap_{m=1}^\i B_m=\emptyset\]
+	\[(\fa m\in\N)\ \mu(B_m)=+\i\]
+\end{example}
+\begin{theorem}
+	Меры Жордана и Лебега инвариантны относительно сдвигов.
+	\[A+\v t:=\{\v x+\v t:\v x\in A\},\ (\fa \v t\in\R^n)\ \mu_{(J)}(A+\v t)=\mu_{(J)}(A)\]
+\end{theorem}
+\begin{theorem}\nf{(Структура открытых множеств в $\R^n$)}\label{22_th7}\\
+	Каждое открытое множество в $\R^n$ представимо в виде не более чем счётного объединения непересекающихся брусьев.
+\end{theorem}
+\begin{proof}
+	$G$ - открытое в $\R^n$. Заметим:
+	\[(\fa m=0,1,2,\dots)\R^n=\bsc_{\v l\in\Z^n}\prod_{k=1}^n\l[\frac{l_k}{2^m},\frac{l_k+1}{2^m}\r)=
+	\bsc_{\v l\in\Z^n}P_{\v l,m}\]
+	Положим:
+	\[\ds M_0:=\bsc_{\v l:P_{\v l,0}\subset G}P_{\v l,0},\ M_m:=\bsc_{\v l:P_{\v l,m}\subset G\sm\bsc_{r=0}^{m-1}M_r}P_{\v l,m}\]
+	Хотим доказать:
+	\[G=\bsc_{m=1}^\i M_m\]
+	По построению видно, что $\bsc_{m=0}^\i M_m\subset G$.\\
+	Докажем, что $G\subset \bsc_{m=0}^\i M_m$.
+	\[(\fa x\in G)(\ex\eps_0>0)\ \{|x-x_0|<\eps_0\}\subset G\]
+	\[(\ex m\in\N)\ \sqrt n\cdot\frac1{2^m}<\eps_0\Ra(\ex\v l\in\Z^n)\ x\in P_{\v l, m}\subset\{|x-x_0|<\eps_0\}\subset G\Ra P_{\v l,m}\subset\bsc_{r=0}^mM_r\]
+	Тогда имеем:
+	\[x\in\bsc_{r=0}^mM_r\subset\bsc_{m=0}^\i M_m\]
+	Получили требуемое.
+\end{proof}
+\begin{anote}
+	В доказательстве чуть выше. $P_{\v l,m}$ - n-мерный "квадрат" со стороной $\frac1{2^m}$, в который включены левые границы соответсвующих отрезков. Затем мы пытаемся покрыть $G$ такими квадратами, с всё меньшими и меньшими размерами.
+\end{anote}
+\begin{corollary}
+	Любые открытые и любые замкнутые множества в $\R^n$ измеримы по Лебегу.
+\end{corollary}
+\begin{corollary}
+	Для любого ограниченного замкнутого множества $F$:
+	\[\mj(F)=\mu(F)\]
+	Для любого ограниченного открытого множества $G$:
+	\[\mu_*^J(G)=\mu(G)\]
+\end{corollary}
+\begin{proof}
+	G - открытое, тогда:
+	\[G=\bsc_{i=1}^\i P_i\Ra(\fa m\in\N)\ G\supset\bsc_{i=1}^mP_i\Ra\mu_*^J(G)\ge\sum_{i=1}^m|P_i|\Ra\mu_*^J(G)\ge\sum_{i=1}^\i|P_i|=\mu(G)\]
+	В обратную сторону:
+	\[\ma(A)\le\mu^*_J(A),\ \mu_*(A)\ge\mu_*^J(A)\]
+	Пусть $F$ - замкнутое, $F\subset K$, тогда:
+	\[\mu(F)=|K|-\mu(K\sm F)=|K|-\mu((\intt K)\sm F)=|K|-\mu^J_*((\intt K)\sm F)=|K|-\mu_*^J(K\sm F)=\mu^*_J(F)\]
+	Получили требуемое.
+\end{proof}
+\begin{theorem}\nf{(Струкутра измеримых по Лебегу множеств в $R^n$)}\label{22_th8}\\
+	Пусть $A$ - измеримое по Лебегу в $R^n$ множество, $\mu(A)<+\i$. Тогда $A$ можно представить в виде:
+	\[A=\l(\bigcap_{i=1}^\i\bc_{j=1}^\i A_{i,j}\r)\sm P_0\]
+	где $A_{i,j}$ - элементарные, $(\fa i\in\N)\ A_{i,1}\subset A_{i,2}\subset\dots$.\\
+	$B_i:=\bc_{j=1}^\i A_{i,j},\ \mu(B_i)<+\i,\ B_1\supset B_2\supset\dots,\ \mu(P_0)=0$
+\end{theorem}
+\begin{proof}
+	По определению:
+	\[(\fa i\in\N)(\ex\{D_{i,j}\text{ - элементарное}\})\ C_i=\bc_{j=1}^\i D_{i,j}\supset A,\ \mu(C_i\sm A)<\frac1i\]
+	\[B_i:=\bigcap_{r=1}^iC_r=\bigcap_{r=1}^i\l(\bc_{j=1}^\i D_{i,j}\r)=\bc_{j=1}^\i\l(\bigcap_{i=1}^iD_{r,i}\r)\]
+	\[A_{i,1}:=\bigcap_{r=1}^iD_{r,1},\ A_{i,j}=\bc_{s=1}^j\l(\bigcap_{r=1}^iD_{r,s}\r)\]
+	\[B_1=C_1,\ \mu(B_1)=\mu(C_1)=\mu(A)+\mu(C_1\sm A)<\mu(A)+1<+\i\]
+	\[\mu\l(\l(\bigcap_{i=1}^\i\bc_{j=1}^\i A_{i,j}\r)\sm A\r)=\mu\l(\l(\bigcap_{i=1}^\i B_i\r)\sm A\r)=\lim_{i\ra\i}(\mu(B_i)-\mu(A))\le\us{i\ra\i}{\v\lim}(\mu(C_i)-\mu(A))\]
+	\[\us{i\ra\i}{\v\lim}(\mu(C_i)-\mu(A))\le\us{i\ra\i}{\v\lim}\frac1i=0\]
+	Получили требуемое.
+\end{proof}
+\begin{corollary}
+	Если $A$ - измеримо по Лебегу, то $A$ представимо в виде:
+	\[A=\bigcap_{i=1}^\i G_i\sm P_0\]
+	где $G_1\supset G_2\supset\dots$ - открытые, $\mu(P_0)=0$.
+	Справедливо и следующее:
+	\[A=\l(\bc_{j=1}^\i F_j\r)\cup P_i\]
+	где $F_1\subset F_2\subset\dots$ - замкнутые, $\mu(P_1)=0$
+\end{corollary}
+\begin{proof}
+	Повторим доказательство (\ref{22_th8}), только вместо $D_{i,j}$ будем брать $D^{\frac\eps{2^j}}_{i,j}$. Тогда $D_{i,j}$ будет открытым множеством.\\
+	Для получения второго выражения рассматрим дополнение $A$.\\
+	Получили требуемое.
+\end{proof}
+\begin{note}
+	Часто следующим образом вводятся внутренняя и внешняя меры:
+	\[\mj(A)=\inf_{M\supset A}|M|,\ \mu_*^J(A)=\sup_{M\subset A}|M|\text{, где $M$ - элементарное}\]
+	\[\m(A)=\inf_{G\supset A}\mu(G),\ \mu_*(A)=\sup_{F\subset A}\mu(F)\text{, где $G$ - открытое, $F$ - замкнутое}\]
+	Как в определении меры Лебега может использоваться сама мера?\\
+	Открытое множество - не более чем счётное объединение непересекающихся брусьев, поэтому мерой открытого множества можно считать суммой объёмов брусьев.
+\end{note}
+\begin{theorem}\nf{(Критерий измеримости по Жордану)}\label{22_th9}
+	Ограниченное множество $A\subset R^n$ измеримо по Жордану тогда и только тогда, когда $\mu_J(\vd A)=0$
+\end{theorem}
+\begin{proof}
+	Необходимость.
+	\[(\fa\eps>0)(|M_1\sm M_2|<\eps)\ M_1\supset A\supset M_2\text{, $M_1$ и $M_2$ - элементарные}\]
+	\[|\intt M_1|=|M_1|,\ |\cl M_2|=|M_2|\]
+	Считаем, что $M_1$ - замкнутое, $M_2$ - открытое.
+	\[\vd A=\cl A\sm\intt A,\ \cl A\subset\cl M_1=M_1,\ \intt A\supset\intt M_2=M_2\]
+	\[\mj(\vd A)\le|M_1\sm M_2|<\eps\Ra\mj(\vd A)=0\Ra\mu_J(\vd A)=0\]
+	Достаточность:
+	\[\mj(A)\le\mj(\cl A)=\mu(\cl A)=\mu(\intt A)+\mu(\vd A)=\mu(\intt A)=\mu_*^J(\intt A)\le\mj(A)\le\mu_J^*(A)\]
+	Получили требуемое.
+\end{proof}
