@@ -100,9 +100,6 @@
 	Если элементарное множество $M$ представимо в виде счётного объединения непересекающихся элементарных множеств $M_j$, то:
 	\[|M|=\sum_{j=1}^\i|M_j|\]
 \end{theorem}
-\begin{anote}
-	На лекции в среду было приведено не до конца, будет позже.
-\end{anote}
 \begin{proof}
 	Докажем, что:
 	\[M\subset\bigcup_{j=1}^\i M_j\Ra|M|\le\sum_{j=1}^\i|M_j|\]
@@ -126,4 +123,7 @@
 		\sum_{j=1}^\i|M_j|\cdot(1+\eps)+\eps
 	\end{multline*}
 	Доказали утверждение из начала доказательства всей теоремы.
+	\[M=\bsc_{i=1}^\i M_i\Ra|M|=\sum_{i=1}^\i|M_i|,\ M\subset\sum_{i=1}^\i M_i\Ra|M|\le\sum_{i=1}^\i|M_i|\]
+	\[\sum_{i=1}^\i|M_i|\le|M|,\ \lim_{m\ra\i}\bsc_{i=1}^mM_i\subset M\Ra\sum_{i=1}^m|M_i|\le|M|\Ra\]
+	Получили требуемое.
 \end{proof}
