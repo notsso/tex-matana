@@ -96,7 +96,7 @@
 	В случае $|P|=0: P^{-\eps}=\emptyset$\\
 	$|P^{-\eps}|=(1-\eps)|P|$
 \end{definition}
-\begin{theorem}\nf{(Счётная, полная, $\sigma$ - аддитивность объёма на кольце элементарных множеств)}\label{19_th2}\\
+\begin{theorem}\nf{(Счётная, полная, $\sigma$-аддитивность объёма на кольце элементарных множеств)}\label{19_th2}\\
 	Если элементарное множество $M$ представимо в виде счётного объединения непересекающихся элементарных множеств $M_j$, то:
 	\[|M|=\sum_{j=1}^\i|M_j|\]
 \end{theorem}
@@ -106,7 +106,7 @@
 	Знаем:
 	\[M=\bsc_{k=1}^NP_k,\ M_j=\bsc_{i=1}^{N'_j}P_{j,i}\]
 	Рассмотрим $\ds P_k^{-\eps}.\text{ }\ \bsc_{k=1}^NP_k^{-\eps}\subset M$
-	\[\l|\bsc_{k=1}^NP_k^{-\eps}\r|=\sum_{k=1}^N|P_k^{-\eps}|=(1-\eps)\sum_{k=1}^N=(1-\eps)|P_k|=(e-\eps)|M|\text{ (для }|M|\neq0)\]
+	\[\l|\bsc_{k=1}^NP_k^{-\eps}\r|=\sum_{k=1}^N|P_k^{-\eps}|=(1-\eps)\sum_{k=1}^N=(1-\eps)|P_k|=(1-\eps)|M|\text{ (для }|M|\neq0)\]
 	Рассмотрим $P^{\eps/2^j}_{j,i}$, $N_j'$ - количество невырожденных брусьев:
 	\[\l|\bigcup_{i=1}^{N_j}P_{j,i}^{\frac\eps{2^j\cdot N_j\cdot |M_j|}}\r|\le
 	\sum_{i=1}^{N_j'}\l(1+\frac\eps{|M_j|\cdot 2^j\cdot N_j}\r)|P_{j,i}|+\frac\eps{2^j\cdot N_j}(N_j-N_j')
