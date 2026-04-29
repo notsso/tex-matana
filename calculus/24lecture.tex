@@ -28,14 +28,13 @@
 \begin{proof}
 	Пусть $E_0$ - множество точек множества $E$, в которых хотя бы одна из функций $f_m$ равна $\pm\i$, или $f$ равна $\pm\i$, или $f_m\nra f(x)$.\\ Заметим, что:
 	\[\mu(E_0)=0\]
-	Положим: $\{\eps_k\}$, $\lim_{k\ra\i}\eps_k=0$, $\eps_k$ убывает, тогда:
-	\[E_m(\eps_k):=\{x\in E:|f(x)-f_m(x)|\ge\eps\}\]
-	Докажем, что $\ds\bc_{k=1}^\i\vlim[m\ra\i]E_m(\eps_k)\subset E_0$\\
-	Пусть $\ds x\notin\bc_{k=1}^\i\vlim E_m(\eps_k)$, что может произойти тогда и только тогда, когда:
-	\[(\fa k\in\N)(\ex N\in\N)(\fa m>N)\ x\notin E_m\lra|f(x)-f_m(x)|<\eps\]
-	То есть имеем: $f_m(x)\us{m\ra\i}{\ra}f(x)\lra x\notin E_0$.\\
-	Теперь воспользуемся (\ref{21_l3}):
-	\[\vlim\mu(E_m)\le\mu\l(\vlim E_m\r)\le\mu(E_0)=0\]
+	Положим:
+	\[E_m(\eps):=\{x\in E:|f(x)-f_m(x)|\ge\eps\}\]
+	Докажем, что $\ds\bc_{\eps>0}^\i\vlim[m\ra\i]E_m(\eps)\subset E_0$\\
+	Пусть $x\notin E_0$, тогда:
+	\[\lim_{m\ra\i}f_m(x)=f(x)\Ra(\fa\eps>0)(\ex N\in\N)(\fa m>N)\ |f_m(x)-f(x)|<\eps\Ra(\fa\eps>0)\ x\notin\vlim[m\ra\i]E_m(\eps)\]
+	Тогда имеем:
+	\[x\notin E_0\Ra x\notin\bc_{\eps>0}\vlim[m\ra\i]E_m\]
 	Получили требуемое.
 \end{proof}
 \begin{note}
@@ -95,4 +94,9 @@
 	Положим:
 	\[A:=f(B)\subset P,\ \mu(P)=0\Ra\mu(A)=0\]
 	Следовательно, $1_A$ - измеримая функция, при этом $1_A\circ f=1_B$, так как $B$ - неизмеримо, то требуемое получено.
+\end{example}
+\begin{example}\nf{Кривая Лебега}\\
+	$t\in P\text{ (канторово множество) }\lra t=0,\tau_1,\tau_2,\dots,\ \tau_i\in\{0,2\},\ i\in\N$\\
+	Построим соответствие $P\ra(x,y)$: \[t\ra(x,y),\ x=0,\tau_1'\tau_3'\dots_{(2)},\ y=0,\tau_1'\tau_2'\dots_{(2)},\ \tau_i'=\frac{\tau_i}2,\ i\in\N\]
+	\[t\in J_{mk}=(a,b)\Ra\v r(t)\text{ - отрезок, соединяющий }(x(a),y(a))\text{ и }(x(b),y(b))\]
 \end{example}
