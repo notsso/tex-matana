@@ -20,14 +20,14 @@
 	Рассмотрим $P_1=P_2\cup\{x^*\},\ x^*\in(x_{k-1},x_k)$
 	\begin{equation*}
 		\begin{split}
-			U(P_1,f)&=\dots+\smo{\sup_{\sus[x_{k-1},x^x]}}f(x)\cdot(x^*-x_{k-1})+\smo{\sup_{\sus[x^*,x_k]}}f(x)\cdot(x_k-x^*)+\dots\\
+			U(P_1,f)&=\dots+\smo{\sup_{\sus[x_{k-1},x^*]}}f(x)\cdot(x^*-x_{k-1})+\smo{\sup_{\sus[x^*,x_k]}}f(x)\cdot(x_k-x^*)+\dots\\
 			U(P_2,f)&=\dots+\smo{\sup_{\sus[x_{k-1},x_k]}}f(x)\cdot(x_k-x_{k-1})+\dots
 		\end{split}
 	\end{equation*}
 	Заметим: 
 	\[\smo{\sup_{\sus[x_{k-1},x_k]}}f(x)\ge\smo{\sup_{\sus[x_{k-1},x^*]}}f(x),\ \smo{\sup_{\sus[x_{k-1},x_k]}}f(x)\ge\smo{\sup_{\sus[x^*,x_k]}}f(x)\]
 	Тогда имеем: 
-	\[U(P_2,f)-U(P_1,f)=(x^*-x_{k-1})\cdot(\smo{\sup_{\sus[x_k,x_{k-1}]}}f(x)-\smo{\sup_{\sus[x_{k-1},x^x]}}f(x))+(x_k-x^*)\cdot(\smo{\sup_{\sus[x_k,x_{k-1}]}}f(x)-\smo{\sup_{\sus[x^*,x_k]}}f(x))\ge0\]
+	\[U(P_2,f)-U(P_1,f)=(x^*-x_{k-1})\cdot(\smo{\sup_{\sus[x_k,x_{k-1}]}}f(x)-\smo{\sup_{\sus[x_{k-1},x^*]}}f(x))+(x_k-x^*)\cdot(\smo{\sup_{\sus[x_k,x_{k-1}]}}f(x)-\smo{\sup_{\sus[x^*,x_k]}}f(x))\ge0\]
 	Вторая часть леммы доказывается аналогично. Получили требуемое.
 \end{proof}
 \begin{theorem}\nf{(Основное свойство сумм Дарбу)}\\
@@ -51,12 +51,12 @@
 \end{theorem}
 \begin{proof}
 	Необходимость: $f\in\mc R[a,b]\Ra(\forall\eps>0)(\exists P_1,P_2\text{ - разбиения }[a,b])$, тогда:
-	\[U(P,f)<I(f)+\frac\eps2,\ L(P_2,f)>I(f)-\frac\eps2\]
+	\[U(P_1,f)<I(f)+\frac\eps2,\ L(P_2,f)>I(f)-\frac\eps2\]
 	Возьмём $P'=P_1\cup P_2$, тогда:
 	\[\int_a^bf(x)dx-\frac\eps2<L(P_2,f)\le L(P',f)\le U(P',f)\le U(P_1,f)<\int_a^bf(x)dx+\frac\eps2\]
 	Получили: $U(P',f)-L(P',f)<\eps$\\
 	Достаточность: Имеем $P$, $U(P,f)-L(P,f)<\eps$\\
-	\[L(P,f)\le \uv I(f)\le\v I(f)<U(P,f)\Ra \v I(f)-\uv I<\eps\]
+	\[L(P,f)\le \uv I(f)\le\v I(f)<U(P,f)\Ra \v I(f)-\uv I(f)<\eps\]
 	Получили требуемое.
 \end{proof}
 \begin{theorem}

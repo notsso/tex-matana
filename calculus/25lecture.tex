@@ -73,7 +73,20 @@
 	Площадь усечённого конуса, при центре большей окружности на $x_{i+1}$, а меньшей на $x_i$:
 	\[\pi\Big(f(x_i)+f(x_{i+1})\Big)\sqrt{\Big(x_{i+1}-x_i\Big)^2+\Big(f(x_{i+1})-f(x_i)\Big)^2}\]
 	Требуется доказать:
-	\[\lim_{\tr(P)\ra0}\pi\sum_{i=1}^n\Big(f(x_i)+f(x_{i+1})\Big)\sqrt{\Big(x_{i+1}-x_i\Big)^2+\Big(f(x_{i+1})-f(x_i)\Big)^2}=S\]
+	\[\lim_{\tr(P)\ra0}\pi\sum_{i=1}^n\Big(f(x_i)+f(x_{i+1})\Big)\sqrt{\Big(x_{i+1}-x_i\Big)^2+\Big(f(x_{i+1})-f(x_i)\Big)^2}=\lim_{\tr(P)\ra0}S_p=S\]
+	На отрезке $[x_{k-1},x_k]$ применим т. Лагранжа:
+	\[(\ex \xi_k\in[x_{k-1},x_k])\ f(x_k)-f(x_{k-1})=f'(\xi_k)(x_k-x_{k-1})\]
+	Теперь распишем интегральную сумму:
+	\[S(P,f,\{\xi_k\})=2\pi\sum_{k=1}^nf(\xi_k)\sqrt{1+(f'(\xi_k))^2}\tr x_k\]
+	\[S(P,f,\{\xi_k\})-S_p=2\pi\sum_{k=1}^n\frac{2f(\xi_k)-f(x_{k-1})-f(x_k)}2\cdot\sqrt{1+f'(\xi_k)^2}\tr x_k\]
+	$f'$ - непрерывна на $[a,b]\Ra(\ex M)(\fa t\in[a,b]):|f'(t)|\le M$.\\
+	По т. Кантора $f$ равномерно непрерывна на $[a,b]$:
+	\[(\fa\eps>0)(\ex\delta_1>0)(\fa t_1,t_2\in[a,b],\ |t_2-t_1|<\delta)\ |f(t_1)-f(t_2)|<\frac\eps{4\pi\sqrt{1+M^2}(b-a)}\]
+	\[(\fa P,\ \tr(P)<\delta_1)\ |S(P,f,\{\xi_k\})-S_p|<2\pi\sum_{k=1}^n\frac{|f(\xi_k)-f(x_{k-1})|+|f(\xi_k)-f(x_k)|}2\cdot\sqrt{1+M^2}\tr x_k<\frac\eps2\]
+	Получили:
+	\[(\ex\delta_2>0)(\fa P,\tr(P)<\delta_2)(\fa\{\xi_k\}\in[x_{k-1},x_k])\ |S(P,f,\{\xi_k\})-S|<\frac\eps2\]
+	В итоге имеем:
+	\[(\fa\eps>0)(\ex\delta=\min(\delta_1,\delta_2))(\fa P,\tr(P)<\delta)\ |S_p-S|<\eps\]
 \end{proof}
 \subsection{Объёмы}
 \begin{definition}
