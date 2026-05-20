@@ -63,7 +63,7 @@
 	Значит, $\phi$ дифференцируема в точке $\vx\n$. Аналогичные вещи можно сказать про любые точки, подходящие под условие, а значит требуемое получено.
 \end{proof}
 \begin{note}
-	Теперь докажем аналогичную теорему для нескольких уравнений, точная формулировка будет далее, то есть:
+	Теперь докажем аналогичную теорему для нескольких уравнений, точная формулировка будет далее, сама система:
 	\begin{equation}\label{26_eq1}
 		\begin{cases}
 			F_1(x_1,\dots,x_n,y_1,\dots,y_m)=0\\
@@ -72,7 +72,7 @@
 		\end{cases}
 	\end{equation}
 	Составим матрицу из производных этих функций по каждому из $y_1,\dots,y_m$:
-		\begin{equation}\label{26_m1}
+	\begin{equation}\label{26_m1}
 		\begin{pmatrix}
 			\frac{\vd F_1}{\vd y_1} & \dots & \frac{\vd F_1}{\vd y_m} \\
 			\vdots & \ddots & \vdots \\
@@ -84,7 +84,7 @@
 	\textit{Якобианом} $\ds\frac{\mc D(F_1,\dots,F_m)}{\mc D(y_1,\dots,y_m)}$ называется определитель (\ref{26_m1}), где все производные берутся в одной точке.
 \end{definition}
 \begin{theorem}\nf{(О неявных функциях, определяемых системой уравнений)}\label{26_th2}\\
-	Если функции $F_i(\v x,\v y),\ i=1,\dots,m$ дифференцируемы в некоторой окрестности точки $(\vx\n, \v y\n)\in\R^{n+m}$, причём $\frac{\vd F_i}{\vd y_j},\ i,j=1,\dots,m$ непрерывна в этой окрестности, $F_i(\vx\n,\v y\n)=0,\ i=1,\dots,m$, $\frac{\mc D(F_1,\dots,F_m)}{\mc D(y_1,\dots,y_m)}(\vx\n,\v y\n)\ne0$, то $(\fa\text{ достаточно малых }\eps_1>0,\dots,\eps_m>0)(\ex\delta>0)$ такая, что в $K_{\delta,\vx\n}$ существуют и при том единственные функции $\phi_1(\vx),\dots,\phi_m(\vx)$ такие, что $(\fa (\vx,\v y)\in K_{\delta,\vx\n})\times\prod_{i=1}^m(y_i\n-\eps_i,y_i\n+\eps_i)$ система уравнений \normalfont{(\ref{26_eq2})} равносильна \normalfont{(\ref{26_eq1})}. Все функции $\phi_1,\dots,\phi_m$ дифференцируемы в $K_{\delta,\vx\n}$.
+	Если функции $F_i(\v x,\v y),\ i=1,\dots,m$ дифференцируемы в некоторой окрестности точки $(\vx\n, \v y\n)\in\R^{n+m}$, причём $\frac{\vd F_i}{\vd y_j},\ i,j=1,\dots,m$ непрерывна в этой окрестности, $F_i(\vx\n,\v y\n)=0,\ i=1,\dots,m$, $\frac{\mc D(F_1,\dots,F_m)}{\mc D(y_1,\dots,y_m)}(\vx\n,\v y\n)\ne0$, то $(\fa\text{ достаточно малых }\eps_1>0,\dots,\eps_m>0)(\ex\delta>0)$ такая, что в $K_{\delta,\vx\n}$ существуют и при том единственные функции $\phi_1(\vx),\dots,\phi_m(\vx)$ такие, что $\fa (\vx,\v y)\in K_{\delta,\vx\n}\times\prod_{i=1}^m(y_i\n-\eps_i,y_i\n+\eps_i)$ система уравнений \normalfont{(\ref{26_eq2})} равносильна \normalfont{(\ref{26_eq1})}. \textit{Все функции $\phi_1,\dots,\phi_m$ дифференцируемы в} $K_{\delta,\vx\n}$.
 	\begin{equation}\label{26_eq2}
 		\begin{cases}
 			y_1=\phi_1(x_1,\dots,x_n)\\
@@ -94,6 +94,60 @@
 	\end{equation}
 \end{theorem}
 \begin{proof}
-	Докажем по индукции. Для $m=1$ доказано, см. (\ref{26_th1}). Переход.
-	Пока не доказано, на следующей лекции наверно.
+	В этом доказательстве $K_{\delta_1,(\vx\n,y\n_m)}$ будет обозначаться $K_{\delta_1}$
+	Докажем по индукции. Для $m=1$ доказано, см. (\ref{26_th1}).\\
+	Переход. Для $m-1$ выполнено, то есть:
+	\begin{multline*}
+		(\fa\text{дост. малых }\eps_1,\dots,\eps_{m-1})(\ex\delta_1>0)(\text{в кубе }K_{\delta_1})\\
+		\text{ определены непрерывно дифференцируемые }\Phi_j(\vx,y_m),\ j=1,\ \dots,\ m-1\text{, причём:}
+	\end{multline*}
+	\vspace{-1.1cm}
+	\[F_j(\vx,\v y)=0,\ j=1,\dots,m-1\lra y_j=\Phi_j(\vx, y_m),\ j=1,\ \dots,\ m-1\]
+	Проще говоря, система из $m-1$ уравнения относительно $m-1$ переменных решена, нужно решить ещё одно для ещё одной переменной.\\
+	Хотим применить (\ref{26_th1}) к $F_m(\vx, \Phi(\vx, y_m),\dots,\ \Phi_{m-1}(\vx, y_m), y_m)=:\psi(\vx,y_m)$. $\psi$ непрерывно дифференцируема в $K_{\delta_1}$.\\
+	Заметим, $\psi(\vx\n,y_m\n)=0$. Осталось проверить:
+	\[\frac{\vd \psi}{\vd y_m}(\vx\n,y_m\n)\ne0\]
+	\begin{equation}\label{26_eq3}
+		\frac{\vd\psi}{\vd y_m}=\frac{\vd F_m}{\vd y_1}\cdot\frac{\vd\Phi_1}{\vd y_m}+\dots+\frac{\vd F_m}{\vd y_{m-1}}\cdot\frac{\vd\Phi_{m-1}}{\vd y_m}+\frac{\vd F_m}{\vd y_m}
+	\end{equation}
+	Из гипотезы индукции знаем, что в кубе $K_{\delta_1}$ выполняется:
+	\[F_j(\vx, \Phi_1(\vx, y_m),\dots,\Phi_{m-1}(\vx,y_m),y_m)=0,\ j=1,\ \dots,\ m-1\]
+	Продифференцируем это тождество по $y_m$:
+	\begin{equation}\label{26_eq4}
+		0=\frac{\vd F_j}{\vd y_1}\cdot\frac{\vd \Phi_1}{\vd y_m}+\dots+\frac{\vd F_j}{\vd y_{m-1}}\cdot\frac{\vd\Phi_{m-1}}{\vd y_m}+\frac{\vd F_j}{\vd y_m},\ j=1,\ \dots,\ m-1
+	\end{equation}
+	Обозначим алгебраические дополнения элементов последнего столбца матрицы (\ref{26_m1}) за $\tr_1,\ \dots,\ \tr_m$. Определитель матрицы обозначим за $\tr$.\\
+	Теперь сложим (\ref{26_eq3})$*\tr_m$ и (\ref{26_eq4})$*\tr_j$:
+	\begin{multline*}
+		\tr_m\cdot\frac{\vd\psi}{\vd y_m}=
+		\frac{\vd\Phi_1}{\vd y_m}
+		\l(
+		\tr_1\cdot\frac{\vd F_1}{\vd y_1}+\dots+\tr_m\cdot\frac{\vd F_m}{\vd y_1}
+		\r)+\dots+\\+\dots+\frac{\vd \Phi_{m-1}}{\vd y_m}\cdot
+		\l(
+		\tr_1\cdot\frac{\vd F_1}{\vd y_{m-1}}+\dots+\tr_m\cdot\frac{\vd F_m}{\vd y_{m-1}}
+		\r)+\l(
+		\tr_1\cdot\frac{\vd F_1}{\vd y_m}+\dots+\tr_m\cdot\frac{\vd F_m}{\vd y_m}
+		\r)
+	\end{multline*}
+	Рассмотрим содержимое всех скобок кроме последней. По свойству определителя, перемножение алгебраических дополнений последнего столбца и элементов другого, все эти скобки = 0. Последняя же скобка = $\tr\neq0$. Также заметим, что $\tr_m$, а значит имеем:
+	\[\frac{\vd\psi}{\vd y_m}(\vx\n,y_m\n)\ne0\]
+	Теперь можно применить (\ref{26_th1}).\\
+	\begin{multline*}
+		(\fa\text{ дост. малого }\eps_m>0,\ \eps_m<\delta_1)(\ex\delta>0)(K_{\delta,\vx\n})(\ex \phi_m(\vx))\\(\fa (\vx,\v y)\in K_{\delta,\vx\n}\times(\v y_m\n-\eps_m,y_m\n+\eps_m)) y_m=\phi_m(\vx)\lra\psi(\vx,y_m)=0,\\ \phi_j(\vx):=\Phi_j(\vx,\phi_m(\vx)),\ j=1,\ \dots,\ m-1
+	\end{multline*}
+	\begin{equation*}
+		\begin{cases}
+			y_m=\phi_m(\vx)\\
+			y_j=\Phi_j(\vx,y_m)=\phi_j(\vx)
+		\end{cases}
+		\Ra F_j(\vx, y_1,\dots,y_m)=0,\ j=1,\ \dots,\ m
+	\end{equation*}
+	Докажем единственность. От противного, пусть:
+	\[\t y_j=\t\phi_j(\vx),\ j=1,\ \dots,\ m\]
+	По гипотезе индукции знаем, что решения первых $m-1$ уравнений единственны:
+	\[\t y_j=\t\phi_j(\vx)=\Phi_j(\vx,\t y_m),\ j=1,\ \dots,\ m-1\]
+	Но, так как была применена (\ref{26_th1}), которая также даёт единственное решение, то:
+	\[\psi(\vx,\t y_m)=0\lra \t y_m=\phi_m(x)=y_m\]
+	Получили требуемое.
 \end{proof}
