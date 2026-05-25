@@ -79,7 +79,7 @@
 \begin{proof}
 	Возьмём $\{\v x_k\}_{k=1}^\infty\subset D(h)$.
 	\begin{multline*}
-		\lim_{k\ra\infty}=\v x_0\Ra\lim_{k\ra\infty}g_j(\v x_k)=g_j(\v x_0)=y_0,\ j=1,\dots,n\Ra\\
+		\lim_{k\ra\infty}x_k=\v x_0\Ra\lim_{k\ra\infty}g_j(\v x_k)=g_j(\v x_0)=y_0,\ j=1,\dots,n\Ra\\
 		\Ra\lim_{k\ra\infty}(g_1(\v x_k),\dots,g_n(\v x_k))=y_0\Ra
 		\lim_{k\ra\infty}f(g_1(\v x_k),\dots,g_n(\v x_k))=f(y_0^{(1)},\dots,y_0^{(n)})
 	\end{multline*}
@@ -126,10 +126,10 @@
 	Если $A$ в $R^n$ линейно связно, то оно связно.
 \end{theorem}
 \begin{proof}
-	От противного. \\
-	Пусть $A$ не связно $\Ra \exists G_1,G_2$ - открытые в $A,\\ G_1\neq\varnothing,\ G_2\neq\varnothing,\ G_1\cap G_2=\varnothing,\ G_1\cup G_2=A$
-	$\hspace{-0.5cm}\text{Пусть }\v x\in G_1,\ \v y\in G_2.\ A\text{ - линейно связно }\Ra\exists\gamma\subset A,\ \gamma(a)=\v x,\ \gamma(b)=\v y$\\
-	$\gamma:[a,b]\ra A,\ \ T=\sup\{t:\gamma(t)\in G_1\},\ T\in[a,b],\ \gamma\text{ - непрерывна}$\\\\
+	От противного. Пусть $A$ не связно $\Ra \exists G_1,G_2$ - открытые в $A$, причём:
+	\[G_1\neq\varnothing,\ G_2\neq\varnothing,\ G_1\cap G_2=\varnothing,\ G_1\cup G_2=A\]
+	$\text{Пусть }\v x\in G_1,\ \v y\in G_2.\ A\text{ - линейно связно }\Ra\exists\gamma\subset A,\ \gamma(a)=\v x,\ \gamma(b)=\v y$\\
+	$\gamma:[a,b]\ra A,\ \ T=\sup\{t:\gamma(t)\in G_1\},\ T\in[a,b],\ \gamma\text{ - непрерывна}$\\
 	$\text{Пусть }\gamma(T)\in G_1. G_1=\mathfrak{G}\cap A,\ \gamma(T)\in\mathfrak{G}_1\Ra U_\eps(\gamma(T))\subset\mathfrak{G}_1$\\
 	$T<b\Ra\exists\delta>0,\ \gamma(T-\delta,T+\delta)\subset U_\eps(\gamma(T)), \text{ 2 случай аналогичен первому }(\gamma(T)\in G_2)$
 	Требуемое доказано.

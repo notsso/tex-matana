@@ -9,6 +9,7 @@
 \renewcommand{\C}{\mathbb C}
 \renewcommand{\ps}[1][1]{\sum_{k={#1}}^n} % partial sum
 \renewcommand{\f}[1][n]{f^{({#1})}}
+\renewcommand{\b}[1][x]{\lVert{#1}\rVert} % норма. у меня нет оправданий, почему именно \b. буквы закончились(
 
 \let\limp\lim
 \let\sssum\sum
@@ -42,8 +43,10 @@
 \newcommand{\vlim}[1][{m\ra\i}]{\us{#1}{\v\lim}}
 \newcommand{\uvlim}[1][{m\ra\i}]{\us{#1}{\uv\lim}}
 
+\newcommand{\nr}[1]{\nf{(\ref{#1})}}
+
 \newcommand{\tvx}{{\t\vx}}
-\newcommand{\n}[1][0]{^{({#1})}}                             % типа null
+\newcommand{\n}[1][0]{^{({#1})}}                    % типа null
 \newcommand{\sq}[1][{x_n}]{\{#1\}_{n=1}^\i}         % sequence
 \newcommand{\p}{{+\infty}}
 \newcommand{\okr}{\mathring{U}}                     % okrestnost
