@@ -52,6 +52,7 @@
 	Положим: $p_1:=a_1,\ p_2:=\frac{a_2}{a_1},\dots,\ p_n:=\frac{a_n}{a_{n-1}},\ \dots$.\\
 	Тогда по следствию (\ref{13_cl1}):
 	\[\lim_{n\ra\i}\sqrt[n]{p_1\dots p_n}=\lim_{n\ra\i}\sqrt[n]{a_n}=l\]
+	Получили требуемое.
 \end{proof}
 \begin{theorem}\nf{(Критерий Коши сходимости числовых рядов)}\label{13_th8}\\
 	Ряд $\ds\ss a_n$ сходится тогда и только тогда, когда:
@@ -60,6 +61,7 @@
 \begin{proof}
 	$\ss a_n$ cходится $\lra\ \ex\lim_{n\ra\i}S_n$, тогда по критерию Коши:
 	\[(\fa\eps>0)(\ex N\in\N)(\fa n>N)(\fa p\in\N)\ \l|S_{n+p}-S_n\r|<\eps\]
+	Получили требуемое.
 \end{proof}
 \begin{definition}
 	Ряд $\ss a_n$ называется \textit{сходящимся абсолютно}, если $\sum_{n=1}^\i|a_n|$ сходится.
@@ -71,6 +73,7 @@
 	$\ss|a_n|$ сходится, тогда:
 	\[(\fa\eps>0)(\ex N\in\N)(\fa n>N)(\fa p\in\N)\ \sum_{k=n+1}^{n+p}|a_k|<\eps\]
 	\[\l|\sum_{k=n+1}^{n+p}a_k\r|\le\sum_{k=n+1}^{n+p}|a_k|<\eps\]
+	Получили требуемое.
 \end{proof}
 \begin{definition}
 	Если ряд сходится, но не абсолютно, то он \textit{сходится условно}.
@@ -169,7 +172,7 @@
 		\Ra\ss\frac{\sin^2 n\al}{n^\al}\text{ расходится при }\al\in(0,1]
 	\end{equation*}
 \end{examples}
-\begin{theorem}\nf{(О перестановках абсолютно сходящихся рядов)}\\
+\begin{theorem}\nf{(О перестановках абсолютно сходящихся рядов)}\label{13_th13}\\
 	Если ряд $\ss a_n$ сходится абсолютно, то $\fa$ биекций $n:\N\ra\N$ и последовательности $\{n_k\}_{k=1}^\i,\ n_k=n(k)$ ряд $\ss a_{n_k}$ сходится к той же сумме, что и $\ss a_n$.
 \end{theorem}
 \begin{proof}
