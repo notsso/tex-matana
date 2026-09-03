@@ -1,5 +1,5 @@
 \begin{definition}
-	Функциональный ряд $\ss f_n(x)$ \textit{сходится равномерно} на множестве $E$, если на $E$ равномерно сходится последовательность его частичных сумм $\{\sum_{k=1}^nf_k(x)\}_{n=1}^\i$.
+	Функциональный ряд $\ss f_n(x)$ \textit{сходится равномерно} на множестве $E$, если на $E$ равномерно сходится последовательность его частичных сумм $\ds==\{\sum_{k=1}^nf_k(x)\}_{n=1}^\i$.
 \end{definition}
 \begin{theorem}\nf{(Критерий Коши равномерной сходимости функциональных рядов)}\label{15_th1}\\
 	Функциональный ряд $\ss f_n(x)$ сходится равномерно на $E$ тогда и только тогда, когда:
@@ -39,6 +39,7 @@
 	\[\ss c_n\text{ сходится }\Ra(\fa\eps>0)(\ex N\in\N)(\fa n>N)(\fa p\in\N)\ \sum_{k=n+1}^{n+p}c_k<\eps\]
 	Тогда имеем:
 	\[\l|\sum_{k=n+1}^{n+p}f_k(x)\r|\le\sum_{k=n+1}^{n+p}|f_k(x)|\le\sum_{k=n+1}^{n+p}c_k<\eps\]
+	Получили требуемое.
 \end{proof}
 \begin{definition}
 	Назовём функциональную последовательность $\sq[f_n(x)]$ \textit{равномерно ограниченной} на $E$, если:
@@ -55,7 +56,7 @@
 \begin{proof}
 	Хотим доказать:
 	\[(\fa\eps>0)(\ex N\in\N)(\fa n>N)(\fa p\in\N)(\fa x\in E)\ \l|\sum_{k=n+1}^{n+p}f_k(x)g_k(x)\r|<\eps\]
-	Пусть $F_i(x):=\sum_{k=n+1}^if_K(x),\ F_n(x)=0$.\\
+	Пусть $F_i(x):=\sum_{k=n+1}^if_k(x),\ F_n(x)=0$.\\
 	\begin{equation*}
 		\begin{split}
 			\l|\sum_{k=n+1}^{n+p}f_k(x)g_k(x)\r|&=
@@ -74,7 +75,7 @@
 		\item $\ss f_n(x)$ равномерной сходится на $E$.
 		\item $\sq[g_n(x)]$ монотонна и равномерно ограничена на $E$.
 	\end{enumerate}
-	То $\ss f_n(x)g_n(x)$ равномерно сходится на $E$.
+	то $\ss f_n(x)g_n(x)$ равномерно сходится на $E$.
 \end{theorem}
 \begin{proof}
 	Пусть $M:=(\fa x\in E)(\fa n\in\N)\ |g_n(x)|<M$
@@ -128,6 +129,7 @@
 	\[(\ex\delta>0)(\fa x\in E:0<\rho(x,x_n))<\delta)\ |f_n(x)-a_n|<\frac\eps3\]
 	Итого имеем:
 	\[(\fa\eps>0)(\ex N\in\N)(\fa n>N)(\fa p\in\N)(\fa x\in E)(\ex\delta>0:0<\rho(x,x_n)<\delta)\ |f(x)-a|<\eps\]
+	Получили требуемое.
 \end{proof}
 \begin{corollary}
 	Если $(\fa n\in\N)\ f_n$ непрерывна и равномерно сходится к $f$ на $E$, то $f$ непрерывна на $E$.

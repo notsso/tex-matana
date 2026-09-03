@@ -7,7 +7,7 @@
 \end{definition}
 \begin{definition}
 	\textit{Радиусом сходимости} степенного ряда называется:
-	\[R=\frac1{\v{\lim_{n\ra\i}}\sqrt[n]{|c_n|}}\in[0,+\i]\]
+	\[R=\frac1{\vlim[n\ra\i]\sqrt[n]{|c_n|}}\in[0,+\i]\]
 	при соглашении, что $\ds\frac10=+\i,\ \frac1{+\i}=0$.
 \end{definition}
 \begin{theorem}\nf{(Коши - Адамара)}\label{17_th1}\\
@@ -20,10 +20,10 @@
 \begin{proof}
 	\begin{enumerate}
 		\item По признаку Коши для ряда $|c_n|\cdot|z-z_0|^n$:
-		\[\v{\lim_{n\ra\i}}\sqrt[n]{|c_n|\cdot|z-z_0|^n}=|z-z_0|\cdot\v{\lim_{n\ra\i}}\sqrt[n]{|c_n|}<1\]
-		Значит ряд сходится абсолютно. Также отметим, если $R=+\i$, то $\v{\lim_{n\ra\i}}\sqrt[n]{|c_n|}=0$, тогде неравенство тоже выполняется.
+		\[\vlim[n\ra\i]\sqrt[n]{|c_n|\cdot|z-z_0|^n}=|z-z_0|\cdot\vlim[n\ra\i]\sqrt[n]{|c_n|}<1\]
+		Значит ряд сходится абсолютно. Также отметим, если $R=+\i$, то $\vlim[n\ra\i]\sqrt[n]{|c_n|}=0$, тогде неравенство тоже выполняется.
 		\item Имеем:
-		\[\v{\lim_{n\ra\i}}\sqrt[n]{|c_n|\cdot|z-z_0|^n}>1\]
+		\[\vlim[n\ra\i]\sqrt[n]{|c_n|\cdot|z-z_0|^n}>1\]
 		Теперь вспомним доказательство признака Коши. Тогда:
 		\[|c_n\cdot(z-z_0)^n|\nra0\]
 	\end{enumerate}
@@ -53,7 +53,7 @@
 \begin{proof}
 	Положим $z_1:=z_0+r$, тогда $|z_1-z_0|=r<R\Ra$ ряд сходится абсолютно в точке $z_1$, то есть:
 	\[|c_n(z-z_0)^n|\le|c_n|\cdot r^n\]
-	Тогда по признаку Вейерштрасса сходится равномерно на $|z-z_0|\le r$.
+	Тогда по признаку Вейерштрасса сходится равномерно на $|z-z_0|\le r$.\\
 	Получили требуемое.
 \end{proof}
 \begin{corollary}
@@ -120,7 +120,8 @@
 	Радиусы сходимости степенных рядов $\sss$ и $\ss na_n(x-x_0)^n$ совпадают.
 \end{lemma}
 \begin{proof}
-	\[\v{\lim_{n\ra\i}}\sqrt[n]{|na_n|}=\lim_{n\ra\i}\sqrt[n]{n}\cdot\v{\lim_{n\ra\i}}\sqrt[n]{|a_n|}\]
+	\[\vlim[n\ra\i]\sqrt[n]{|na_n|}=\lim_{n\ra\i}\sqrt[n]{n}\cdot\vlim[n\ra\i]\sqrt[n]{|a_n|}\]
+	Получили требуемое.
 \end{proof}
 \begin{theorem}\nf{(Дифференцирование и интегрирование степенных рядов)}\label{17_th5}\\
 	Если радиус сходимости степенного ряда $\sss$ равен $R>0$, то справедливы следующие утверждения:

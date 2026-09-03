@@ -51,13 +51,13 @@
 \begin{proof}
 	Рассмотрим $f_1(x):=f(a+b-x),\ g_1(x)=g(a+b-x)$.
 	\[\int_a^bf(x)g(x)dx=\int_a^bf_1(x)g_1(x)dx=g_1(a)\int_a^\xi f_1(x)dx=g(b)\int_{a+b-\xi}^bf(x)dx\]
-	Пусть $g$ убывает: $g_1(x)=g(x)-g(b),\ g_1(x)\ge0 \fa x\in[a,b]$.\\
+	Пусть $g$ убывает: $g_1(x)=g(x)-g(b),\ (\fa x\in[a,b])\ g_1(x)\ge0$.\\
 	Тогда по лемме (\ref{10_le1}):
 	\[(\ex\xi\in[a,b])\ \int_a^bf(x)g_1(x)dx=g_1(a)\int_a^\xi f(x)dx\]
 	\[\int_a^bf(x)g(x)dx=g(b)\int_a^bf(x)dx+g(a)\int_a^\xi f(x)dx-g(b)\int_a^\xi f(x)dx\]
 \end{proof}
 \begin{theorem}\nf{(Вторая теорема о среднем)}\\
-	Если $f\in\mc R,\ g$ монотонна на $[a,b]$, то:
+	Если $f\in\mc R[a,b],\ g$ монотонна на $[a,b]$, то:
 	\[(\ex\xi\in[a,b])\ \int_a^bf(x)g(x)dx=g(a)\int_a^\xi f(x)dx+g(b)\int_\xi^bf(x)dx\]
 \end{theorem}
 \begin{proof}

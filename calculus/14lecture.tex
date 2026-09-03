@@ -68,12 +68,12 @@
 	\[(a_1+\dots+a_N)(b_1+\dots+b_N)\ra AB\text{ при }N\ra\i\]
 \end{proof}
 \begin{theorem}\nf{(Мертенса)}\label{14_th16}\\
-	Если хотя бы 1 из 2 рядов $\ss a_n$ и $\ss b_n$ сходится абсолютно, то их произведение по Коши $\ss c_n=\sum_{k=1}^{n}a_kb_{n-k+1}$ сходится, причём к произведению сумм этих рядов.
+	Если хотя бы 1 из 2 рядов $\ss a_n$ и $\ss b_n$ сходится абсолютно, то их произведение по Коши $\ss c_n,\ c_n=\sum_{k=1}^{n}a_kb_{n-k+1}$ сходится, причём к произведению сумм этих рядов.
 \end{theorem}
 \begin{proof}
 	Пусть $\ss a_n$ сходится абсолютно.\\ 
 	Также пусть $A_n:=\sum_{k=1}^na_n,\ B_n:=\sum_{k=1}^nb_n,\ A=\ss a_n,\ B=\ss b_n,\ \beta_n:=B-B_n$.\\
-	Ещё раз пусть: $\gamma_n=a_1\cdot\beta_n+\dots+a_n\cdot\beta_1,\ C_n=\sum_{k=1}^nc_k$.
+	Ещё раз пусть: $\gamma_n=a_1\cdot\beta_n+\dots+a_n\cdot\beta_1,\ C_n=\sum_{k=1}^nc_k$.\\
 	Тогда:
 	\begin{equation*}
 		\begin{split}
@@ -91,8 +91,9 @@
 	Одну часть $\gamma_n$ оценили, теперь оценим вторую. Знаем:
 	\[(\fa k\in\N)\ |a_k|\le\mu_2,\ \beta_n\ra0\Ra(\ex n_0)(\fa n>n_0)\ |\beta_{n-m+1}|<\frac\eps{2\mu_2}\]
 	Тогда: \[|a_1\beta_n+\dots+a_m\beta_{n-m+1}|<\frac\eps{2\mu_2}\cdot\mu_2=\frac\eps2\]
-	Получили:
+	Имеем:
 	\[\gamma_n<\eps\Ra C_n=A_n\cdot B-\gamma_n\ra AB\text{ при }n\ra\i\]
+	Получили требуемое.
 \end{proof}
 \begin{example}
 	Рассмотрим произведение по Коши условно сходящегося ряда $\ss(-1)^n\cdot\frac1{\sqrt{n}}$ на самого себя.
@@ -144,7 +145,7 @@
 	\[|f_{n+p}(x)-f_n(x)|=|f_{n+p}(x)-f(x)+f(x)-f_n(x)|\le|f_{n+p}-f(x)|+|f_n(x)-f(x)|<\eps\]
 	Теперь в другую сторону:\\
 	По критерию Коши числовых последовательностей:
-	\[(\fa x\in E)\ f_n(x)\ra f(x)\text{ при }n\ra\i\]
+	\[(\fa x\in E)\ |f_{n+p}(x)-f_n(x)|<\eps\text{ при }n\ra\i\]
 	Устремим $p\ra\i$, тогда получим:
 	\[(\fa\eps>0)(\ex N\in\N)(\fa n>N)(\fa x\in E)\ |f(x)-f_n(x)|<\eps\]
 	Получили требуемое.

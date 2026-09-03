@@ -22,7 +22,7 @@
 	$\ds K:=\int_a^{a+\omega}f(x)dx\neq0,\ f_1(x):=f(x)-\frac K\omega$\\
 	\[\int_a^{a+\omega}f_1(x)dx=\int_a^{a+\omega}f(x)dx-\frac K\omega\cdot\omega=0\]
 	Теперь можем воспользоваться первым пунктом для $f_1$: $\ds\int_a^{+\infty}f_1(x)g(x)dx$ сходится.\\
-	При этом знаем: $\ds\int_a^{+\infty}f_1(x)g(x)dx=\int_a^{+\infty}f(x)g(x)dx-\frac K\omega\int_a^{+\infty}g(x)dx$
+	При этом знаем: $\ds\int_a^{+\infty}f_1(x)g(x)dx=\int_a^{+\infty}f(x)g(x)dx-\frac K\omega\int_a^{+\infty}g(x)dx$.\\
 	Получили требуемое.
 \end{proof}
 \begin{examples}
@@ -52,7 +52,7 @@
 \begin{lemma}\nf{(Элементарные свойства рядов)}\\
 	\begin{enumerate}
 		\item Если ряды $\ds\sum_{n=1}^\i a_n$ и $\ds\sum_{n=1}^\i b_n$ сходятся, то ряд $\ds(\fa\al,\beta\in\R)\ \sum_{n=1}^\i(\al a_n+\beta b_n)$ сходится, причём $\ds\sum_{n=1}^\i(\al a_n+\beta b_n)=\al\sum_{n=1}^\i a_n+\beta\sum_{n=1}^\i b_n$
-		\item $(\fa n_0\in\N)$ ряды $\ds\sum_{n=1}^\i$ и $\ds\sum_{n=n_0}^\i$ сходятся или расходятся одновременно.
+		\item $(\fa n_0\in\N)$ ряды $\ds\sum_{n=1}^\i a_n$ и $\ds\sum_{n=n_0}^\i a_n$ сходятся или расходятся одновременно.
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -99,8 +99,8 @@
 	Если $f(x)\ge0$ и $f$ убывает на $[1,\p]$, то $\ds\ss f(n)$ и $\ds\int_1^pf(x)dx$ сходятся и расходятся одновременно.
 \end{theorem}
 \begin{proof}
-	\[\ds\fa x\in[k,k+1]\ f(k)\ge f(x)\ge f(k+1),\ f(k)\ge\int_1^{n+1}f(x)dx\ge f(k+1)\]
-	\[\sum_{k=1}^nf(k)\ge\int_1^{n+1}f(x)dx\ge\sum_{k=1}^nf(k+1)=\sum_{j=2}^{n+1}f(j)\]
+	\[\ds\fa x\in[k,k+1]\ f(k)\ge f(x)\ge f(k+1),\ f(k)\ge\int_k^{k+1}f(x)dx\ge f(k+1)\]
+	\[\sum_{k=1}^nf(k)\ge\int_k^{k   +1}f(x)dx\ge\sum_{k=1}^nf(k+1)=\sum_{j=2}^{n+1}f(j)\]
 	Получили требуемое.
 \end{proof}
 \begin{example}
@@ -110,8 +110,8 @@
 \begin{theorem}\label{12_th5}\nf{(Признак Даламбера)}\\
 	Пусть $a_k>0\ \fa k\in\N$. Тогда:
 	\begin{enumerate}
-		\item $\ds\v\lim_{n\ra\i}\frac{a_{n+1}}{a_n}=p<1$, тогда ряд $\ds\ss a_n$ сходится.
-		\item $\ds\underline\lim_{n\ra\i}\frac{a_{n+1}}{a_n}=q>1$, тогда ряд $\ds\ss a_n$ расходится.
+		\item $\ds\vlim[n\ra\i]\frac{a_{n+1}}{a_n}=p<1$, тогда ряд $\ds\ss a_n$ сходится.
+		\item $\ds\uvlim[n\ra\i]\frac{a_{n+1}}{a_n}=q>1$, тогда ряд $\ds\ss a_n$ расходится.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -124,13 +124,13 @@
 \begin{theorem}\label{12_th6}\nf{(Признак Коши)}\\
 	Пусть $a_k>0\ \fa k\in\N$. Тогда:
 	\begin{enumerate}
-		\item $\ds\v{\lim_{n\ra\p}}\sqrt[n]{a_n}<1$, тогда $\ds\ss a_n$ сходится.
-		\item $\ds\v{\lim_{n\ra\p}}\sqrt[n]{a_n}>1$, тогда $\ds\ss a_n$ расходится.
+		\item $\ds\vlim[n\ra\p]\sqrt[n]{a_n}<1$, тогда $\ds\ss a_n$ сходится.
+		\item $\ds\vlim[n\ra\p]\sqrt[n]{a_n}>1$, тогда $\ds\ss a_n$ расходится.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
 	Докажем первый пункт.
-	\[p:=\v{\lim_{n\ra\p}}\sqrt[n]{a_n},\ (\fa\eps>0)(\ex N\in\N)(\fa n>N)\ \sqrt[n]{a_n}<p+\eps=\t p<1,\ a_n<(\t p)^n,\ \ss[N+1]\t p\text{ сходится}\]
+	\[p:=\vlim[n\ra\p]\sqrt[n]{a_n},\ (\fa\eps>0)(\ex N\in\N)(\fa n>N)\ \sqrt[n]{a_n}<p+\eps=\t p<1,\ a_n<(\t p)^n,\ \ss[N+1](\t p)^n\text{ сходится}\]
 	Теперь второй. $\ds\lim_{n\ra\p}\sqrt[n]{a_n}=p>1,\ \ex\{n_k\}_{k=1}^\i,\ \lim_{k\ra\p}\sqrt[n]{a_{n_k}}=p$
 	\[(\fa\eps>0)(\ex K\in\N)(\fa k>K)\ \sqrt[n]{a_{n_k}}>p-\eps=q>1\Ra a_{n_k}>q^{n_k}\ra\p,\ k\ra\p,\ \lim_{k\ra\p}a_{n_k}\neq0\]
 	Получили требуемое.

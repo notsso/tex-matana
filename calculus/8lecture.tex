@@ -7,19 +7,19 @@
 	\[(\forall\eps>0)(\ex\delta>0,\delta<\eps)(\fa s,t\in[m,M],|s-t|<\delta)\ |f(s)-f(t)|<\eps\]
 	По критерию интегрируемости: $(\ex P)\ U(P,f)-L(P,f)<\delta^2$\\
 	Ещё 
-	\[U(P,h)-L(P,h)=\sum_{i=1}^n(M_i(h)-m_i(h))\tr x_i=(\sum_{i\in A}+\sum_{i\in B})(M_i(h)-m_i(h))\tr x_i\]
+	\[U(P,h)-L(P,h)=\sum_{i=1}^n(M_i(h)-m_i(h))\tr x_i=\l(\sum_{i\in A}+\sum_{i\in B}\r)(M_i(h)-m_i(h))\tr x_i\]
 	\[i\in A\lra M_i(g)-m_i(g)<\delta,\ B=\{1,\dots,n\}\setminus A\]
 	\[\sum_{i\in A}(M_i(h)-m_i(h))\tr x_i\le\eps\cdot(b-a)\]
 	\begin{multline*}
 		\delta\cdot\sum_{i\in B}\tr x_i\le\sum_{i\in B}(M_i(g)-m_i(g))\tr x_i\le U(P,g)-L(P,g)<\delta^2\Ra\\
 		\Ra\sum_{i\in B}\tr x_i<\delta\Ra\sum_{i\in B}(M_i(h)-m_i(h))\tr x_i\le 2K\sum_{i\in B}<2K\cdot\eps
 	\end{multline*}
-	Получили ограничение на разность сумму Дарбу, а значит и получили требуемое.
+	Получили ограничение на разность сумм Дарбу, а значит и получили требуемое.
 \end{proof}
 \begin{corollary}
 	Верны следующие утверждения:
 	\begin{enumerate}
-		\item $f_1,f2\in\mc R[a,b]\Ra f_1\cdot f_2\in\mc R[a,b]$
+		\item $f_1,f_2\in\mc R[a,b]\Ra f_1\cdot f_2\in\mc R[a,b]$
 		\item $\displaystyle f_1\in\mc R[a,b]\Ra|f(x)|^2\in\mc R[a,b],\ \bigg|\int_a^bf(x)dx\bigg|\le\int_a^b\bigg|f(x)\bigg|dx$
 	\end{enumerate}
 \end{corollary}
@@ -63,7 +63,7 @@
 	\[S(P,f,\{t_i\})>n,\ \tr(P)<\frac1n,\ \ex\ i_0 \text{ такое, что }f\text{ неограничена на }[x_{i_0-1},x_{i_0}]\]
 	\[t_i\in[t_{i-1},t_i],\ i\neq i_0,\ \v S(P,f,\{t_i\})=\sum_{i\neq i_0}f(t_i)\cdot\tr x_i\]
 	\[\ex t_{i_0}\in[x_{i_0-1},x_i]:f(t_{i_0})>\frac{n-\v S(P,f,\{t_i\})}{\tr x_{i_0}}\]
-	\[s(P,f,\{t_i\})=\sum_{i=1}^nf(t_i)\cdot\tr x_i=f(t_{i_0})\cdot\tr x_i+\v S(P,f,\{t_i\})>n\]
+	\[S(P,f,\{t_i\})=\sum_{i=1}^nf(t_i)\cdot\tr x_i=f(t_{i_0})\cdot\tr x_i+\v S(P,f,\{t_i\})>n\]
 	Получили отрицание существования предела, значит лемма доказана.
 \end{proof}
 \begin{theorem}\nf{(Интеграл как предел интегральных сумм)}\label{8_th1}\\
@@ -76,11 +76,11 @@
 	Зафиксируем $\eps$, получим по нему $\delta$, зафиксируем $P$.
 	\[A-\frac\eps3<\sum_{i=1}^nf(t_i)\tr x_i<A+\frac\eps3\Ra U(P,f)-L(P,f)\le \frac{2\eps}{3}<\eps\Ra f\in\mc R[a,b]\]
 	\[A-\frac\eps3\le L(P,f)\le\int_a^bf(x)dx\le U(P,f)\le A+\frac\eps3\Ra\bigg|A-\int_a^bf(x)dx\bigg|\le\frac\eps3\]
-	Достаточность доказана.\\\\
+	Достаточность доказана.\\
 	Необходимость:\\
 	Пусть $f(x)$ неотрицательная на $[a,b]$.\\
 	Хотим доказать:
-	\[(\fa\eps>0)(\ex\delta>0)(\fa P,\tr(P)<\delta)(\fa\{t_i\},\ t_i\in[x_{i-1},x_i])\bigg|\int_a^bf(x)dx-\sum_{i=1}^hf(t_i)dx_i\bigg|<\eps\]
+	\[(\fa\eps>0)(\ex\delta>0)(\fa P,\tr(P)<\delta)(\fa\{t_i\},\ t_i\in[x_{i-1},x_i])\ \bigg|\int_a^bf(x)dx-\sum_{i=1}^hf(t_i)dx_i\bigg|<\eps\]
 	По критерию интегрируемости:
 	\[(\ex P':a=x_0'<\dots<x_n'=b)\ U(P',f)<\int_a^bf(x)dx+\frac\eps4\]
 	Положим: $M:=\smo{\sup_{[a,b]}}f(x),\ \delta_1:=\frac{\eps}{8Mn}$, возьмём $\fa P:\tr(P)<\delta_1$\\
@@ -100,7 +100,7 @@
 	Для произвольного знака получили такую же штуку.\\
 	Теперь возьмём $f_2=-f$:
 	\[(\ex\delta_2<0)(\fa P,\ \tr(P)<\delta_2)\ U(P,f_2)<\int_a^bf_2(x)dx+\frac\eps2,\ U(P,f)=-L(P,f)<-\int_a^bf(x)dx+\frac\eps2\]
-	\[(\fa\eps>)(\ex\delta_2)(\fa P,\ \tr(P)<\delta_2)\ L(P,f)>\int_a^b-\frac\eps2\]
+	\[(\fa\eps>0)(\ex\delta_2)(\fa P,\ \tr(P)<\delta_2)\ L(P,f)>\int_a^bf(x)dx-\frac\eps2\]
 	Теперь возьмём $\delta=\min(\delta_1,\delta_2),\ \fa P,\ \tr(P)<\delta$
 	\[\int_a^bf(x)dx-\frac\eps2<L(P,f)\le\sum_{i=1}^nf(t_i)dx_i\le U(P,f)<\int_a^bf(x)dx+\frac\eps2\]
 	Получили требуемое.

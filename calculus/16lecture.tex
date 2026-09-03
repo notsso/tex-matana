@@ -1,4 +1,4 @@
-\begin{theorem}\nf{(Предельный переход в равномерно сходящизся рядах)}\label{16_th5}\\
+\begin{theorem}\nf{(Предельный переход в равномерно сходящихся рядах)}\label{16_th5}\\
 	Если $\ss f_n(x)$ равномерно сходится на метрическом пространстве $E$, $x_0$ - предельная точка $E$, $(\fa n\in\N)\ \lim_{x\ra x_0}f_n(x)=a_n\in\R$, то $\ss a_n$ сходится и $\ss a_n=\lim_{x\ra x_0}^{x\in E}\ss f_n(x)$.
 \end{theorem}
 \begin{proof}
@@ -76,11 +76,11 @@
 	Применим это к $t=x_0$ при $\fa x\in(a,b)$:
 	\begin{multline*}
 		\B|f_{n+p}(x)-f_n(x)\B|\le
-		\B|\b(f_{n+p}(x)-f_n(x)\b)-\b(f_{n+p}(x_0)-f_n(x_0)\b)\B|+\B|f_{n+p}(x_0)-f_{n+p}(x_0)\B|=\\
-		=|f'_{n+p}(\xi_1)-f'_n(\xi_1)|+\B|f_{n+p}(x_0)-f_n(x_0)\B|<\eps
+		\B|\big(f_{n+p}(x)-f_n(x)\big)-\big(f_{n+p}(x_0)-f_n(x_0)\big)\B|+\B|f_{n+p}(x_0)-f_{n+p}(x_0)\B|\le\\
+		\le|f'_{n+p}(\xi_1)-f'_n(\xi_1)|\cdot(b-a)+\B|f_{n+p}(x_0)-f_n(x_0)\B|<\eps
 	\end{multline*}
 	Получили:
-	\[(\fa\eps>0)(\ex N\in\N)(\fa n>N)(\fa p\in\N)(\fa x\in(a,b))\ |f_{n+p}(x)-f_n{x}|<\eps\Ra f_n\rra f\]
+	\[(\fa\eps>0)(\ex N\in\N)(\fa n>N)(\fa p\in\N)(\fa x\in(a,b))\ |f_{n+p}(x)-f_n(x)|<\eps\Ra f_n\rra f\]
 	Положим $\ds\phi_n(t):=\frac{f_n(t)-f_n(x)}{t-x},\ \phi(t)=\frac{f(t)-f(x)}{t-x},\ t\in(a,b)\setminus\{x\},\ \lim_{t\ra x}\phi(t)=f'_n(x)$.\\
 	Тогда перепишем (\ref{16_eq1}), используя $\phi_n$:
 	\[\B|\phi_n(t)-\phi_{n+p}(t)\B|=\B|f'_{n+p}(\xi)-f'_n(\xi)\B|<\frac\eps{2(b-a)}\Ra\phi_n\rra\phi\]

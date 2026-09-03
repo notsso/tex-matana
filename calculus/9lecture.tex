@@ -34,7 +34,7 @@
 	\end{cases}
 	\]
 \end{note}
-\begin{theorem}\nf{([Свойства интеграла с переменным верхним пределом})\label{9_th2}\\
+\begin{theorem}\nf{(Свойства интеграла с переменным верхним пределом)}\label{9_th2}\\
 	Если $f\in\mc R[a,b]$, интеграл с переменным верхним пределом $F(x)$ непрерывен на $[a,b]$. Если $f$ непрерывна в $x_0\in[a,b]$, то $F$ дифференцируема в $x_0$, причём $F'(x_0)=f(x_0)$ (если $x_0$ находится на концах отрезка, то односторонне дифференцируема соответственно).
 \end{theorem}
 \begin{proof}
@@ -56,9 +56,12 @@
 \end{theorem}
 \begin{proof}
 	$\fa P:a=x_0<\dots<x_n=b$
-	\[F(b)-F(a)=(F(b)-x_{n-1})+(F(x_{n-1})-F(x_{n-2}))+\dots+(F(x_1)-F(a))\]
+	\[F(b)-F(a)=(F(b)-F(x_{n-1}))+(F(x_{n-1})-F(x_{n-2}))+\dots+(F(x_1)-F(a))\]
 	Применим т. Лагранжа $n$ раз, $t_i\in[x_{i-1},x_i]$:
-	\[F(b)-F(a)=F'(t_{n})(b-x_{n-1})+\dots+F'(t_1)(x_1-a)=\sum_{i=1}^nf(t_i)\tr x_i=S(P,f,\{t_i\})\ra\int_a^bf(x)dx\text{, при }\tr(P)\ra0\]
+	\begin{multline*}
+		F(b)-F(a)=F'(t_{n})(b-x_{n-1})+\dots+F'(t_1)(x_1-a)=\\
+		=\sum_{i=1}^nf(t_i)\tr x_i=S(P,f,\{t_i\})\ra\int_a^bf(x)dx\text{, при }\tr(P)\ra0
+	\end{multline*}
 	Значит $\displaystyle F(b)-F(a)=\int_a^bf(x)dx$
 \end{proof}
 \begin{note}

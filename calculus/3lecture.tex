@@ -41,7 +41,7 @@
 	Пусть $\v x_0\in G_2\subset G\Ra(\exists\eps>0)\ U_\eps(\v x_0)\subset G$\\
 	Заметим, что $\forall\v y\in U_\eps(\v x_0)$ можно соединить с $\v x_1$, значит $\v y\in G_2\Ra U_\eps(\v x_0)\subset G_2\Ra G_2$ - открытое.\\
 	Теперь докажем, что $G_1$ - открытое.\\
-	От противного: пусть $(\exists\v x_0\in G_1)(\forall\eps>0)\ U_\eps(\v x_0)\cap G_2\neq\emptyset$\\
+	От противного: пусть $(\exists\v x_0\in G_1)(\forall\eps>0)\ U_\eps(\v x_0)\cap G_2\neq\emptyset$.
 	\[(\exists\eps_1>0)\ U_{\eps_1}(\v x_0)\subset G\Ra\exists\v y\in U_\eps(\v x_0)\cap G_2\]
 	Получили, что $\v y$ можно соединить с $\v x_0\Ra\text{тогда и с }\v x_1$, тогда $\v x_1\in G_2$, при этом $\v x_1\in G_1$. \\
 	Противоречие. Значит $G_1$ - открытое $\Ra G$ - линейно связное. 
@@ -84,7 +84,7 @@
 \end{note}
 	
 \begin{theorem}\label{3_th1}
-	Если $f$ дифференцируема в точке $\v x_0$, то она имеет частные производные в этой точке по всем переменным $x_j,\ j=1,\dots,n$, причём 
+	Если $f$ дифференцируема в точке $\v x_0$, то она имеет частные производные в этой точке по всем переменным $x_j,\ j=1,\dots,n$, причём:
 	\[\grad f(\v x_0)=\left(\frac{\vdelta f}{\vdelta x_1}(\v x_0),\dots,\frac{\vdelta f}{\vdelta x_n}(\v x_0)\right)\]
 \end{theorem}
 \begin{proof}
@@ -148,17 +148,20 @@
 		+(f(x_{1,0},x_{2,0}+\tr x_2,\dots,x_{n,0}+\tr x_n)-f(x_{1,0},x_{2,0},x_{3,0}+\tr x_3),\dots,x_{n,0}+\tr x_n)+\dots+\\
 		+(f(x_{1,0},x_{2,0},\dots,x_{n,0}+\tr x_n)-f(x_{1,0},x_{2,0},\dots,x_{n,0}))
 	\end{multline*}
-	Применим т. Лагранжа много раз: $\xi_i\in\ [x_{i,0},x_{i,0}+\tr x_i],\ i=1,\dots,n$ (если $\tr x$ отрицателен, думаю поймёте).
+	Применим т. Лагранжа много раз: $\ex\xi_i\in\ [x_{i,0},x_{i,0}+\tr x_i],\ i=1,\dots,n$ (если $\tr x$ отрицателен, то $\xi_i\in[x_{i,0}+\tr x_i,x_{i,0}]$).
 	\begin{multline*}
 		\frac{\vdelta f}{\vdelta x_1}(\xi_1,x_{2,0}+\tr x_2,\dots,x_{n,0}+\tr x_n)\cdot\tr x_1+\\
 		+\frac{\vdelta f}{\vdelta x_2}(x_{1,0},\xi_2,x_{3,0}+\tr x_3,\dots,x_{n,0}+\tr x_n)\cdot\tr x_2+\dots+\\
 		+\dots+\frac{\vdelta f}{\vdelta x_n}(x_{1,0},\dots,x_{n-1,0},\xi_n)\cdot\tr x_n
 	\end{multline*}
-	\begin{multline*}
-		\tr y=\frac{\vd f}{\vd x_1}(\xi_1,x_{2,0}+\tr x_2,\dots,x_{n,0}+\tr x_n)\tr x_1+\dots+\frac{\vd f}{\vd x_n}(x_{1,0},\dots,x_{n-1,0},\xi_n)=\\
-		=\frac{\vd f}{\vd x_1}(\v x_0)\tr x_1+\dots+\frac{\vd f}{\vd x_n}(\v x_0)\tr x_n+(\frac{\vd f}{\vd x_1}(\xi_1,x_{2,0}+\tr x_2,\dots,x_{n,0}+\tr x_n)-\frac{\vd f}{\vd x_1}(\v x_0))\tr x_1+\dots+\\
-		+\dots+(\frac{\vd f}{\vd x_n}(x_{1,0},\dots,x_{n-1},\xi_n)-\frac{\vd f}{\vd x_j}(\v x_0))\tr x_n
-	\end{multline*}
+	\begin{equation*}
+		\begin{split}
+			\tr y&=\frac{\vd f}{\vd x_1}(\xi_1,x_{2,0}+\tr x_2,\dots,x_{n,0}+\tr x_n)\tr x_1+\dots+\frac{\vd f}{\vd x_n}(x_{1,0},\dots,x_{n-1,0},\xi_n)=\\
+			&=\frac{\vd f}{\vd x_1}(\v x_0)\tr x_1+\dots+\frac{\vd f}{\vd x_n}(\v x_0)\tr x_n+\\
+			&+\l(\frac{\vd f}{\vd x_1}(\xi_1,x_{2,0}+\tr x_2,\dots,x_{n,0}+\tr x_n)-\frac{\vd f}{\vd x_1}(\v x_0)\r)\tr x_1+\dots+\\
+			&+\l(\frac{\vd f}{\vd x_n}(x_{1,0},\dots,x_{n-1},\xi_n)-\frac{\vd f}{\vd x_j}(\v x_0)\r)\tr x_n
+		\end{split}
+	\end{equation*}
 	\[\frac{\vd f}{\vd x}(x_{1,0},\dots,x_{j-1,0},\xi_j,x_{j+1,0},\dots,x_{n,0}+\tr x_n)-\frac{\vd f}{\vd x_j}(\v x_0))\tr x_j=^?\sigma(|\tr\v x|),\ \tr\v x\ra\v0\]
 	\[\frac{\frac{\vd f}{\vd x_j}\dots}{|\tr\v x|}\ra0,\ \tr\v x\ra0,\ \frac{\tr x_j}{|\tr\v x|}\le1\]
 \end{proof}

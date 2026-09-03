@@ -114,11 +114,11 @@
 \begin{proof}
 	По критерию Коши:
 	\begin{multline*}
-		\sum_{k=n+1}^{n+p}a_kb_k=\sum_{k=n+1}^{n+p}(A_k-A_{k-1})b_{n+1}+\dots+(A_{n+p}-A_{n+p-1})b_{n+p}=\\
+		\sum_{k=n+1}^{n+p}a_kb_k=(A_k-A_{k-1})b_{n+1}+\dots+(A_{n+p}-A_{n+p-1})b_{n+p}=\\
 		=A_{n+p}b_{n+p}-A_nb_{n+1}+\sum_{k=n+1}^{n+p-1}A_k(b_k-b_{k+1})
 	\end{multline*}
 	\[|A_N|\le M\ (\fa N\in\N)\]
-	\[\l|\sum_{k=n+1}^{n+p}a_kb_k\r|\le M\l(|b_{n+1}|+|b_{n+1}|+\l|\sum_{k=n+1}^{n+p-1}(b_k-b_{k+1})\r|\r)\le2M(|b_{n+1}|+|b_{n+1}|)\]
+	\[\l|\sum_{k=n+1}^{n+p}a_kb_k\r|\le M\l(|b_{n+p}|+|b_{n+1}|+\l|\sum_{k=n+1}^{n+p-1}(b_k-b_{k+1})\r|\r)\le2M(|b_{n+1}|+|b_{n+p}|)\]
 	\[\lim_{n\ra\i}b_n=0\Ra(\fa\eps>0)(\ex N\in\N)(\fa n>N)\ |b_n|<\frac\eps{4M}\Ra(\fa p\in\N)\ |b_{n+p}|<\frac\eps{4M}\]
 	Тогда по (\ref{13_th8}) получим требуемое.
 \end{proof}
@@ -126,7 +126,7 @@
 	Если:
 	\begin{enumerate}
 		\item Ряд $\ss a_n$ сходится.
-		\item $\{b_n\}_{n=1}^\i$ монотонна и органичена.
+		\item $\{b_n\}_{n=1}^\i$ монотонна и ограничена.
 	\end{enumerate}
 	то $\ds\ss a_nb_n$ cходится.
 \end{corollary}
@@ -144,7 +144,7 @@
 	\[\ss a_nb_n=\ss a_n\t b_n+b\ss a_n\]
 \end{proof}
 \begin{examples}
-	\[\ss\frac{\sin nx}{n^\al},\ \ss(1+\frac1n)^n\cdot\frac{\sin nx}{n^\al},\ x\ne\pi n,\ n\in\Z\]
+	\[\ss\frac{\sin nx}{n^\al},\ \ss\l(1+\frac1n\r)^n\cdot\frac{\sin nx}{n^\al},\ x\ne\pi n,\ n\in\Z\]
 	При $\al\le0$ расходится.\\
 	От противного. Пусть $s=\lim_{n\ra\i}\sin nx$. Также пусть $c:=\lim_{n\ra\i}\cos nx$.
 	\[\sin(n+1)x=\sin nx\cos x+\cos nx\sin x\]
@@ -173,7 +173,7 @@
 	\end{equation*}
 \end{examples}
 \begin{theorem}\nf{(О перестановках абсолютно сходящихся рядов)}\label{13_th13}\\
-	Если ряд $\ss a_n$ сходится абсолютно, то $\fa$ биекций $n:\N\ra\N$ и последовательности $\{n_k\}_{k=1}^\i,\ n_k=n(k)$ ряд $\ss a_{n_k}$ сходится к той же сумме, что и $\ss a_n$.
+	Если ряд $\ss a_n$ сходится абсолютно, то $\fa$ биекций $n:\N\ra\N$ и последовательности $\{n_k\}_{k=1}^\i,\ n_k=n(k)$ ряд $\sum_{k=1}^\i a_{n_k}$ сходится к той же сумме, что и $\ss a_n$.
 \end{theorem}
 \begin{proof}
 	Положим $a_k^*:=a_{n_k}$\\
