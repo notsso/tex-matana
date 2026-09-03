@@ -1,0 +1,148 @@
+\subsection{Несобственные интегралы Римана}
+\begin{definition}
+	Пусть $f\in\mc R[a,\t b]\ \fa\t b\in(a,b),\ a<b\le+\infty$. Если $f$ неограничена на $[a,b)$ ($b\in\R\cup+\infty$), то 
+	\[\displaystyle\int_a^bf(x)dx:=\lim_{b\ra b-0}\int_a^bf(x)dx\] 
+	называется \textit{несобственным интегралом Римана второго рода}, если $b\in\R$, или первого рода при $b=+\infty$. \\
+	Если упомянутый предел существует и конечен, то несобственный интеграл \textit{сходится}, иначе \textit{расходится}.
+\end{definition}
+\begin{theorem}\nf{(Критерий Коши сходимости несобственных интегралов)}\label{11_th1}\\
+	Если $f$, при предпологаемых выше условиях, неограничена на $[a,b)$, то несобственный интеграл $\displaystyle\int_a^bf(x)dx$ сходится тогда и только тогда, когда:
+	\[(\fa\eps>0)(\ex\delta\in(a,b))(\fa B_1,B_2:\delta<B_1<B_2<b)\ \bigg|\int_{B_1}^{B_2}f(x)dx\bigg|<\eps\]
+\end{theorem}
+\begin{proof}
+	Сходимость $\ds\int_a^bf(x)dx$ означает существование конечного $\ds\lim_{x\ra b-0}F(x)$, где $\ds F(x)=\int_a^xf(t)dt$.\\
+	По критерию Коши: $\ds(\fa\eps>0)(\ex\t\delta>0)(\fa B_1,B_2\in U_{\t\delta}(b))\ |F(B_2)-F(B_1)|<\eps$.
+	Предлагаем читателю в качестве упражнения дописать доказательство до конца и получить требуемое.
+\end{proof}
+\begin{lemma}\label{11_le1}
+	При предпологаемых выше условиях для $f$ и $f(x)\ge0\ \fa x\in[a,b)$ несобственных интеграл $\ds\int_a^bf(x)dx$ сходится тогда и только тогда, когда $\ds\int_a^{\t b}f(x)dx$ ограничена.
+\end{lemma}
+\begin{proof}
+	По свойству аддитивности: $F(\t b)$ возрастает на $[a,b)$.\\
+	Тогда: $\ds\lim_{\t b\ra b-0}F(\t b)=\sup_{\t b\in[a,b)}F(\t b)$.\\
+	Получили требуемое.
+\end{proof}
+\begin{theorem}\nf{(Признак сравнения сходимости несобственных интегралов)}\label{11_th2}\\
+	Если $f,g\in\mc R[a,\t b]\ \fa\t b\in[a,b),\ 0\le f(x)\le g(x)\ \fa x\in[a,b)$, то:
+	\begin{enumerate}
+		\item Из сходимости $\ds\int_a^bg(x)dx$ следует сходимость $\ds\int_a^bf(x)dx$.\\
+		\item Из расходимости $\ds\int_a^bf(x)dx$ следует расходимость $\ds\int_a^bg(x)dx$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	$\ds F(x):=\int_a^xf(t)dt,\ G(x):=\int_a^xg(t)dt$.\\
+	По свойству монотонности интегралов: $0\le F(x)\le G(x)$.\\
+	Применим лемму (\ref{11_le1}), получим требуемое.
+\end{proof}
+\begin{note}
+	Аналогичные вещи можно определить и при $a\ra a+0$.
+\end{note}
+\begin{example}
+	$\ds f(x)=\frac1{x^\al}$.
+	\begin{enumerate}
+		\item Рассмотрим $\ds\int_0^1\frac{dx}{x^\al}$
+			\[\int_0^1\frac{dx}{x^\al}=
+			\begin{cases*}
+				\frac{x^{-\al+1}}{-\al+1}\bigg|_a^1,\ \al\ne1\\
+				\ln x\bigg|_a^1,\ \al=1
+			\end{cases*}
+			=
+			\begin{cases*}
+				\frac1{1-\al}-\frac{a^{1-\al}}{1-\al},\ \al\neq1\\
+				-\ln a,\ \al=1
+			\end{cases*}
+			\]
+			\[\int_0^1\frac{dx}{x^\al}=\frac1{1-\al},\ 0<\al<1\text{ - сходится, иначе расходится, а ещё он второго рода.}\]\\
+		\item Теперь рассмотрим $\ds\int_1^{+\infty}\frac{dx}{x^\al}$
+			\[
+			\int_1^{+\infty}\frac{dx}{x^\al}=
+			\begin{cases*}
+				\frac{x^{-\al+1}}{-\al+1}\bigg|_1^b,\ \al\ne1\\
+				\ln x\bigg|_1^b,\ \al=1
+			\end{cases*}
+			=
+			\begin{cases*}
+				\frac{b^{1-\al}}{1-\al}-\frac1{1-\al},\ \al>1\\
+				\ln b,\ \al\le1
+			\end{cases*}
+			\]
+			Расходится $\fa\al\in\R$.
+	\end{enumerate}
+\end{example}
+\begin{note}
+	Главным значением в смысле Коши $\ds\int_{-1}^1\frac{dx}{x}$ называется:
+	\[v.p.\int_{-1}^1\frac{dx}{x}:=\lim_{\eps\ra+0}(\int_{-1}^\eps+\int_\eps^1)\frac{dx}{x}\]
+	\[v.p.\int_{-\infty}^{+\infty}\frac{dx}{x}:=\lim_{\eps\ra+0,\ b\ra+\infty}\bigg(\int_{-b}^{-1}+\int_{-1}^{-\eps}+\int_\eps^1+\int_1^b\bigg)\frac{dx}{x}\]
+\end{note}
+\begin{anote}
+	$v.p.$ - value principle. Взяли все интересные места и раздробили интеграл по ним.
+\end{anote}
+\begin{definition}
+	Пусть $f\in\mc R[a,\t b],\ a<\t b<b\le+\infty$. Если $\ds\int_a^b|f(x)|dx$ сходится, то $\ds\int_a^bf(x)dx$ сходится \textit{абсолютно}.
+\end{definition}
+\begin{theorem}
+	Если несобственный интеграл Римана сходится абсолютно, то он сходится.
+\end{theorem}
+\begin{proof}
+	$\ds\int_a^b|f(x)|dx$ сходится, тогда по (\ref{11_th1}):
+	\begin{multline*}
+		(\fa\eps>0)(\ex\delta\in(a,b))(\fa B_1,B_2,\ \delta<B_1<B_2<b)\ \int_{B_1}^{B_2}|f(x)|dx<\eps\Ra\\
+		\Ra\bigg|\int_{B_1}^{B_2}f(x)dx\bigg|\le\int_{B_1}^{B_2}|f(x)|dx<\eps
+	\end{multline*}
+	Тогда по теореме (\ref{11_th1}) $\ds\int_a^bf(x)dx$ сходится.
+	Получили требуемое.
+\end{proof}
+\begin{definition}
+	Если несобственный интеграл $\ds\int_a^bf(x)dx$ сходится, но не абсолютно, то говорят, что он сходится \textit{условно}.
+\end{definition}
+\begin{theorem}\label{11_th4}\nf{(Признак Дирихле сходимости несобственных интегралов)}\\
+	Пусть $f,g\in\mc R[a,\t b]\ \fa\t b\in(a,b)$. Если имеют место следующие утверждения:
+	\begin{enumerate}
+		\item $F(\t b)=\int_a^{\t b}f(x)dx$ ограничена на $(a,b)$.
+		\item $g$ монотонна на $(a,b)$ и $\lim_{x\ra b-0}g(x)=0$.
+	\end{enumerate}
+	то $\ds\int_a^bf(x)g(x)dx$ сходится.
+\end{theorem}
+\begin{proof}
+	Хотим доказать:
+	\[(\fa\eps>0)(\ex\delta\in(a,b))(\fa B_1,B_2,\ \delta<B_1<B_2<b)\ \bigg|\int_{B_1}^{B_2}f(x)g(x)dx\bigg|<\eps\]
+	По второй теореме о среднем:
+	\[(\ex\xi\in[B_1,B_2])\ \int_{B_1}^{B_2}f(x)g(x)dx=g(B_1)\int_{B_1}^\xi f(x)dx+g(B_2)\int_\xi^{B_2}f(x)dx\]
+	Теперь воспользуемся условиями теоремы: $|F(\t b)|\le M$.
+	\[(\fa\eps>0)(\ex\delta\in(a,b))(\fa x,\ \delta<x<b)\ |g(x)|<\frac{\eps}{4M}\]
+	\[\bigg|\int_{B_1}^{B_2}f(x)g(x)dx\bigg|\le|g(B_1)|\cdot|B(\xi)-F(B_1)|+|g(B_2)|\cdot|F(B_2)-F(\xi)|\le\frac{\eps}{4M}\cdot2M+\frac\eps{4M}\cdot2M=\eps\]
+\end{proof}
+\begin{corollary}\nf{(Признак Абеля сходимости несобственных интегралов)}\\
+	Пусть $f,g\in\mc R[a,\t b]\ \fa\t b\in[a,b)$. Если имеют место следующие утверждения:
+	\begin{enumerate}
+		\item $\ds\int_a^bf(x)dx$ сходится.
+		\item $g$ монотонна и ограничена на $[a,b]$.
+	\end{enumerate}
+	то $\ds\int_a^bf(x)g(x)dx$ сходится.
+\end{corollary}
+\begin{proof}
+	Из условий следствия имеем:
+	\[\ex L:=\lim_{x\ra b-0}g(x),\ F\text{ - ограничена}\]
+	Тогда пусть $g_1(x):=g(x)-L$.\\
+	По (\ref{11_th4}): $\ds\int_a^bf(x)g_1(x)dx$ сходится.\\
+	\[\int_a^{\t b}f(x)dx\underset{\t b\ra b-0}\longrightarrow\int_a^bf(x)dx\]
+	Тогда получаем:
+	\[\int_a^{\t b}f(x)g_1(x)dx-L\cdot\int_a^{\t b}f(x)dx=\int_a^{\t b}f(x)g(x)dx\]
+	Получили требуемое.
+\end{proof}
+\begin{example}
+	Пусть $\ds f(x)=\frac{\sin x}{x^\al}$.\\
+	Тогда рассмотрим $\ds\int_1^{+\infty}\frac{\sin x}{x^\al}dx$.
+	\begin{enumerate}
+		\item $\al\le0$. Расходится.
+		\[B_1=\frac\pi4+2\pi n,\ B_2=\frac{3\pi}4+2\pi n,\ \fa x\in[B_1,B_2]\Ra\sin x\ge\frac1{\sqrt{2}}\]
+		\[\bigg|\int_{B_1}^{B_2}\frac{\sin x}{x^\al}dx\bigg|=\int_{B_1}^{B_2}\frac{\sin x}{x^\al}dx\ge\frac1{\sqrt{2}}\cdot\int_{B_1}^{B_2}\frac{dx}{x^\al}\ge\frac{B_1}{\sqrt{2}}\cdot\frac{\pi}{2}\ge\frac{\pi}{2\sqrt{2}}=\eps\]
+		\item $\ds\int_1^{+\infty}\frac{dx}{x^\al}$ сходится при $\ds\al>1\Ra\int_1^{+\infty}\frac{\sin x}{x^\al}$ сходится абсолютно при $\al>1$.
+		\item $\ds f(x)=\sin x\Ra F(\t b)=\int_1^{\t b}\sin xdx=\cos1-\cos\t b\text{ - ограничена}$\\
+		$\ds g(x)=\frac1{x^\al}\text{ убывает на }[1,+\infty),\ \lim_{x\ra+\infty}g(x)=0,\ \al>0$\\
+		$\ds\int_1^{+\infty}\frac{dx}{x^\al}\text{ сходится при }\al>0\text{ (условно при }\al\in[0,1])$
+		\item $\ds\bigg|\frac{\sin x}{x^\al}\bigg|\ge\frac{\sin^2x}{x^\al}=\frac{1-\cos^2x}{2x^\al}$\\
+		$\ds\int_1^{+\infty}\frac{\cos2x}{2x^\al}dx$ сходится по признаку Дирихле при $(\al>0)$\\
+		$\ds\int_1^{+\infty}\frac{1}{2x^\al}dx$ расходится при $\ds\al\le1\Ra\int_1^{+\infty}\frac{\sin^2x}{x^\al}dx$ расходится при $\al\in(0,1]$
+	\end{enumerate}
+\end{example}

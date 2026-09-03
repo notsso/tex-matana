@@ -1,0 +1,129 @@
+\begin{note}
+	Далее вместо $\mu_{(J)}$ будет использоваться $\mu$.
+\end{note}
+\begin{theorem}\nf{(Конечная характеристика мер Лебега и Жордана)}\label{21_th3}
+	Если $A_1,\dots,A_m$ - непересекающиеся измеримые по Лебегу (Жордану) подмножества $K_I$, то:
+	\[\mu\l(\bsc_{i=1}^mA_i\r)=\sum_{i=1}^m\mu(A_i)\]
+\end{theorem}
+\begin{proof}
+	$m=2$:
+	\[(\fa\eps>0)(\ex M_{i,\eps}\text{ - элементарное})\ \mu(A_i\tr M_{i,\eps})<\eps,\ i=1,2\]
+	\[\mu(A_1\sqcup A_2)=\mu(A_1)+\mu(A_2),\ A_1\sqcup A_2\subset(M_{1,\eps}\cup M_{2,\eps})\cup(A_1\sm M_{1,\eps})\cup(A_2\sm M_{1,\eps})\]
+	\[M_{1,\eps}\cup M_{2,\eps}\subset(A_1\sqcup A_2)\cup(M_{1,\eps}\sm A_1)\cup(M_{2,\eps}\sm A_2)\]
+	\[\mu(A_1\sqcup A_2)\le|M_{1,\eps}\cup M_{2,\eps}|+2\eps\]
+	\[|M_{1,\eps}\cup M_{2,\eps}|\le\mu(A_1\sqcup A_2)+2\eps\]
+	\[|\mu(A_1\sqcup A_2)-|M_{1,\eps}\cup M_{2,\eps}||\le2\eps\]
+	\[|\mu(A_i)-|M_{i,\eps}||<\eps,\ i=1,2\]
+	\[|M_{1,\eps}\cup M_{2,\eps}|+|M_{1,\eps}\cap M_{2,\eps}|=|M_{1,\eps}|+|M_{2,\eps}|\]
+	\begin{multline*}
+		M_{1,\eps}\cap M_{2,\eps}\subset(A_1\cup(M_{1,\eps}\sm A_1))\cap(A_2\cup(M_{2,\eps}\sm A_2))=\\
+		=((M_{1,\eps}\sm A_1)\cap(A_2\cup(M_{2,\eps}\sm A_2)))\cup(A_1\cap(A_2\cup(M_{2,\eps}\sm A_2)))\subset\\
+		\subset(A_1\tr M_{1,\eps})\cup(A_2\tr M_{2,\eps})\Ra|M_{1,\eps}\cap M_{2,\eps}|<2\eps
+	\end{multline*}
+	\[\mu(A_1\sqcup A_2)-\mu(A_1)-\mu(A_2)|<6\eps\]
+	Получили требуемое.
+\end{proof}
+\begin{theorem}\label{21_th4}
+	Если $A_1,A_2,\dots$ - измеримые по Лебегу подмножества $K_I$, то $\ds\bc_{i=1}^\i A_i$ - измеримо по Лебегу.
+\end{theorem}
+\begin{proof}
+	Докажем для непересекающихся $A_1,A_2,\dots$
+	\[(\fa m\in\N)\ \mu\l(\bsc_{i=1}^mA_i\r)=\sum_{i=1}^m\mu(A_i)\le|K_I|=1\]
+	Следовательно, ряд $\sum_{i=1}^\i\mu(A_i)$ сходится, тогда имеем:
+	\[(\fa\eps>0)(\ex r\in\N)\ \sum_{i=r+1}^\i\mu(A_i)<\frac\eps2\]
+	\[(\fa i=1,\dots,r)(\ex \text{ элементарное }M_{i,\eps})\ \mu(A_i\tr M_{i,\eps})<\frac\eps{2^r}\]
+	\begin{multline*}
+		\l(\bsc_{i=1}^\i A_i\r)\tr\l(\bc_{i=1}^rM_{i,\eps}\r)=
+		\l(\bsc_{i=1}^\i A_i\sm\bc_{i=1}^rM_{i,\eps}\r)\cup\l(\bc_{i=1}^rM_{i,\eps}\sm\bsc_{i=1}^\i A_i\r)\subset\\
+		\subset\l(\bsc_{i=1}^\i A_i\sm\bc_{i=1}^rM_{i,\eps}\r)\cup\l(\bc_{i=1}^rM_{i,\eps}\sm\bsc_{i=1}^\i A_i\r)\cup\l(\bsc_{i=1}^\i A_i\r)\subset\\
+		\subset\bc_{i=1}^r(A_i\sm M_{i,\eps})\cup\l(\bsc_{i=r+1}^\i A_i\r)\cup\l(\bc_{i=1}^r(M_{i,\eps}\sm A_i)\r)=\bc_{i=1}^r(A_i\tr M_{i,\eps})\cup\l(\bsc_{i=1}^\i A_i\r)
+	\end{multline*}
+	\[\m\l(\bc_{i=1}^r(A_i\tr M_{i,\eps})\r)\le\sum_{i=1}^r\m(A_i\tr M_{i,\eps})<\frac\eps2\]
+	\[\m\l(\l(\bsc_{i=1}^\i A_i\r)\tr\l(\bc_{i=1}^rM_{i,\eps}\r)\r)<\eps\]
+	Теперь рассмотрим общий случай:
+	\[\t A_1:=A_1,\ \t A_2:=A_2\sm \t A_1,\ \t A_3:=A_3\sm(\t A_1\sqcup \t A_2),\ \dots\]
+	Тогда:
+	\[\bsc_{i=1}^\i \t A_i=\bc_{i=1}^\i A_i\]
+	Получили требуемое.
+\end{proof}
+\begin{theorem}\nf{($\sigma$-аддитивность меры Лебега)}\label{21_th5}
+	Пусть $A_1,A_2,\dots$ - непересекающиеся и измеряемые по Лебегу подмножества $K_I$. Тогда:
+	\[\mu\l(\bsc_{i=1}^\i A_i\r)=\sum_{i=1}^\i\mu(A_i)\]
+\end{theorem}
+\begin{proof}
+	\[(\fa m\in\N)\ \bsc_{i=1}^mA_i\subset\bsc_{i=1}^\i A_i\]
+	Следовательно:
+	\[\m\l(\bsc_{i=1}^mA_i\r)=\sum_{i=1}^m\mu(A_i)\le\m\l(\bsc_{i=1}^\i A_i\r)=\mu\l(\bsc_{i=1}^\i A_i\r)\]
+	\[\sum_{i=1}^\i\mu(A_i)\le\mu\l(\bsc_{i=1}^\i A_i\r)\]
+	\[\bsc_{i=1}^\i A_i\subset \bsc_{i=1}^\i A_i\]
+	\[\m\l(\bsc_{i=1}^\i A_i\r)\le\sum_{i=1}^\i\m(A_i)\]
+	Получили требуемое.
+\end{proof}
+\begin{definition}
+	$\sigma$-алгеброй множеств называют алгебру множеств, замкнутую относительно счётного объединения.
+\end{definition}
+\begin{note}
+	(\ref{21_th4}) показывает, что измеримые по Лебегу подмножества $K_I$ образуют $\sigma$-алгебру множеств.
+\end{note}
+\begin{definition}
+	Пусть $A_1,A_2,\dots$ - подмножества $K_I$, тогда:
+	\[\sup_mA_m:=\bc_{m=1}^\i A_m,\ \inf_mA_m:=\bigcap_{m=1}^\i A_m\]
+	\[\underset{m\ra\i}{\v\lim}A_m:=\inf_m\sup_{k>m}A_k=\bigcap_{m=1}^\i\bc_{k=m}^\i A_k\]
+	\[\underset{m\ra\i}{\uv\lim}A_m:=\sup_m\inf_{k>m}A_k=\bc_{m=1}^\i\bigcap_{k=m}^\i A_k\]
+	Если $A_1\subset A_2\subset\dots$, то:
+	\[\lim_{m\ra\i}A_m=\bc_{m=1}^\i A_m\]
+	Если $A_1\supset A_2\supset\dots$, то:
+	\[\lim_{m\ra\i}A_m=\bigcap_{m=1}^\i A_m\]
+	Если $\ds\us{m\ra\i}{\v\lim}A_m=\us{m\ra\i}{\uv\lim}A_m=l$, то:
+	\[\ex\lim_{m\ra\i}A_m=l\]
+\end{definition}
+\begin{lemma}\label{21_l1}
+	Если $A_1\subset A_2\subset\dots\subset K_I$ измеримы по Лебегу, то:
+	\[\mu\l(\bc_{m=1}^\i A_m\r)=\lim_{m\ra\i}\mu(A_m)\]
+\end{lemma}
+\begin{proof}
+	Положим $A_0:=\emptyset,\ \t A_1:=A_1,\ \t A_m:=A_m\sm \t A_{m-1}$
+	Тогда из (\ref{21_th5}) следует:
+	\[1\ge\mu\l(\bsc_{m=1}^\i\t A_m\r)=\sum_{m=1}^\i\mu(\t A_m)=\sum_{m=1}^\i(\mu(A_m)-\mu(A_{m-1}))=\lim_{m\ra\i}\mu(A_m)\]
+	Получили требуемое.
+\end{proof}
+\begin{lemma}\label{21_l2}
+	Если $K_I\supset A_1\supset A_2\supset\dots$ измеримы по Лебегу, то:
+	\[\mu\l(\bigcap_{m=1}^\i A_m\r)=\lim_{m\ra\i}\mu(A_m)\]
+\end{lemma}
+\begin{proof}
+	Заметим: $A_1'\subset A_2'\subset\dots$, тогда по лемме (\ref{21_l1}):
+	\[\mu\l(\bc_{m=1}^\i A_m'\r)=\lim_{m\ra\i}\mu(A_m')=1-\mu(A_m)\]
+	\[\bc_{m=1}^\i A_m'=\bc_{m=1}^\i(K_I\sm A_m)=K_I\sm\bigcap_{m=1}^\i A_m\]
+	\[1-\mu\l(\bigcap_{m=1}^\i A_m\r)=\mu\l(\bc_{m=1}^\i A_m'\r)\]
+	Получили требуемое.
+\end{proof}
+\begin{lemma}\label{21_l3}
+	Если $A_1,A_2,\dots$ - измеримые по Лебегу подмножества $K_I$, то $\ds\us{m\ra\i}{\v\lim}A_m$ - измеримо по Лебегу, при этом: \[\mu(\us{m\ra\i}{\v\lim}A_m)\ge\us{m\ra\i}{\v\lim}\mu(A_m)\]
+\end{lemma}
+\begin{proof}
+	\[\mu(\us{m\ra\i}{\v\lim}A_m)=\mu\l(\bigcap_{m=1}^\i\bc_{k=1}^\i A_k\r)\overset{(\ref{21_l2})}{=}\lim_{m\ra\i}\mu\l(\bc_{k=m}^\i A_k\r)\ge\us{m\ra\i}{\v\lim}\mu(A_m)\]
+	Получили требуемое.
+\end{proof}
+\begin{lemma}\label{21_l4}
+	Если $A_1,A_2,\dots$ - измеримы по Лебегу подмножества $K_I$, то $\us{m\ra\i}{\uv\lim}A_m$ измеримо по Лебегу, при этом: \[\mu(\lim_{m\ra\i}A_m)\le\us{m\ra\i}{\uv\lim}\mu(A_m)\]
+\end{lemma}
+\begin{proof}
+		\[\mu(\us{m\ra\i}{\v\lim}A_m)=\mu\l(\bigcap_{m=1}^\i\bc_{k=1}^\i A_k\r)\overset{(\ref{21_l2})}{=}\lim_{m\ra\i}\mu\l(\bc_{k=m}^\i A_k\r)\le\lim_{m\ra\i}\mu(A_m)\]
+\end{proof}
+\begin{theorem}
+	Если $\ex\lim_{m\ra\i}A_m$, где $A_m$ - измеримое по Лебегу подмножество $K_I$, то этот предел измерим по Лебегу, причём:
+	\[\mu(\lim_{m\ra\i}A_m)=\lim_{m\ra\i}\mu(A_m)\]
+\end{theorem}
+\begin{proof}
+	\[\mu(\lim_{m\ra\i}A_m)\le\lim_{m\ra\i}\mu(A_m)\le\us{m\ra\i}{\v\lim}\mu(A_m)\overset{(\ref{21_l3})}{\le}\mu(\us{m\ra\i}{\v\lim}A_m)=\mu(\lim_{m\ra\i}A_m)\]
+	Получили требуемое.
+\end{proof}
+\begin{note}
+	Вместо $K_I$ можно взять любой его сдвиг:
+	\[K_I+(m_1,\dots,m_n)=\prod_{i=1}^n\l[\frac12+m_i,\ \frac12+m_i\r]\]
+\end{note}
+\begin{definition}
+	Ограниченное множество $A\subset R^n$ называется \textit{измеримым по Жордану}, если $(\fa\v m\in\Z^n)\ A\cap(K_I+\v m)$ измеримо по Жордану, причём:
+	\[\mu_J(A):=\sum_{\v m\in\Z}\mu_J(A\cap(K_I+\v m))\]
+\end{definition}

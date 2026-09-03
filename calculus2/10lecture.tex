@@ -1,0 +1,101 @@
+\begin{anote}
+	Для читателя, который не знает что такое подстановки Абеля, приведём немного обработанную статью с википедии:\\
+	\textit{Дискретным преобразованием Абеля} называют следующее тождество:
+	\[\sum_{k=m}^na_kb_k=a_nB_n-a_mB_{m-1}-\sum_{k=m}^{n-1}(a_{k+1}-a_k)\]
+	где $n\ge m\ge 1,\ \{a_k\}_{k=1},\{b_k\}_{k=1},\{B_k\}_{k=1}$, при этом $B_k=b_1+\dots+b_k,\ B_0=0$\\
+	Также приведём его доказательство, так как в доказательстве следующей леммы оно будет опущено:
+	\begin{equation*}
+		\begin{split}
+			\sum_{k=m}^n a_kb_k &=\sum_{k=m}^n a_k(B_k-B_{k-1})=\sum_{k=m}^n a_k B_k - \sum_{k=m}^n a_kB_{k-1}=\sum_{k=m}^n a_k B_k - \sum_{k=m-1}^{n-1} a_{k+1} B_k = \\
+			&= a_n B_n + \sum_{k=m}^{n-1} a_k B_k - \sum_{k=m}^{n-1} a_{k+1} B_k - a_m B_{m-1} = \\
+			&= a_n B_n - a_m B_{m-1} - \sum_{k=m}^{n-1}(a_{k+1} - a_k) B_k,
+		\end{split}
+	\end{equation*}
+\end{anote}
+\begin{lemma}\nf{(Формула Бонне)}\label{10_le1}\\
+	Если $f\in\mc R[a,b],\ g$ убывает на $[a,b]$ и $g(x)\ge0$, то
+	\[(\ex\xi\in[a,b])\int_a^bf(x)g(x)dx=g(a)\int_a^\xi f(x)dx=I\]
+\end{lemma}
+\begin{proof}
+	Возьмём $P:a=x_0<\dots<x_n=b,\ t_i\in[x_{i-1},x_i]$.
+	\[I\leftarrow\sum_{i=1}^nm_ig(t_i)\tr x_i\le\sum_{i=1}^nf(t_i)g(t_i)\tr x_i\le\sum_{i=1}^nM_ig(t_i)\tr x_i\ra I\text{, при }\tr(P)\ra0\]
+	\begin{multline*}
+		0\le\sum_{i=1}^n(M_i-m_i)g(t_i)\tr x_i\le g(a)\sum_{i=1}^n(M_i-m_i)\tr x_i+g(a)\sum_{i=1}^n(M_i-f(t_i'))\tr x_i+\\
+		+g(a)\left(\sum_{i=1}^nf(t_i')\tr x_i-\int_a^bf(x)dx\right)+g(a)\left(\int_a^bf(x)dx-\sum_{i=1}^nf(t_i'')\tr x_i\right)+\\
+		+\left(\sum_{i=1}^n(f(t_i'')-m_i)\tr x_i\right)g(a)=s_1+s_2+s_3+s_4
+	\end{multline*}
+	Теперь оценим $s_1,s_2,s_3$ и $s_4$.
+	\[(\fa\eps>0)(\ex\delta_1>0)(\fa P,\ \tr(P)<\delta_1)(\fa\tau_i\in[x_{i-1},x_i])\ \bigg|\sum_{i=1}^nf(\tau_i)\tr x_i-\int_a^bf(x)dx\bigg|<\frac\eps{4g(a)}\]
+	\[|s_2|+|s_3|<\frac\eps2\]
+	\begin{equation*}
+		\begin{split}
+			(\fa i=1,\dots,n)(\ex t_i'\in[x_{i-1},x_i])\ M_i-f(t_i')&<\frac\eps{4(b-a)g(a)}\\
+			(\fa i=1,\dots,n)(\ex t_i''\in[x_{i-1},x_i])\ f(t_i'')-m_i&<\frac\eps{4(b-a)g(a)}\\
+		\end{split}
+	\end{equation*}
+	\[|s_1|+|s_4|<\frac\eps2\]
+	\[(\fa\mu_i\in[m_i,M_i],\ i=1,\dots,n)(\fa t_i\in[x_{i-1},x_i])\ \bigg|\sum_{i=1}^n\mu_ig(t_i)\tr x_i-\int_a^bf(x)g(x)dx\bigg|<\eps\]
+	\[\lim_{\tr(P)\ra0}\sum_{i=1}^n\mu_ig(t_i)\tr x_i=\int_a^bf(x)g(x)dx\]
+	\[(\ex \mu_i\in[m_i,M_i])\int_{x_{i-1}}^{x_i}f(x)dx=\mu_i\int_{x_{i-1}}^{x_i}dx=\mu_i\tr x_i\]
+	\[S_i:=\sum_{j=1}^i\mu_j\tr x_j=\sum_{j=1}^i\int_{x_{j-1}}^{x_j}f(x)dx=\int_a^{x_i}f(x)dx=F(x_i),\ S_0:=0,\ F(x)=\int_a^xf(x)dx\]
+	Воспользуемся преобразованием Абеля:
+	\[\sum_{i=1}^n\mu_ig(t_i)\tr x_i=S_n\cdot g(t_n)+\sum_{i=1}^{n-1}S_i(g(t_i)-g(t_{i+1}))\]
+	Положим: $m:=\min F(x),\ M:=\max F(x), x\in[a,b]$.
+	\[m g(a)\le\sum_{i=1}^nM_ig(t_i)\tr x_i\le Mg(a)\]
+	\[\sum_{i=1}^nM_ig(t_i)\tr x_i\ra\frac{1}{g(a)}\int_a^bf(x)g(x)dx=F(\xi),\ \tr(P)\ra0\]
+\end{proof}
+\begin{note}
+	Если $f\in\mc R[a,b],\ g$ возрастает на $[a,b],\ g(x)\ge0,\ \fa x\in[a,b]$, то:
+	\[(\ex\xi\in[a,b])\ \int_a^bf(x)g(x)dx=g(b)\int_\xi^bf(x)dx\]
+\end{note}
+\begin{proof}
+	Рассмотрим $f_1(x):=f(a+b-x),\ g_1(x)=g(a+b-x)$.
+	\[\int_a^bf(x)g(x)dx=\int_a^bf_1(x)g_1(x)dx=g_1(a)\int_a^\xi f_1(x)dx=g(b)\int_{a+b-\xi}^bf(x)dx\]
+	Пусть $g$ убывает: $g_1(x)=g(x)-g(b),\ (\fa x\in[a,b])\ g_1(x)\ge0$.\\
+	Тогда по лемме (\ref{10_le1}):
+	\[(\ex\xi\in[a,b])\ \int_a^bf(x)g_1(x)dx=g_1(a)\int_a^\xi f(x)dx\]
+	\[\int_a^bf(x)g(x)dx=g(b)\int_a^bf(x)dx+g(a)\int_a^\xi f(x)dx-g(b)\int_a^\xi f(x)dx\]
+\end{proof}
+\begin{theorem}\nf{(Вторая теорема о среднем)}\\
+	Если $f\in\mc R[a,b],\ g$ монотонна на $[a,b]$, то:
+	\[(\ex\xi\in[a,b])\ \int_a^bf(x)g(x)dx=g(a)\int_a^\xi f(x)dx+g(b)\int_\xi^bf(x)dx\]
+\end{theorem}
+\begin{proof}
+	Пусть $g$ убывает, $g_1(x):=g(x)-g(b),\ g_1(x)\ge0 \fa x\in[a,b]$.
+	Из леммы (\ref{10_le1}) получим:
+	\[(\ex\xi\in[a,b])\ \int_a^bf(x)g_1(x)dx=g_1(a)\int_a^\xi f(x)dx\]
+	\[\int_a^bf(x)g(x)dx=g(b)\int_a^bf(x)dx+g(a)\int_a^\xi f(x)dx-g(b)\int_a^\xi f(x)dx\]
+	Получили требуемое.
+\end{proof}
+\begin{theorem}\nf{(Формула Тейлора с остаточным членом в интегральной форме)}\\
+	Если $f$ $(n+1)$ раз дифференцируема в некоторой $U(a)$, причём $(\fa l,r\in U(a), l<r)\ f^{(n+1)}\in\mc R[l,r]$, то:
+	\[f(x)=\sum_{k=0}^n\frac{f^{(k)}(a)}{k!}(x-a)^k+\frac1{n!}\int_a^xf^{(n+1)}(t)(x-t)^ndt\]
+\end{theorem}
+\begin{proof}
+	Индукция по $m,\ 0\le m\le n$.\\
+	База, воспользуемся формулой Ньютона - Лейбница: $m=0: f(x)-f(a)=\int_a^xf'(t)dt$\\
+	Переход. Знаем:
+	\[f(x)=\sum_{k=0}^m\frac{f^{(k)}(a)}{k!}(x-a)^k+\frac1{m!}\int_a^xf^{(m+1)}(t)(x-t)^mdt\]
+	Воспользуемся интегрированием по частям:
+	\[u=f^{(m+1)}(t),\ v=\frac{-1}{m+1}(x-t)^{m+1},\ du=f^{(m+1)}(t)dt,\ dv=(x-t)^mdt\]
+	\begin{multline*}
+		\frac1{m!}\int_a^xf^{(m+1)}(t)(x-t)^mdt\\
+		=\frac1{m!}\bigg(-\frac{f^{(m+1)}(t)}{m+1}(x-t)^{m+1}\bigg|_{t=a}^{t=x}+\frac1{m+1}\int_a^xf^{(m+1)}(t)(x-t)^{m+1}dt\bigg)=\\
+		=\frac{f^{(m+1)}(a)}{(m+1)!}(x-a)^{m+1}+\frac1{(m+1)!}\int_a^xf^{(m+1)}(t)(x-t)^{m+1}dt
+	\end{multline*}
+	Получили требуемое.
+\end{proof}
+\begin{note}\nf{(О вычислении интеграла Римана - Стильтьеса)}\\
+	Если $f,\al'\in\mc R[a,b]$, то $f$ интегрируема по Риману - Стильтьесу по $\al$ на $[a,b]$, причём:
+	\[\int_a^bfd\al=\int_a^bf(x)\al'(x)dx\]
+\end{note}
+\begin{proof}
+	\[\sum_{i=1}^nf(t_i)\alpha'(t_i)\tr x_i\ra\int_a^bf(x)\al'(x)dx,\ \tr(P)\ra0\]
+	\[\sum_{i=1}^n\al'(t_i)\tr x_i\ra\int_a^b\al'(x)dx,\ \tr(P)\ra0\]
+	\[\sum_{i=1}^nf(t_i)\tr\al_i=\sum_{i=1}^nf(t_i)\al'(s_i)\tr x_i=\sum_{i=1}^nf(t_i)\al'(t_i)\tr x_i+\sum_{i=1}^nf(t_i)(\al'(s_i)-\al'(t_i))\tr x_i\]
+	Получили требуемое.
+\end{proof}
+\begin{note}\nf{(О вычислении интеграла Римана - Стильтьеса)}\\
+	Если $f$ ограничена на $[a,b]$ и непрерывна в точках $r_1,\dots,r_N\in[a,b]$, а функция $g$ постоянна на интервалах $\subset[a,b]$, не содержащих точек $r_1,\dots,r_N$, и непрерывна в $a,b$ (если $a,b$ не совпадают с одной из $r_1,\dots,r_N$), то $f$ интегрируема по Риману - Стильтьесу по $g$ на $[a,b]$, причём:
+	\[\int_a^bf(x)dg(x)=\sum_{k=1}^Nf(r_k)(g(r_k+0)-g(r_k-0))\]
+\end{note}

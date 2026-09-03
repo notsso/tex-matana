@@ -1,0 +1,152 @@
+\begin{theorem}\nf{(Римана о перестановках)}\label{14_th14}\\
+	Если числовой ряд $\ss a_n$ сходится условно, то для $\fa A\in\v\R$ найдётся такая перестановка $\{n_k\}$ множества $\N$, что частичные суммы $\ss a_{n_k}$ имеют пределом $A\in\v\R$.
+\end{theorem}
+\begin{proof}
+	\[a_n^+:=
+	\begin{cases}
+		a_n,\ a_n\ge0\\
+		0,\ a_n<0
+	\end{cases}
+	a_n^-:=
+	\begin{cases}
+		0,\ a_n\ge0\\
+		-a_n,\ a_n<0
+	\end{cases}
+	|a_n|=a_n^++a_n^-,\ a_n=a_n^+-a_n^-\]
+	Докажем, что оба ряда расходятся. От противного, пусть оба сходятся, тогда $|a_n|$ сходится, противоречие с условием.\\
+	Тогда пусть $\ss a_n^+$ сходится, тогда $a_n^-=a_n^+-a_n\Ra a_n^-$ тоже сходится, противоречие.\\
+	$a_n^+$ и $a_n^-$ расходятся.\\
+	Уберём из этих рядов нули, соответствующие заранее заданным нулям в их определении, обозначим полученные ряды за $b_n$ и $c_n$ соответственно.\\
+	Теперь зададим последовательность, которая имеет пределом $A\in\v\R$.\\
+	Для числа $A$ будем брать элементы из $b_n$ до тех пор, пока не получим частичную сумму $\ge A$, затем берём элементы из $c_n$, пока не получим частичную сумму $<A$, и так далее. Запишем формально.
+	\[p_1=
+	\begin{cases}
+		\min\{N_1:\sum_{n=1}^{N_1}b_n>A\},\ A\in\R\\
+		\min\{N_1:\sum_{n=1}^{N_1}b_n>1\},\ A=+\i\\
+		1,\ A=-\i
+	\end{cases}
+	q_1=
+	\begin{cases}
+		\min\{M_1:\sum_{n=1}^{p_1}b_n-\sum_{n=1}^{M_1}c_n<A\},\ A\in\R\\
+		\min\{M_1:\sum_{n=1}^{p_1}b_n-\sum_{n=1}^{M_1}c_n<-1\},\ A=-\i\\
+		1,\ A=+\i
+	\end{cases}
+	\]
+	\[S_k=\l(\sum_{n=1}^{p_1}b_n-\sum_{n=1}^{q_1}c_n+\dots+\sum_{n=p_{k-1}+1}^{p_k}b_n-\sum_{n=q_{k-1}+1}^{q_k}c_n\r)\]
+	\[p_{k+1}=
+	\begin{cases}
+		\min\l\{N_{k+1}:S_k+\sum_{n=p_k+1}^{N_{k+1}}b_n>A\r\},\ A\in\R\\
+		\min\l\{N_{k+1}:S_k+\sum_{n=p_k+1}^{N_{k+1}}b_n>k+1\r\},\ A=+\i\\
+		k+1,\ A=-\i
+	\end{cases}
+	\]
+	И так далее. Тогда сама последовательность:
+	\[\ss a_{n_k}=b_1+\dots+b_{p_1}-c_1-\dots-c_{q_1}+b_{p_1+1}+\dots+b_{p_2}+\dots\]
+	\begin{equation*}
+		\begin{split}
+			A\in\R&:\ \l|\l(\sum_{n=1}^{p_1}b_n-\sum_{n=1}^{q_1}+\dots+\sum_{n=p_{k-1}+1}^{p_k}b_n-\sum_{n=q_{k-1}+1}^{q_k}c_n\r)-A\r|\le c_{q_k}\ra0,\ k\ra\i\\
+			M\in(q_{k-1}, q_k)&:\ \l|\l(\sum_{n=1}^{p_1}b_n-\sum_{n=1}^{q_1}+\dots+\sum_{n=p_{k-1}+1}^{p_k}b_n-\sum_{n=q_{k-1}+1}^{M}c_n\r)-A\r|\le b_{p_k}\ra0,\ k\ra\i
+		\end{split}
+	\end{equation*}
+	Получили требуемое.
+\end{proof}
+\begin{definition}
+	\textit{Произведением по Коши} назовём:
+	\[\ss c_n\text{, где }c_n=\sum_{k=1}^na_kb_{n+1-k}\]
+	\[\ss c_n=a_1b_1+(a_2b_1+a_1b_2)+(a_3b_1+a_2b_2+a_1b_3)+\dots\]
+\end{definition}
+\begin{theorem}\nf{(О произведении абсолютно сходящихся рядов)}\label{14_th15}\\
+	Если ряды $\ss a_n$ и $\ss b_n$ абсолютно сходятся к $A$ и $B$ соответственно, то ряд $\sum_{k=1}^\i a_{n_k}b_{n_k}$, составленный из всевозможных попарных произведений членов рядов $\ss a_n$ и $\ss b_n$ сходится абсолютно к $AB$.
+\end{theorem}
+\begin{proof}
+	Обозначим: $n^*_K:=\max(n_1,\dots,n_K),\ m^*_K:=\max(m_1,\dots,m_K),\ K\in\N$.
+	\[\sum_{k=1}^{K}|a_{n_k}\cdot b_{m_k}|\le\sum_{n=1}^{n^*_K}|a_n|\cdot\sum_{m=1}^{m^*_K}|b_m|\]
+	Правая часть неравенства ограничена, значит левая тоже, тогда по (\ref{12_th2}) левая часть сходится абсолютно.\\
+	По (\ref{13_th13}) сумма $\sum_{k=1}^{K}|a_{n_k}\cdot b_{m_k}|$ не меняется, какую бы перестановку бы мы ни взяли.\\
+	Тогда возьмём удобную: $(a_1b_1)+(a_1b_2+a_2b_1+a_2b_2)+\dots$.\\
+	Возьмём частичную сумму от первых $N^2$ элементов:
+	\[(a_1+\dots+a_N)(b_1+\dots+b_N)\ra AB\text{ при }N\ra\i\]
+\end{proof}
+\begin{theorem}\nf{(Мертенса)}\label{14_th16}\\
+	Если хотя бы 1 из 2 рядов $\ss a_n$ и $\ss b_n$ сходится абсолютно, то их произведение по Коши $\ss c_n,\ c_n=\sum_{k=1}^{n}a_kb_{n-k+1}$ сходится, причём к произведению сумм этих рядов.
+\end{theorem}
+\begin{proof}
+	Пусть $\ss a_n$ сходится абсолютно.\\ 
+	Также пусть $A_n:=\sum_{k=1}^na_n,\ B_n:=\sum_{k=1}^nb_n,\ A=\ss a_n,\ B=\ss b_n,\ \beta_n:=B-B_n$.\\
+	Ещё раз пусть: $\gamma_n=a_1\cdot\beta_n+\dots+a_n\cdot\beta_1,\ C_n=\sum_{k=1}^nc_k$.\\
+	Тогда:
+	\begin{equation*}
+		\begin{split}
+			C_n&=a_1b_1+(a_1b_2+a_2b_1)+\dots+(a_1b_n+\dots+a_nb_1)\\
+			&=a_1\cdot B_n+a_2\cdot B_{n-1}+\dots+a_n\cdot B_1\\
+			&=a_1(B-\beta_n)+a_2(B-\beta_{n-1})+\dots+a_n(B-\beta_1)\\
+			&=A_n\cdot B-\gamma_n
+		\end{split}
+	\end{equation*}
+	Хотим доказать: $\gamma_n\ra0$ при $n\ra\i$\\
+	\[\beta_n\ra0\text{ при }n\ra\i\Ra(\fa n\in\N)|\beta_n|<\mu_1\]
+	\[(\fa\eps>0)(\ex m\in\N)\sum_{k=m+1}^\i|a_k|<\frac\eps{2\mu_1}\Ra|a_{m+1}\beta_{n-m}+\dots+a_n\beta_1|<\frac\eps2\]
+	Разобьём $\gamma_n$ на 2 части относительно $m$ из предыдущей выкладки:
+	\[\gamma_n=a_1\beta_n+\dots+a_m\beta_{n-m+1}+a_{m+1}\beta_{n-m}+\dots+a_n\beta_1\]
+	Одну часть $\gamma_n$ оценили, теперь оценим вторую. Знаем:
+	\[(\fa k\in\N)\ |a_k|\le\mu_2,\ \beta_n\ra0\Ra(\ex n_0)(\fa n>n_0)\ |\beta_{n-m+1}|<\frac\eps{2\mu_2}\]
+	Тогда: \[|a_1\beta_n+\dots+a_m\beta_{n-m+1}|<\frac\eps{2\mu_2}\cdot\mu_2=\frac\eps2\]
+	Имеем:
+	\[\gamma_n<\eps\Ra C_n=A_n\cdot B-\gamma_n\ra AB\text{ при }n\ra\i\]
+	Получили требуемое.
+\end{proof}
+\begin{example}
+	Рассмотрим произведение по Коши условно сходящегося ряда $\ss(-1)^n\cdot\frac1{\sqrt{n}}$ на самого себя.
+	\[c_n=\sum_{k=1}^n(-1)^k\cdot\frac1{\sqrt{k}}\cdot(-1)^{n+1-k}\cdot\frac1{\sqrt{n+1-k}}=(-1)^{n+1}\sum_{k=1}^n\frac1{\sqrt{k(n+1-k)}}\]
+	Докажем, что $c_n\nra0$ при $n\ra\i$.
+	\[\sum_{k=1}^n\frac1{\sqrt{k(n-1+k)}}\ge\sum_{k=1}^n\frac1{\sqrt{n\cdot2n}}=\frac1{\sqrt{2}}\]
+\end{example}
+\subsection{Функциональные последовательности и ряды}
+\begin{definition}
+	Функциональная последовательность $\{f_n(x)\}_{n=1}^\i$ называется равномерно сходящейся на множестве $E$ к $f(x)$, если:
+	\[(\fa\eps>0)(\ex N\in\N)(\fa n>N)(\fa x\in E)\ |f_n(x)-f(x)|<\eps\lra f_n\rra f(x)\text{ на }E\]
+\end{definition}
+\begin{definition}
+	Функциональная последовательность $\{f_n(x)\}_{n=1}^\i$ называется \textit{сходящейся поточечно}, если:
+	\[f_n(x)\ra f(x)\ \fa x\in E\lra(\fa x\in E)(\fa\eps>0)(\ex N\in\N)(\fa n>N)\ |f_n(x)-f(x)|<\eps\]
+\end{definition}
+\begin{proposition}
+	$f_n\rra f$ на $E\lra\sup\limits_{x\in E}|f_n(x)-f(x)|\ra0$ при $n\ra\i$.
+\end{proposition}
+\begin{proof}
+	Следует из определения.
+\end{proof}
+\begin{corollary}\label{14_cr1}
+	$f_n$ не является равномерно сходящейся на $E\lra(\ex\{x_n\}_{n=1}^\i\subset E)\ |f_n(x_n)-f(x_n)|\nra0\text{ при }n\ra\i$.
+\end{corollary}
+\begin{example}
+	\[
+	f_n(x)=
+	\begin{cases}
+		ln,\ x\in\l(\frac1n-\frac1{n^2},\frac1n+\frac1{n^2}\r)\\
+		0,\ x\le\frac1n-\frac1{n^2}\text{ или }x\ge\frac1n+\frac1{n^2}
+	\end{cases}
+	\]
+	\[\lim_{n\ra\i}f_n(x)=0\ \fa x\in\R\]
+	\[f_n\rra0\lra\ln\ra0\text{, что происходит при }n\ra\i\text{ на }[0,1]\]
+\end{example}
+\begin{theorem}\nf{(Критерий Коши равномерной сходимости функциональной последовательности)}\label{14_th1}\\
+	\[f_n\rra f\text{ на }E\lra(\fa\eps>0)(\ex N\in\N)(\fa n>N)(\fa p\in\N)(\fa x\in E)\ |f_{n+p}(x)-f_n(x)|<\eps\]
+\end{theorem}
+\begin{proof}
+	Докажем $\Ra$:\\
+	\begin{equation*}
+		\begin{split}
+			(\fa\eps>0)(\ex N\in\N)(\fa n>N)&(\fa x\in E)\ |f_n(x)-f(x)|<\frac\eps2\\
+			&(\fa p\in\N)\ |f_{n+p}(x)-f(x)|<\frac\eps2
+		\end{split}
+	\end{equation*}
+	Тогда получаем:
+	\[|f_{n+p}(x)-f_n(x)|=|f_{n+p}(x)-f(x)+f(x)-f_n(x)|\le|f_{n+p}-f(x)|+|f_n(x)-f(x)|<\eps\]
+	Теперь в другую сторону:\\
+	По критерию Коши числовых последовательностей:
+	\[(\fa x\in E)\ |f_{n+p}(x)-f_n(x)|<\eps\text{ при }n\ra\i\]
+	Устремим $p\ra\i$, тогда получим:
+	\[(\fa\eps>0)(\ex N\in\N)(\fa n>N)(\fa x\in E)\ |f(x)-f_n(x)|<\eps\]
+	Получили требуемое.
+\end{proof}

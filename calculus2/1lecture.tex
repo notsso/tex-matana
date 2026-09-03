@@ -1,178 +1,80 @@
-\section{Кратный интеграл}
-\subsection{Определение кратного интеграла}
-\begin{reminder}
-	Интеграл Римана. \\
-	Пусть $f$ ограничена на $[a,b]$, для неё есть разбиение $P:a=x_0<\dots<x_n=b$\\
-	Вспомним диаметр разбиение, верхнюю и нижнюю суммы Дарбу и верхний и нижний интегралы:
-	\[\tr(P)=\max_{1\le i\le n}\tr x_i,\ M_i=\sup_{[x_{i-1},x_i]}f(x),\ m_i=\inf_{[x_{i-1},x_i]}f(x)\]
-	\[U(P,f)=\ns M_i\cdot\tr x_i,\ L(P,f)=\ns m_i\cdot\tr x_i\]
-	\[\v I=\inf U(P,f),\ \uv I=\sup L(P,f)\]
-	Если они равны, то $f$ называется интегрируемой по Риману на отрезке $[a,b]$, что также равно (по доказанной ранее теореме) пределу интегральных сумм:
-	\[I=\v I=\uv I=\int_a^bf(x)dx=\lim_{\tr(P)\ra0}\ns f(t_i)\tr x_i\]
-\end{reminder}
-\begin{reminder}
-	Вспомним определение измеримой функции.\\
-	\textit{Выдержка из конспекта прошлого года:}
-	\begin{definition}
-		\textit{Лебеговым множеством} функции $f$, заданной на $E\subset\R^n,\ f:E\ra \R$, называется:
-		\[E_f(a)=\{x\in E:f(x)<a\},\ a\in\R\]
-		Числовая функция, заданная на измеримом по Лебегу множестве $E\subset\R^n$, называется \textit{измеримой}, если $(\fa a\in\R)\ E_f(a)$ измеримо.
-	\end{definition}
-\end{reminder}
+\section{Неопределённый интеграл}
+
+\subsection{Интегрирование иррациональных и трансцендентных функций}
 \begin{definition}
-	Пусть $E\subset\rn$ - измеримое по Лебегу (Жордану) множество конечной меры, $f:E\ra\R$ ограничена на $E$. Назовём $P$ \textit{разбиением} $E$, если: \[E=\bsc_{i=1}E_i\]
-	где $E_i$ - измеримые по Лебегу (Жордану) множества.\\
-	Положим:
-	\[\tr(P)=\max_{1\le i\le N}\jm(E_i),\ M_i=\sup_{x\in E_i}f(x),\ m_i=\inf_{x\in E_i}f(x)\]
-	\[U(P,f)=\ns M_i\cdot\jm(E_i),\ L(P,f)=\ns m_i\cdot\jm(E_i)\]
-	Назовём верхним и нижним интегралом Лебега (Римана) следующие выражения соответственно:
-	\[\v I=\inf U(P,f),\ \uv I=\sup L(P,f)\]
-	Если верхний и нижний интегралы Лебега (Римана) равны, то $f$ называется \textit{интегрируемой по Лебегу на $E$}, обычно пишут:
-	\[\v I=\uv I=\int_Ef(x)d\jm(x)\]
-	В случае интегрируемости по Риману:
-	\[\v I=\uv I=\int_Ef(x)dxdy\]
-\end{definition} 
-\begin{note}
-	Далее будут использоваться сокращения:\vspace{-0.5cm}
-	\[f\text{ интегрируема по Риману на множестве }E\lra f\in\mc R(E)\]
-	\vspace{-1.23cm}
-	\[f\text{ интегрируема по Лебегу на множестве }E\lra f\in\mc L(E)\]
-\end{note}
-\begin{theorem}[Критерий интегрируемости]
-	\[f\in\mc R(E)\lra(\fa\eps>0)(\ex P)\ U(P,f)-L(P,f)<\eps\]
-\end{theorem}
-\begin{proof}
-	Доказывается аналогично интегрируемости на отрезке. (а если конкретнее - перепишу)% TODO: хуйня какая то
-\end{proof}
-\begin{proposition}
-	Если $f\in\mc R(E)$, то $f\in\mc L(E)$.
-\end{proposition}
-\begin{definition}
-	Пусть $E$ - измеримое по Лебегу множество, а $f:E\ra\R$ ограничена на $E$. Положим:
-	\[m=\inf_{x\in E}f(x),\ M=\sup_{x\in E}f(x),\ Q:m=q_0<\dots<y_N=M\]
-	Назовём \textit{разбиением Лебега} следующие множества:
-	\[E_i=\{x\in E:f(x)\in[y_{i-1},y_i),\ i<N\},\ E_N=\{x\in E:f(x)\in[y_{N-1},y_N]\}\]
-	Назовём интегралом Лебега слелующий предел:
-	\begin{multline*}
-		\lim_{\tr(Q)\ra0}\sum_{i=1}^Nf(t_i)\mu(E_i)=\int_Ef(x)d\mu(x)\lra\\
-		\lra(\fa\eps>0)(\ex\delta>0)(\fa Q,\ \tr(Q)<\delta)(\fa t_i,\ t_i\in E_i)\l|\sum_{i=1}^Nf(t_i)\cdot\mu(E_i)-\int_Ef(x)d\mu(x)\r|<\eps
-	\end{multline*}
-	Заметим, что, в отличие от интеграла Римана, в интеграле Лебега
-\end{definition}
-\begin{theorem}\nf{(Основная теорема об интегралах Лебега от огрниченных измеримых функций)}\label{11th1}
-	Если $E$ - измеримое по Лебегу подмножество $\rn$ конечной меры, то любая ограниченная измеримая на $E$ функция $f$ интегрируема по Лебегу, причём её интеграл $\ds\int_Ef(X)d\mu(x)$ равен пределу интегральных сумм.
-\end{theorem}
-\begin{proof}
-	Пусть $\mu(E)=0$. Доказывать нечего.\\
-	Пусть $\mu(E)>0$. Тогда $\fa\eps>0$ положим $\ds\delta:=\frac\eps{\mu(E)}$, возьмём $\fa Q,\ \tr(Q)<\delta$.
-	\[U(Q,f)-L(Q,f)=\sum_{i=1}^N(M_i-m_i)\cdot\mu(E_i)\le(y_i-y_{i-1})\cdot\mu(E_i)\le\tr(Q)\cdot\mu(E)<\eps\]
-	Так как $\ds L(Q,f)\le\sum_{i=1}^Nf(t_i)\cdot\mu(E_i)\le U(Q,f)$, то требуемое получено.
-\end{proof}
-\begin{example}
-	Функция Дирихле. Докажем, что $(\fa a,b,\ a\le b)\ f\in\mc L[a,b]$.
-	\[
-	\mc D(x)=
-	\begin{cases}
-		1,\ x\in\Q\\
-		0,\ x\notin\Q
-	\end{cases},
-	\]
-	Разобьём область значений $\mc D(x)$:
-	\[[m,M]=[0,1],\ Q:0=y_0<\dots<y_q=1\]
-	Пусть $\tr(Q)<1$, тогда:
-	\[E_1=[a,b]\setminus\Q,\ E_q=[a,b]\cap\Q,\ \mu(E_1)=b-a,\ \mu(E_q)=0\]
-	В итоге имеем:
-	\[\lim_{\tr(Q)\ra0}\sum_{i=1}^qf(t_i)\mu(E_i)=f(t_1)\cdot(b-a)+f(t_q)\cdot0=0\]
-	Получили требуемое.	
-\end{example}
-\begin{note}
-	Интегрируемость по Лебегу была определена только для ограниченных измеримых функций. Теперь доопределим её у неотрицательных измеримых.
-\end{note}
-\begin{definition}
-	Пусть $f$ - неотрицательная измеримая на $E$ функция, причём $\mu(E)<\i$, а у $E$ есть разбиение $P:E=\bsc_{i=0}^\i E_i$. Можно заметить, что появилось $E_0$, определим его:
-	\[E_0=\{x\in E:f(x)=\p\}\]
-	Если $\mu(E_0)>0$:
-	\[U(P,f)=L(P,f)=\p\]
-	Если $\mu(E_0)=0$, то:
-	\[M_0\cdot\mu(E_0)=m_0\cdot\mu(E_0)=0\]
-	Теперь снова определим суммы Дарбу и верхний и нижний интегралы:
-	\[U(P,f)=\sum_{i=0}^\i M_i\cdot\mu(E_i),\ L(P,f)=\sum_{i=0}^\i m_i\cdot\mu(E_i),\ \v I=\inf U(P,f),\ \uv I=\sup L(P,f)\]
-	Тогда разбиение Лебега:
-	\[Q:0=y_0<y_1<\dots,\ \tr(Q)=\sup_{i\in\N}\tr y_i,\ E_i=\{x\in E:f(x)\in[y_{i-1},y_i]\}\]
-\end{definition}
-\begin{theorem}\nf{(Основная теорема об интеграле Лебега от неотрицательных измеримых функциях)}\label{11th2}\\
-	Если $E$ - измеримое по Лебегу подмножество $\rn$ конечной меры, то любая неотрицательная измеримая на $E$ функция $f$ измерима по Лебегу, причём: \[\int_Ef(x)d\mu(x)=\lim_{\tr(Q)\ra0}\sum_{i=0}^\i f(t_i)\cdot\mu(E_i)\]
-	где $Q$ - разбиение полупрямой $[0,\p]$.
-\end{theorem}
-\begin{proof}
-	Аналогично \nr{11th1}. В суммах верхний индекс не $N$, а $\i$.\\
-	Если $U(Q,f)=L(Q,f)=\p$, то:
-	\[\int_Ef(x)d\mu(x)=\p\]
-\end{proof}
-\begin{definition}
-	Если интеграл Лебега $\ds\int_Ef(x)d\mu(x)$ конечен, то $f$ называется \textit{суммируемой на $E$}.
-\end{definition}
-\begin{note}
-	Теперь доопределим интеграл Лебега для любых измеримых функций.
-\end{note}
-\begin{definition}
-	Пусть $f$ измерима на $E$, $\mu(E)<\p$. Построим 2 других функции:
-	\[f^+(x):=\max(0,\ f(x)),\ f^-(x)=\max(0,\text{ -}f(x)\]
-	Заметим, что и $f^+(x)$, и $f^-(x)$ являются измеримыми и неотрицательными функциями, следовательно, по \nr{1th2}, $f^+(x)\in\mc L(E),\ f^-(x)\in\mc L(E)$.\\
-	Если хотя бы 1 из этих 2 интегралов Лебега конечен, то $f$ интегрируема по Лебегу, причём:
-	\[\int_Ef(x)d\mu(x):=\int_Ef^+(x)d\mu(x)-\int_Ef^-(x)d\mu(x)\]
+	$R(u, v, \dots, w)$ называется \textit{рациональной} функцией, если
+	\[R(u, v, \dots, w) = \frac{P(u, v, \dots, w)}{Q(u, v, \dots, w)}\text{, где
+	}P \text{ и } Q - \text{алгебраические многочлены}\]
 \end{definition}
 
-\subsection{Основные свойства интеграла Лебега}
-\begin{theorem}\nf{(Линейность и монотонность интеграла Лебега)}\label{12th1}
+
+Разберём некоторые неопределённые интегралы.
+\begin{enumerate}
+	\item  \[\int R(x, \left(\frac{ax+b}{cx+d}\right)^r)dx\text{, где R - рациональная функция, }ad-bc\neq 0\text{, }r\in\Q\]
+	\[r=\frac pq, p\in\Z, q\in\N\]
+	Произведём замену: \[\frac{ax+b}{cx+d}=t^q\Ra (ax+b)_(cx+d)\cdot t^q\lra x=\frac{d\cdot t^q - b}{a - c\cdot t^q}\]
+	\[\int R\l(x, \left(\frac{ax+b}{cx+d}\right)^{r_1},\dots,\left(\frac{ax+b}{cx+d}\right)^{r_n}\r)dx\]
+	\item Подстановки Эйлера.
+	\[\int R(x, \sqrt{ax^2+bx+c})dx, a\neq0\]
 	\begin{enumerate}
-		\item Если $f$ и $g$ суммируемы на $E$, $\mu(E)<\i$, то $(\fa \al,\beta\in\R)\ \al f+\beta g\text{ суммируема на }E$, причём:
-		\[\int_E\al f+\beta g)(x)d\mu(x)=\al\int_Ef(x)d\mu(x)+\beta\int_Eg(x)d\mu(x)\]
-		\item Если $\fa x\in E: f(x)\le g(x)$, $f$ и $g$ суммируемы на $E$, $\mu(E)<\i$, то:
-		\[\int_Ef(x)d\mu(x)\le\int_Eg(x)d\mu(x)\]
+		\item $a>0$
+		\[\sqrt{ax^2+bx+c}=\pm\sqrt{a}x\pm t\]
+		\[ax^2+bx+x=ax^2\pm2\sqrt{a}xt+t^2, x=\frac{t^2-c}{b\mp2\sqrt{a}t}\]
+		\item $c>0$
+		\[\sqrt{ax^2+bx+c}=\pm x\cdot t\pm\sqrt{c}, x=\frac{-b\pm 2t\sqrt{c}}{a-t^2}\]
+		\item $ax^2+bx+c=a(x-x_1)(x-x_2), x_1\neq x_2$
+		\[\sqrt{ax^2+bx+c}=\pm\sqrt{|a|}(x-x_1)\cdot t \Ra a(x-x_1)(x-x_2)=|a|(x-x_1)^2\cdot t^2\]
+		\[x=\frac{ax_2-|a|x_1\cdot t^2}{a-|a|\cdot t^2}\]
 	\end{enumerate}
-\end{theorem}
-\begin{proof}
-	Пусть $\al=\beta=1$, а $f$ и $g$ ограничены. Заметим:
-	\[L(P,f)+L(P,g)\le L(P,f+g)\le U(P,f+g)\le U(P,f)+U(P,g)\]
-	Так как $f$ и $g$ суммируемы, то:
-	\[(U(P,f)+U(P,g))-(L(P,f)+L(P,g))<\eps\Ra U(P,f+g)-L(P,f+g)<\eps\]
-	Получили, что $f+g\in\mc L(E)$.\\
-	Положим $c\ge0$, тогда:
-	\[cU(P,f)=U(P,cf),\ cL(P,f)=L(P,cf)\]
-	Если $c<0$, то:
-	\[cU(p,f)=L(P,cf),\ cL(P,f)=U(P,cf)\]
-	Пусть $f$ и $g$ неотрицательны и измеримы, следовательно:
-	\[\mu(E_0(f))=0,\ \mu(E_0(g))=0\]
-	Аналогично с ограниченным случаем.\\
-	Пусть $f=f^+-f^-,\ g=g^+-g^-,\ f+g=(f+g)^+-(f+g)^-$, распишем:
-	\[f+g=(f^++g^+)-(f^-+g^-)=(f^+-f^-)+(g^+-g^-)\]
-	\[(f+g)^++f^-+g^-=(f+g)^-+f^++g^+\]
+	\newpage
+	\item \[\int R(x, \sqrt{ax^2+bx+c})dx, Y=ax^2+bx+c, y=\sqrt{Y}\]
+	\[R(x,y)=\frac{P_1(x)+P_2(x)\cdot y}{P_3(x)+P_4(x)\cdot y}=\frac{(P_1(x)+P_2(x)\cdot y)(P_3(x)-P_4(x)\cdot y)}{P_3^2(x)-P_4^2(x)\cdot y}=R_1(x)+R_2(x)\cdot y\]
+	\begin{note}
+		Заметим, что выразить $R$ через 4 многочлена от $x$ возможно, так как $y$ в чётной степени будет переходить в некоторый многочлен от $x$.
+	\end{note}
+	\vspace{-1cm}
+	\[\int P(x)ydx=\int\frac{P(x)\cdot Y}{y}dx=Q(x)y+\lambda\int\frac{dx}{y}, \deg P=n, \deg Q=n - 1, \lambda\in\R\]
+	\[\frac{P(x)}{y}=Q'(x)\cdot y+\frac{Q(x)\cdot Y'}{2\sqrt{y}}+\frac\lambda y\]
+	\[V_m=\int\frac{x^m}{y} dx, (x^{m-1}y)'=(m-1)x^{m-2}y+\frac{x^{m-1}(2ax+b)}{2y}\]
 	\begin{multline*}
-		\int_E(f+g)^+(x)d\mu(x)+\int_Ef^-(x)d\mu(x)+\int_Eg^-(x)d\mu(x)=\\
-		=\int_E(f+g)^-(x)d\mu(x)+\int_Ef^+(x)d\mu(x)+\int_Ef^+(x)d\mu(x)
+		c+x^{m-1}y=(m-1)\int\frac{x^{m-2}(ax^2+bx+c)}{y}dx+\frac12\int\frac{2ax^m+bx^{m-1}}{y}dx=\\=a(m-1)V_m+(m-\frac12)b\cdot V_{m-1}+c(m-1)V_{m-2}
 	\end{multline*}
-	В итоге имеем:
-	\begin{multline*}
-		\int_E(f+g)^+(x)d\mu(x)-\int_E(f+g)^-(x)d\mu(x)=\\
-		=\int_Ef^+(x)d\mu(x)+\int_Eg^+(x)d\mu(x)-\int_Ef^-(x)d\mu(x)-\int_Eg^-(x)d\mu(x)
-	\end{multline*}
-	Если внимательно посмотреть, то требуемое получено.
-\end{proof}
-\begin{definition}
-	Определим \textit{срез неотрицательной функции}:
-	\[
-	f_{[N]}(x):=
-	\begin{cases}
-		f(x),\ 0\le f(x)\le N\\
-		N,\ f(x)>N
-	\end{cases}
-	\]
-\end{definition}
-\begin{theorem}\nf{(Интеграл Лебега как предел интегралов от срезов)}\label{12th2}\\
-	Если $f$ - неотрицательная измеримая на $E\subset\rn$ функция, $\mu(E)<\p$, то:
-	\[\int_Ef(x)d\mu(x)=\lim_{N\ra\i}\int_Ef_{[N]}(x)d\mu(x)\]
-\end{theorem}
-\begin{proof}
-	Потом допишу.
-\end{proof}
+	\[x-\alpha=\frac 1 t\Ra dx=\frac{-dt}{t^2}, y=\sqrt{a(\frac 1 t + \alpha)^2+b(\frac 1 t+\alpha)+c}=\frac{\overline{y}}{|t|}\]
+	\[\int\frac{A}{(x-a)^k\cdot y}dx=\int\frac{A\cdot t^k\cdot|t|}{t^2\cdot \overline{y}}dt\]
+	\item Дифференциальный бином
+	\[\int x^m(a+bx^n)^pdx,\ \ m, n, p\in\Q,\ a,b\in\R,\ b\neq0\]
+	\begin{enumerate}
+		\item $p\in\Z.$ \[m=\frac{m_1}{m_2}, n=\frac{n_1}{n_2}, \nu=\text{НОК}(n_2, m_2), x=t^\nu\Ra dx=\nu t^{\nu-1}\cdot dt\]
+		\item $p\notin\Z.$
+		\[x^n=z, x=z^{\frac 1 n}\Ra dx=\frac 1 n\cdot z^{\frac 1 n - 1}dz\]
+		\[\int x^m(a+bx^n)^pdx=\frac 1 n\int z^{\frac{m+1}{n}-1}(a+bz)^pdz=\frac 1 n\int z^q(a+bz)^pdz,\ q=\frac{m+1}{n}-1\]
+	\end{enumerate}
+	\newpage
+	\begin{enumerate}
+		\item $\frac{m+1}{n}-1\in\Z.$
+		\[a+bz=t^\mu, \text{ где }\mu\text{ - знаменатель }p\]
+		\[z=\frac 1 b(t^\mu-a)\Ra dz=\frac 1 b\mu t^{\mu-1}dt\]
+		\item $(p+\frac{m+1}{n}-1)\in\Z$
+		\[\int z^q(a+bz)^pdz=\int z^{p+q}\left(\frac{a+bz}{z}\right)^pdz,\ \frac{a+bz}{z}=t^\mu,\ z=\frac{a}{t^\mu-b},\ \text{ где }\mu\text{ - знаменатель }p\]
+	\end{enumerate}
+	\begin{theorem}\nf{(Теорема Абеля)}\\
+		Пусть $R$ - многочлен степени $2g+2$ без кратных корней. Если $\exists$ многочлены $P, Q\ne0$, такие что $P^2-Q^2R=1$, то найдётся \mbox{многочлен $r$} степени $g$ такой, что 
+		$\displaystyle \int{\frac{r}{\sqrt{R}}dx}$ 
+		выражается в элементарных функциях. Причём
+		\[\int\frac{r}{\sqrt{R}}dx=\frac 1 2 \ln{\frac{P+Q\sqrt{R}}{P-Q\sqrt{r}}}\]
+	\end{theorem}
+	\begin{proof}
+		\begin{multline*}
+			\left(\ln{\frac{P+Q\sqrt{r}}{P-Q\sqrt{r}}}\right)'=
+			\frac{P-Q\sqrt{r}}{P+Q\sqrt{R}}\cdot
+			\frac{(P'+Q'\sqrt{r}+\frac{QR'}{2\sqrt{R}})-
+			(P'-Q'\sqrt{R}-\frac{QR'}{2\sqrt{R}})(P+Q\sqrt{R})}{(P-Q\sqrt{R})^2}=\\
+			=\frac{-4P'QR+4Q'R+2QR'P}{2\sqrt{R}}
+		\end{multline*}
+		Заметим, если $P$ делится на $Q$, то из $P^2-Q^2R=1$ следует, что $1$ также делится на $Q$, что в свою очередь будет противоречить условию про степень $R$.
+		Возьмём производную от $P^2-Q^2R=1$:
+		\[2PP'-2QQ'R-Q^2R'=0\Ra 2PP'=Q(2Q'R+QR')\Ra P'=Q\cdot r,\hspace{6pt} 2Q'R+QR'=\frac{2PP'}{Q}\]
+		\[\frac{P(QR'+2Q'R)-2P'QR}{\sqrt{R}}=\frac{2P^2P'-2P'Q^2R}{Q\sqrt{R}}=\frac{2r}{\sqrt{R}}\]
+		Требуемый многочлен найден.
+	\end{proof}
+\end{enumerate}
