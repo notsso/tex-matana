@@ -13,9 +13,13 @@
 
 \let\limp\lim
 \let\sssum\sum
+\let\iiinf\inf
+\let\sssup\sup
 
 \renewcommand{\lim}{\limp\limits}
 \renewcommand{\sum}{\sssum\limits}
+\renewcommand{\inf}{\iiinf\limits}
+\renewcommand{\sup}{\sssup\limits}
 
 \let\uv\underline
 \let\nra\nrightarrow
@@ -34,6 +38,7 @@
 \let\bsc\bigsqcup
 \let\bc\bigcup
 \let\la\lambda
+\let\sc\sqcup
 
 \newcommand{\mj}{\mu_{J}^*}                         % mera Jordana
 \newcommand{\ma}{\mu_{(J)}^*}                       % mera Jordana или Lebega
@@ -57,6 +62,7 @@
 \newcommand{\sus}{\hspace{0.8cm}}                   % supremum space
 \newcommand{\sssc}[1][0]{\ss[#1] c_n\cdot(z-z_0)^n} % степенной series в \C
 \newcommand{\sss}[1][0]{\ss[#1] a_n\cdot(x-x_0)^n}  % степенной series
+\newcommand{\sr}[1][N]{{f_{[{#1}]}}}                % срезка
 
 \DeclareMathOperator{\sign}{sign}
 \DeclareMathOperator{\intt}{int}

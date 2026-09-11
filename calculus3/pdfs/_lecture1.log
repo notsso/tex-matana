@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.4)  3 SEP 2026 21:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.4)  9 SEP 2026 20:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1651,7 +1651,7 @@ cmr/m/n/12 )$
 
 LaTeX Warning: Reference `1th2' on page 5 undefined on input line 121.
 
-[5]) [6] (pdfs/_lecture1.aux)
+[5] [6]) [7] (pdfs/_lecture1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
@@ -1667,10 +1667,10 @@ Package rerunfilecheck Info: File `_lecture1.out' has not changed.
 (rerunfilecheck)             Checksum: 6B15FB7C35E3E3B7DA053421122BBE0B;797.
  ) 
 Here is how much of TeX's memory you used:
- 41724 strings out of 467533
- 950950 string characters out of 5423669
- 1522954 words of memory out of 5000000
- 69721 multiletter control sequences out of 15000+600000
+ 41727 strings out of 467533
+ 950961 string characters out of 5423669
+ 1522978 words of memory out of 5000000
+ 69723 multiletter control sequences out of 15000+600000
  643540 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,14n,100p,1265b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1694,10 +1694,10 @@ fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2025/texmf-dist/fonts/type
 m-super/sfbx1728.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sf
 rm1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb
 >
-Output written on pdfs/_lecture1.pdf (6 pages, 212148 bytes).
+Output written on pdfs/_lecture1.pdf (7 pages, 216103 bytes).
 PDF statistics:
- 155 PDF objects out of 1000 (max. 8388607)
- 120 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
+ 162 PDF objects out of 1000 (max. 8388607)
+ 126 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
  57 words of extra memory for PDF output out of 10000 (max. 10000000)
 

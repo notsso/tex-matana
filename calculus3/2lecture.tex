@@ -1,0 +1,167 @@
+\begin{lemma}\nf{(Признак суммироемости)}\label{12l1}\\
+	Пусть $\mu(E)<\p$, а $F$ - суммируема на $E$. Если для измеримой на $E$ функции $f$ справедливо неравенство:
+	\[(\fa x\in E)\ |f(x)|\le F(x)\]
+	то $f$ суммируема на $E$.
+\end{lemma}
+\begin{proof}
+	Заметим:
+	\[f=f^+-f^-,\ |f|=f^++f^-\]
+	Следовательно, $f$ суммируема $\lra$ $|f|$ суммируема. Тогда:
+	\begin{multline*}
+		|f|\le F\Ra |f|_{[N]}\le F_{[N]}\Ra \int_E|f|_{[N]}(x)d\mu(x)\le\int_EF_{[N]}(x)d\mu(x)\us{n\ra\i}{\longrightarrow}\\
+		\us{n\ra\i}{\longrightarrow}\int_E|f(x)|d\mu(x)\le\int_EF(x)d\mu(x)
+	\end{multline*}
+	Получили требуемое.
+\end{proof}
+\begin{lemma}\nf{(Суммироемость на подмножестве)}\label{12l2}\\
+	Если $f$ суммируема на $E$, $\mu(E)<\p$, а $E^{(1)}\subset E$ измеримо, то $f$ суммируема на $E^{(1)}$.
+\end{lemma}
+\begin{proof}
+	Пусть $f$ неотрицательна. Заметим: $E=E^{(1)}\sqcup(E\setminus E^{(1)})$.\\
+	Тогда:
+	\[\int_E\sr(x)d\mu(x)=\int_{E^{(1)}}\sr(x)d\mu(x)+\int_{E\setminus E^{(1)}}\sr(x)d\mu(x)\]
+	Следовательно:
+	\[\int_E\sr(x)d\mu(x)\ge\int_{E^{(1)}}\sr(x)d\mu(x)\]
+	Получили требуемое.
+\end{proof}
+\begin{anote}
+	$\equiv$ - по смыслу как $:=$.
+\end{anote}
+\begin{theorem}\nf{(Основные свойства интеграла Лебега)}\label{12th3}\\
+	Пусть $\mu(E)<\p$. Тогда справедливы следующие высказывания:
+	\begin{enumerate}
+		\item Суммироемость постоянной. $\fa c\in\R$ функция $f(x)\equiv c$ суммируема на $E$.
+		\item Полная, или $\sigma$-аддитивность. Если $f$ суммируема на $E$, а $E$ представлено как объединение не более чем счётного количества непересекающихся множеств $E_k$, $E=\bc_{k=1}^\i E_k$, то $f$ суммируема на каждом $E_k$, причём:
+		\[\int_Ef(x)d\mu(x)=\sum_{k=1}^\i\int_{E_k}f(x)d\mu(x)\]
+		Справедливо и обратное.
+		\item Абсолютная сходимость интеграла Лебега. Если $f$ суммируема на $E$, то:
+		\[(\fa\eps>0)(\ex\delta>0)(\fa e\subset E,\ \mu(e)<\delta)\ \l|\int_ef(x)d\mu(x)\r|<\eps\]
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Докажем по пунктам.
+	\begin{enumerate}
+		\item Заметим:
+		\[L(P,c)=U(P,c)=c\mu(E)=\int_ef(x)d\mu(x)\]
+		Требуемое получено.
+		\item Пусть $f$ - ограниченная измеримая функция. Докажем конечную аддитивность.\\
+		Пусть $E=E_1\sc E_2$, $Q:m=\inf_{x\in E}f(x)=y_0<\dots<y_q=\sup_{x\in E}f(x)=M$.\\
+		Соответствующие разбиения Лебега для множеств $E,\ E_1,\ E_2$ обозначим соответственно $P,\ P_1,\ P_2$, где $E_k^{(j)}=\{x\in E_k:y_{j-1}\le f(x)\le y_j\}$.
+		\[\lim_{\tr(Q)\ra0}\sum_{j=1}^qf(t_i)\cdot\mu(E_k^{(j)})=\int_{E_k}f(x)d\mu(x)\]
+		Заметим:
+		\[\inf_{x\in E^{(j)}}f(x)\le\inf_{x\in E_k^{(j)}}f(x),\ \mu(E^{(j)})=\mu(E_1^{(j)})+\mu(E_2^{(j)})\]
+		Для $\sup_{x\in E^{(j)}}f(x)$ аналогично, а значит:
+		\[L(P,f)\le L(P_1,f)+L(P_2,f)\le U(P_1,f)+U(P_2,f)\le U(P,f)\]
+		Доказали для конечного случая. Теперь докажем $\sigma$-аддитивность.
+		\[\mu(E)=\sum_{k=1}^\i\mu(E_k),\ \ (\fa\eps>0)(\ex K) \sum_{k=K+1}^\i\mu(E_k)<\eps\]
+		Положим $R_K:=\bsc_{k=K+1}^\i E_k,\ E=\l(\bsc_{k=1}^KE_k\r)\sc R_K$.\\ 
+		Тогда из конечной аддитивности следует:
+		\[\int_Ef(x)d\mu(x)=\sum_{k=1}^Kf(x)d\mu(x)+\int_{R_K}f(x)d\mu(x)\]
+		\[|f(x)|\le M\Ra\l|\int_{R_K}f(x)d\mu(x)\r|\le\int_{R_K}|f(x)|d\mu(x)\le M\cdot\mu(R_K)<M\cdot\eps\]
+		Доказали для ограниченной неотрицательной функции. Теперь пусть $f\ge0$.\\
+		Конечная аддитивность получается, если $N\ra\i$ для срезок.\\
+		Теперь $\sigma$-аддитивность.
+		\begin{equation*}
+			(\fa N\in\N)\ \int_E\sr(x)d\mu(x)=\sum_{k=1}^\i\int_{E_k}\sr(x)d\mu(x)
+		\end{equation*}
+		\[(\fa K\in\N)\sum_{k=1}^K\int_{E_k}\sr(x)d\mu(x)\le\int_E\sr(x)d\mu(x)\]
+		Тогда при $N\ra\i$:
+		\[\sum_{k=1}^K\int_{E_k}f(x)d\mu(x)\le\int_Ef(x)d\mu(x)\Ra\sum_{k=1}^\i\int_{E_k}f(x)d\mu(x)\le\int_Ef(x)d\mu(x)\]
+		\[\int_E\sr(x)d\mu(x)\le\sum_{k=1}^\i\int_{E_k}f(x)d\mu(x)\]
+		Если $N\ra\i$, то:
+		\[\int_Ef(x)d\mu(x)\le\sum_{k=1}^\i\int_{E_k}f(x)d\mu(x)\]
+		Следовательно $f$ - суммируема, так как ряд сходится. Если $f$ - любого знака, то применим выкладки для $f^+$ и $f^-$.
+		\item Пусть $f$ - измеримая ограниченная функция, то есть $|f(x)|\le M$. Тогда:
+		\[\l|\int_ef(x)d\mu(x)\r|\le\int_e|f(x)|d\mu(x)\le M\cdot\mu(e)\]
+		Доказали для ограниченной. Теперь пусть $f$ - нетрицательная.
+		\[\int_Ef(x)d\mu(x)=\lim_{N\ra\i}\int_E\sr(x)d\mu(x)\]
+		\[(\fa\eps>0)(\ex N\in\N)\l|\int_E(f(x)-\sr(x))d\mu(x)\r|<\frac\eps2\]
+		\begin{multline*}
+			\int_ef(x)d\mu(x)=\int_e(f(x)-\sr(x))d\mu(x)+\int_e\sr(x)d\mu(x)\le\\
+			\le\int_E(f(x)-\sr(x))d\mu(x)+N\cdot\mu(e)<\eps
+		\end{multline*}
+		Теперь пусть $f=f^+-f^-$.
+		\[(\fa\eps>0)(\ex\delta>0)(\fa e\in E,\ \mu(e)<\delta)\l|\int_ef^\pm(x)d\mu(x)\r|<\frac\eps2\]
+		Пусть $\delta:=\min(\delta_1,\ \delta_2)$, тогда:
+		\[\l|\int_ef(x)d\mu(x)\r|\le\int_e|f(x)|d\mu(x)=\int_ef^+d\mu(x)+\int_ef^-(x)d\mu(x)<\eps\]
+	\end{enumerate}
+	Получили требуемое.
+\end{proof}
+\begin{corollary}
+	Пусть $\mu(E)<\p$. Тогда:
+	\begin{enumerate}
+		\item Если $f(x)=g(x)$ почти всюду на $E$, то из суммироемости $f$ на $E$ следует суммироемость $g$, причём:
+		\[\int_Ef(x)d\mu(x)=\int_Eg(x)d\mu(x)\]
+		\item Если для неотрицательной на $E$ функции $f$:
+		\[\int_Ef(x)d\mu(x)=0\]
+		то $f(x)=0$ почти всюду на $E$.
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	Докажем по пунктам.
+	\begin{enumerate}
+		\item Пусть $\fa E_0\subset E\ f(x)\ne g(x),\ \mu(E_0)=0,\ E=E_0\sc(E\setminus E_0)$.\\
+		Так как $f$ суммируема на $E$, то, по \nr{12th3}, $f$ суммируема и на $E_0$, и на $E\setminus E_0$, а значит и $g$ суммируема на $E\setminus E_0$. Так как $\mu(E_0)=0$, то $g$ суммируема и на $E_0$, следовательно и на $E$. Доказали.
+		\item От противного. Пусть $E_0=\{x\in E:f(x)>0\},\ \mu(E_0)>0$.
+		\[E_0=\lim_{m\ra\i}\{x\in E:f(x)>\frac1m\}\Ra\lim_{m\ra\i}\mu(E_m)=\mu(E_0)>0\]
+		\[(\ex m\in\N)\ \mu(E_m)>\frac{\mu(E_0)}2\]
+		\[\int_Ef(x)d\mu(x)\ge\int_{E_m}f(x)d\mu(x)\ge\frac1m\cdot\mu(E_m)>\frac{\mu(E_m)}{2m}>0\]
+		Противоречие, значение интеграла равно 0, получили что больше.
+	\end{enumerate}
+	Получили требуемое.
+\end{proof}
+\subsection{Предельный переход в интеграле Лебега}
+\begin{theorem}\nf{(Теорема Лебега).}\label{13th1}\\
+	Пусть $\mu(E)<\p$.
+	Если последовательность измеримых на множестве $E$ функций $f_m$ сходится почти всюду на $E$ к функции $f$, причём:
+	\[(\fa m\in\N)\ |f_m(x)|\le F(x)\text{ почти всюду }\]
+	где $F$ суммируема на $E$, то $f_m,\ f$ суммируемы на $E$, и:
+	\[\lim_{m\ra\i}\int_Ef_m(x)d\mu(x)=\int_Ef(x)d\mu(x)\]
+\end{theorem}
+\begin{proof}
+	Заметим:
+	\[|f_m(x)|\le F(x)\Ra|f(x)|\le F(x)\text{ почти всюду}\]
+	Значит, по лемме \nr{12l1}, $f_m,\ f$ суммируемы на $E$, а также и $f_m$, и $f$ конечны почти всюду, следовательно, $f_m$ сходится к $f$ по мере, то есть:
+	\[(\fa\eps>0)\ \lim_{m\ra\i}\mu\{x\in E:|f_m(x)-f(x)|\ge\eps\}=0=\lim_{m\ra\i}\mu(E_m)\]
+	\begin{multline*}
+		\l|\int_E(f_m(x)-f(x))d\mu(x)\r|\le\int_E|f_m(x)-f(x)|d\mu(x)=\\
+		=\int_{E_m}|f_m(x)-f(x)|d\mu(x)+\int_{E\setminus E_m}|f_m(x)-f(x)|d\mu(x)\le\\
+		\le2\int_{E_m}F(x)d\mu(x)+\eps\cdot\mu(E\setminus E_m)\le \mu(E)\cdot\eps
+	\end{multline*}
+	Получили требуемое.
+\end{proof}
+\begin{reminder}
+	Возрастает = не убывает.
+\end{reminder}
+\begin{theorem}\nf{(Теорема Беппо Леви)}\label{13th2}\\
+	Пусть $\mu(E)<\p$. Если последовательность неотрицательных измеримых функций на $E$ $f_m(x)$ возрастает $\fa x\in E$, то для $f(x)=\lim_{m\ra\i}f_m(x)$ справедливо:
+	\[\lim_{m\ra\i}\int_Ef_m(x)d\mu(x)=\int_Ef(x)d\mu(x)\]
+\end{theorem}
+\begin{proof}
+	Если $f$ - суммируема на $E$, то следует из \nr{13th1}.\\
+	Пусть $\ds\int_Ef(x)d\mu(x)=\p$. Тогда:
+	\[\lim_{N\ra\i}\int_E\sr(x)d\mu(x)=\p\]
+	\[(\fa\eps>0)(\ex N_0\in\N)(\fa N>N_0)\int_E\sr(x)d\mu(x)>\frac1\eps\]
+	Зафиксируем $N_0$.
+	\[\lim_{m\ra\i}f_{m,[N]}(x)=\sr(x)\os{\nr{13th1}}{\Ra}\lim_{m\ra\i}\int_Ef_{m,[N]}(x)d\mu(x)=\int_E\sr(x)d\mu(x)>\frac1\eps\]
+	\[(\ex m_0)(\fa m>m_0)\ \int_Ef_{m,[N]}(x)d\mu(x)>\frac1\eps\Ra\int_Ef_m(x)d\mu(x)>\frac1\eps\]
+	Получили требуемое.
+\end{proof}
+\begin{anote}
+	Что то у меня не то написано в следующей теореме, перепишу. %TODO: какая то хуйня
+\end{anote}
+\begin{theorem}\nf{(Теорема Фиту)}\label{13th3}\\
+	Пусть $\mu(E)<\p$. Если последовательность неотрицательных измеримых функций на $E$ сходится почти всюду к функции $f$, то:
+	\[\int_Ef(x)d\mu(x)\le\uvlim[m\ra\i]\int_Ef_m(x)d\mu(x)\]
+\end{theorem}
+\begin{proof}
+	Положим $g_m(x):=\inf_{k\ge m}f_k(x)\ge0,\ g_m(x)\le f_k(x)$. Тогда, по \nr{13th2}:
+	\[\lim_{m\ra\i}\int_Eg_m(x)d\mu(x)=\int_E\lim_{m\ra\i}g_m(x)d\mu(x)\]
+	\[\lim_{m\ra\i}g_m(x)=\lim_{m\ra\i}\inf_{k\ge m}f_k(x)=\uvlim[m\ra\i]f_m(x)=\lim_{m\ra\i}f_m(x)=f(x)\text{ почти всюду }\]
+	\[(\fa k\ge m)\ \int_Eg_m(x)d\mu(x)\le\int_Ef_k(x)d\mu(x)\]
+	\[\int_Eg_m(x)d\mu(x)\le\inf_{k\ge m}\int_Ef_k(x)d\mu(x)\]
+	\begin{multline*}
+		\lim_{m\ra\i}\int_Eg_m(x)d\mu(x)\le\lim_{m\ra\i}\inf_{k\ge m}\int_Ef_k(x)d\mu(x)=\uvlim[m\ra\i]\int_Ef_m(x)d\mu(x)=\\
+		=\int_E\lim_{m\ra\i}g_m(x)d\mu(x)=\int_Ef(x)d\mu(x)
+	\end{multline*}
+\end{proof}

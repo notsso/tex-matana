@@ -160,7 +160,7 @@
 	Если внимательно посмотреть, то требуемое получено.
 \end{proof}
 \begin{definition}
-	Определим \textit{срез неотрицательной функции}:
+	Определим \textit{срезку неотрицательной функции}:
 	\[
 	f_{[N]}(x):=
 	\begin{cases}
@@ -169,10 +169,23 @@
 	\end{cases}
 	\]
 \end{definition}
-\begin{theorem}\nf{(Интеграл Лебега как предел интегралов от срезов)}\label{12th2}\\
+\begin{theorem}\nf{(Интеграл Лебега как предел интегралов от срезок)}\label{12th2}\\
 	Если $f$ - неотрицательная измеримая на $E\subset\rn$ функция, $\mu(E)<\p$, то:
-	\[\int_Ef(x)d\mu(x)=\lim_{N\ra\i}\int_Ef_{[N]}(x)d\mu(x)\]
+	\[i_N:=\lim_{N\ra\i}\int_Ef_{[N]}(x)d\mu(x)=\int_Ef(x)d\mu(x)=:I\]
 \end{theorem}
 \begin{proof}
-	Потом допишу.
+	Заметим:
+	\[(\fa x\in E)(\fa N\in\N)\ \sr(x)\le \sr[N+1]\Ra i_N\le I\]
+	Хотим доказать: $I=\lim_{N\ra\i}i_N$. Знаем: $I\ge \lim_{N\ra\i}i_N=:i$.\\
+	От противного, пусть равенства нет, то есть $I>i$, следовательно:
+	\[(\fa N\in\N)\ i_N<I=\sup L(P,f)\Ra\ex P:i_N<L(P,f)=\sum_{i=1}^\i m_i\cdot\mu(E_i)\]
+	Положим $E_0=\{x\in E:f(x)=\p\}$. \\
+	Если $\mu(E_0)>0$, то положим $P_1:=E_0\sqcup(E\setminus E_0)$, тогда:
+	\[i_N\ge L(P_1,\sr)=N\cdot\mu(E_0)+m_1\cdot\mu(E\setminus E_0)\ge N\cdot\mu(E_0)\]
+	Противоречие, так как тогда $\lim_{N\ra\i}i_N=\p$, что точно не меньше $I$, значит $\mu(E_0)=0$.\\
+	Так как ряд $\sum_{i=1}^\i m_i\cdot\mu(E_i)$ сходится, то:
+	\[\ex K\in\N:\ \sum_{j=1}^Km_j\cdot\mu(E_j)>i\]
+	Пусть $N>\max(m_1,\ \dots,m_K),\ m_j^{[N]}=\inf_{E_j}\sr(x)$, тогда:
+	\[i_N\ge L(P,\sr)\ge\sum_{j=1}^Km_j^{[N]}\cdot\mu(E_j)=\sum_{j=1}^Km_j\cdot\mu(E_j)>i\]
+	Получили, что $i_N>i$. Противоречие, а значит $I=i$. Получили требуемое.
 \end{proof}

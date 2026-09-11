@@ -1,0 +1,4 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\numberline {1}Кратный интеграл}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Определение кратного интеграла}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Основные свойства интеграла Лебега}{6}{subsection.1.2}%
